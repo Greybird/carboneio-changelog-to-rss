@@ -1,0 +1,31 @@
+<?xml version='1.0' encoding='utf-8'?>
+<rss version="2.0">
+  <channel>
+    <title>Carbone Changelog — v0</title>
+    <link>https://carbone.io/changelog.html</link>
+    <description>Carbone v0.x releases</description>
+    <lastBuildDate>Wed, 18 Mar 2026 10:36:55 +0000</lastBuildDate>
+    <ttl>1440</ttl>
+    <item>
+      <title>v0.13.1</title>
+      <link>https://carbone.io/changelog.html#v0-13-1</link>
+      <pubDate>Wed, 22 Feb 2017 00:00:00 +0000</pubDate>
+      <guid isPermaLink="false">carbone-v0.13.1</guid>
+      <description>• Access properties of the parent object with two (or more) points .. and then access children properties as usual: {d.cities[i, temp=20]..country.history.sport.value}&lt;br/&gt;• Do not crash when there is a javascript error during building process&lt;br/&gt;• Improve error outputs: detect when an unknown formatter is used, and propose a correction</description>
+    </item>
+    <item>
+      <title>v0.13.0</title>
+      <link>https://carbone.io/changelog.html#v0-13-0</link>
+      <pubDate>Mon, 20 Feb 2017 00:00:00 +0000</pubDate>
+      <guid isPermaLink="false">carbone-v0.13.0</guid>
+      <description>• Access properties of the parent object with two points .. or more. Use case: conditional printing of properties using filters in nested arrays: {d.cities[i, temp=20]..countryName} prints d.countryName only when the temperature of cities equals 20&lt;br/&gt;• Built-in conditional formatters, which starts by if , stop propagation to next formatters if the condition is true&lt;br/&gt;• New formatters: convEnum(d, type) : convert enums to human readable values ifEqual(d, value, messageIfTrue, continueOnSuccess) : show message if d == value , and stop propagation to next formatters unless continueOnSuccess is true ifContain(d, value, messageIfTrue, continueOnSuccess) : show message if d contains value , and stop propagation to next formatters unless continueOnSuccess is true print(d, message) : print message&lt;br/&gt;• New function carbone.renderXML(xmlString, data, options, callback) to render XML directly&lt;br/&gt;• Change the lang dynamically in carbone.render and carbone.renderXML with options.lang = 'fr' . The date formatter is automatically propagated on formatters such as convDate&lt;br/&gt;• Replace module zipfile by yauzl: faster, lighter, asynchrone&lt;br/&gt;• XLSX templates are accepted (beta)&lt;br/&gt;• Parse embedded XLSX and DOCX documents&lt;br/&gt;• Add a tool to search a text within a tag in all reports carbone find :formatterName</description>
+    </item>
+    <item>
+      <title>v0.12.5</title>
+      <link>https://carbone.io/changelog.html#v0-12-5</link>
+      <pubDate>Thu, 01 Dec 2016 00:00:00 +0000</pubDate>
+      <guid isPermaLink="false">carbone-v0.12.5</guid>
+      <description>• Bump moment.js to 2.17.0&lt;br/&gt;• Add some powerful and tested formatters: ifEmpty , arrayJoin , arrayMap , convDate , lowerCase , upperCase , ucFirst , ucWords&lt;br/&gt;• Fix: in formatters convert , format , addDays , parse : if the date is null or undefined these formatters return null or undefined instead of "Invalid Date"</description>
+    </item>
+  </channel>
+</rss>

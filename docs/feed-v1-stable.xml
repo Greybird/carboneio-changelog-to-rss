@@ -1,0 +1,39 @@
+<?xml version='1.0' encoding='utf-8'?>
+<rss version="2.0">
+  <channel>
+    <title>Carbone Changelog — v1 Stable</title>
+    <link>https://carbone.io/changelog.html</link>
+    <description>Stable Carbone v1.x releases only</description>
+    <lastBuildDate>Wed, 18 Mar 2026 10:36:55 +0000</lastBuildDate>
+    <ttl>1440</ttl>
+    <item>
+      <title>v1.2.1</title>
+      <link>https://carbone.io/changelog.html#v1-2-1</link>
+      <pubDate>Tue, 11 Jun 2019 00:00:00 +0000</pubDate>
+      <guid isPermaLink="false">carbone-v1.2.1</guid>
+      <description>• Fix arrayMap() if used with an array of strings or integer</description>
+    </item>
+    <item>
+      <title>v1.2.0</title>
+      <link>https://carbone.io/changelog.html#v1-2-0</link>
+      <pubDate>Wed, 13 Mar 2019 00:00:00 +0000</pubDate>
+      <guid isPermaLink="false">carbone-v1.2.0</guid>
+      <description>• Add new formatters convCurr(targetCurrency, sourceCurrency) to convert from one currency to another formatN() format number according to the locale (lang). Examples: old toFixed(2):toFR can be replaced by formatN(2) formatC() format currency according to the locale and the currency old toFixed(2)} {t(currency)} can be replaced by formatC(2) formatD() format date according to the locale. Same as convDate , but consider parameters are swapped
+for consistency with formatN. Moreover, patternIn is ISO8601 by default. convDate() is deprecated add(valueToAdd) , mul(valueToMultiply) , sub(valueToSubstract) , div(value) : mathematical operations substr(start, end) : slice strings&lt;br/&gt;• carbone.set and carbone.render have new options currencySource : default currency of source data. Ex 'EUR' currencyTarget : default target currency when the formatter convCurr is used without target currencyRates : rates, based on EUR { EUR : 1, USD : 1.14 }&lt;br/&gt;• Fix memory leaks: one file descriptor remains opened&lt;br/&gt;• Fix crash when template is not correct&lt;br/&gt;• Now option.lang must use the i18n format 'fr-fr' instead of just 'fr'&lt;br/&gt;• Add fallback to basic sorting when timsort crashes&lt;br/&gt;• Bump debug and moment to fix vulnerabilities&lt;br/&gt;• Remove Support of NodeJS 4</description>
+    </item>
+    <item>
+      <title>v1.1.1</title>
+      <link>https://carbone.io/changelog.html#v1-1-1</link>
+      <pubDate>Thu, 11 Oct 2018 00:00:00 +0000</pubDate>
+      <guid isPermaLink="false">carbone-v1.1.1</guid>
+      <description>• Better Windows support by improving path detection for soffice and python across all operating platforms. Done by Robert Kawecki (@rkaw92).</description>
+    </item>
+    <item>
+      <title>v1.1.0</title>
+      <link>https://carbone.io/changelog.html#v1-1-0</link>
+      <pubDate>Mon, 26 Feb 2018 00:00:00 +0000</pubDate>
+      <guid isPermaLink="false">carbone-v1.1.0</guid>
+      <description>• Fix: should find tags even if there is a opening bracket { before the tags&lt;br/&gt;• Fix: accept to nest arrays in XML whereas these arrays are not nested in JSON&lt;br/&gt;• Fix: tags were not parsed if formatters were used directly on d or c like this {d:ifEmpty('yeah')} ...&lt;br/&gt;• Fix: keep the first element of the array if the custom iterator is constant&lt;br/&gt;• Fix a lot of strange bugs when using a filter without iterators in arrays (ex. {d.cities[i=0].temperature} )&lt;br/&gt;• Optimization: gain x10 when sorting 1 Million of rows&lt;br/&gt;• Add formatter unaccent to remove accent from string&lt;br/&gt;• carbone.set does not overwrite user-defined translations&lt;br/&gt;• Accepts iteration on non-XML. Example: {d[i].brand} , {d[i+1].brand}&lt;br/&gt;• Add new formatters unaccent() to remove accent from string count() to print a counter in loops. Usage: {d[i].name:count()} convCRLF() to convert text, which contains or , into "real" carriage return in odt or docx document&lt;br/&gt;• Formatters which have the property canInjectXML = true can inject XML in documents&lt;br/&gt;• Return an error in render callback when LibreOffice is not detected&lt;br/&gt;• Get the last object of an array using negative values when filtering with i iterator {d.cities[i=-1].temperature} shows the temperature (if the array is not empty) of the last city {d.cities[i=-2].temperature} shows the temperature of the city before the last ...</description>
+    </item>
+  </channel>
+</rss>

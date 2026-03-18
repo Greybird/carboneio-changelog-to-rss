@@ -1,0 +1,238 @@
+<?xml version='1.0' encoding='utf-8'?>
+<rss version="2.0">
+  <channel>
+    <title>Carbone Changelog — All</title>
+    <link>https://carbone.io/changelog.html</link>
+    <description>All Carbone releases (stable, beta, alpha)</description>
+    <lastBuildDate>Wed, 18 Mar 2026 10:36:55 +0000</lastBuildDate>
+    <ttl>1440</ttl>
+    <item>
+      <title>v5.3.0</title>
+      <link>https://carbone.io/changelog.html#v5-3-0</link>
+      <pubDate>Mon, 23 Feb 2026 00:00:00 +0000</pubDate>
+      <guid isPermaLink="false">carbone-v5.3.0</guid>
+      <description>• Remove unsupported/outdated conversion format: mediawiki (mediawiki), StarWriter (sdw3, sdw4, vor, vor3, vor4, vor5), AportisDoc (pdb), StarCalc (sdc, sdc3, sdc4), StarDraw (sxd3, sxd5), X PixMap (xpm), StarImpress (sda, sdd, sdd3, sdd4)&lt;br/&gt;• [On-Premise only] Added new import/export formats supported by the latest LibreOffice version: Document: Markdown ( md ), SVG ( svg ), WEBP ( webp ), Apple Pages ( pages ) Spreadsheet: Apple Numbers ( numbers ), Parquet ( parquet ), JSON ( json ) Graphics: WEBP ( webp ), MS Publisher ( pub ), Corel Draw ( cdr ) HTML: JPEG ( jpeg ), JPG ( jpg ), WEBP ( webp ), PNG ( png ) Presentation: WEBP ( webp )&lt;br/&gt;• Make Carbone compatible with LibreOffice v26.2, without losing compatibility with older versions.&lt;br/&gt;• On macOS only, look for an external Python binary in /Applications/libreoffice-python/Resources/python and $HOME/libreoffice-python/Resources/python , because LibreOffice 25.2.4.2+ no longer allows running the embedded Python.&lt;br/&gt;• [EE] Fixed: The :html formatter renders Heading Elements ( &lt;h1&gt; ) with the default "Heading 1" through "Heading 6" styles in DOCX when no custom theme is specified. Previously, in some cases, headings were rendered with the Normal style.&lt;br/&gt;• [EE] Watermarks improvements: Multiple watermarks can be defined (5 max), each with options for color, position, rotation, size, font, etc. Supports {#PAGE_NUMBER} and {#PAGE_TOTAL} variables for dynamic page numbering in watermarks. Automatic alignment based on the chosen anchor. Both the old Watermark (defaults: centered, 45Â°) and the new Watermarks fields can be used simultaneously. Up to 4 watermarks can be set at the same time. Example usage: { "convertTo" : { "formatName" : "pdf" , "formatOptions" : { // Legacy (backwards compatible): single centered watermark (string) "Watermark" : "Watermark Carbone.io" , // New: array of watermark objects "Watermarks" : [
+        { "text" : "Confidential Page {#PAGE_NUMBER} / {#PAGE_TOTAL}" , "anchor" :… (read more: https://carbone.io/changelog.html#v5-3-0)</description>
+    </item>
+    <item>
+      <title>v5.2.0</title>
+      <link>https://carbone.io/changelog.html#v5-2-0</link>
+      <pubDate>Mon, 09 Feb 2026 00:00:00 +0000</pubDate>
+      <guid isPermaLink="false">carbone-v5.2.0</guid>
+      <description>• Fix: the GET /templates/tags and GET /templates/categories endpoints now list only tags and categories from deployed templates (same logic as GET /templates ), sorted by name.&lt;br/&gt;• Studio now automatically detects the base path when Carbone is served behind a reverse proxy under a subpath (for example, https://&lt;domain&gt;/sub/path )&lt;br/&gt;• Fix: prevent a possible crash when a PDF form contains an invalid Carbone tag&lt;br/&gt;• Fix: accept parsing of invalid PDF forms&lt;br/&gt;• Array search expressions are now supported in all formatters. Example: :print(d.tables[searchExpression].id) . This feature is enabled only when the pre-release tag {o.preReleaseFeatureIn=5002000} is used.
+Supported searchExpression forms: Index lookup : [INTEGER] Selects the element at a numeric index. Example: {d[i].movies[i].id:print(..actors[10].name)} Current iterator lookup : [.i] Uses the current loop index. Example: {d.movies[i].id:print(..otherTable[.i].name)} [NEW] Equality lookup : [LEFT_OPERAND = RIGHT_OPERAND] Filters the target array and returns the first matching element. Rules: Only one equality expression is allowed per lookup. LEFT_OPERAND must be relative to the searched array items and must match types (e.g., integer cannot match string ). You can write id or .id (both are accepted). Example: in {d.movies[i].id:print(..actors[id=.actorId].name)} , id refers to a field on objects inside the actors array. Important: if you write something like d.sub.id , d is treated as a field on the searched array item, not an absolute root path. RIGHT_OPERAND can be either: a relative path from the main tag (starting with . ), or an absolute path starting with d. or c. . Example: {d.movies[i].id:print(..actors[id=.actorId].name)} where .actorId comes from the current movies item. If RIGHT_OPERAND does not start with d. , c. , or . , it is treated as a constant string. Limitation: constant strings cannot contain whitespace.&lt;br/&gt;• [EE] HTML Formatter Improvements: New Beta Feature: The :html… (read more: https://carbone.io/changelog.html#v5-2-0)</description>
+    </item>
+    <item>
+      <title>v5.1.5</title>
+      <link>https://carbone.io/changelog.html#v5-1-5</link>
+      <pubDate>Wed, 21 Jan 2026 00:00:00 +0000</pubDate>
+      <guid isPermaLink="false">carbone-v5.1.5</guid>
+      <description>• Studio: Fix opening templates when all versions have deployedAt = 0 .</description>
+    </item>
+    <item>
+      <title>v5.1.4</title>
+      <link>https://carbone.io/changelog.html#v5-1-4</link>
+      <pubDate>Mon, 19 Jan 2026 00:00:00 +0000</pubDate>
+      <guid isPermaLink="false">carbone-v5.1.4</guid>
+      <description>• [EE] HTML Formatter Tables Improvements New Feature: Automatic Table Styling from Template Themes. For DOCX only, injected tables can now automatically inherit styling from existing Table Themes defined in the template. This feature is not supported for ODT templates. The priority order for theme application is: Explicitly passed theme name via the tabletheme argument (e.g., {d.content:html(tabletheme:GridTable2-Accent3)} ). Default theme set for the entire document. Instructions to set a default theme for the entire document: Open your DOCX template &gt; Insert a table and navigate to the "Table Design" tab. &gt; Right-click a theme and select "Set as Default" &gt; "This Document Only". &gt; Delete the temporary table and save the template. &gt; This ensures all injected tables use the default theme unless overridden. Fallback theme: "TableGrid" (used if no other theme is specified). Fixed: DOCX templates now render tables at 100% of the document body width, preventing overflow. Fixed: ODT templates now render tables at 100% of the document body width consistently, resolving issues where complex tables were previously shrunk. Fixed: Column widths in DOCX and ODT templates are now consistent and evenly distributed. Improved: &lt;th&gt; elements in DOCX and ODT templates now render as bold text, aligning with the HTML standard. Note: To enable HTML table rendering, use the pre-release tag: {o.preReleaseFeatureIn=5000009} .&lt;br/&gt;• Accept Watermark with number value instead of string&lt;br/&gt;• Disable tagged PDFs when the Chrome converter is used, to generate smaller and faster PDFs by default.&lt;br/&gt;• Add the boolean option generate-tagged-pdf when converting from HTML to PDF using the Chrome converter ( converter: 'C' ). The default is false . &lt; carbone-pdf-options generate-tagged-pdf = "true" /&gt;</description>
+    </item>
+    <item>
+      <title>v4.26.2</title>
+      <link>https://carbone.io/changelog.html#v4-26-2</link>
+      <pubDate>Mon, 19 Jan 2026 00:00:00 +0000</pubDate>
+      <guid isPermaLink="false">carbone-v4.26.2</guid>
+      <description>• Accept invalid input silently (as in v4.26.0 ) to avoid regressions.</description>
+    </item>
+    <item>
+      <title>v5.1.3</title>
+      <link>https://carbone.io/changelog.html#v5-1-3</link>
+      <pubDate>Sat, 17 Jan 2026 00:00:00 +0000</pubDate>
+      <guid isPermaLink="false">carbone-v5.1.3</guid>
+      <description>• Update dependencies&lt;br/&gt;• â ï¸ Fix a critical security issue identified in a recent audit</description>
+    </item>
+    <item>
+      <title>v4.26.1</title>
+      <link>https://carbone.io/changelog.html#v4-26-1</link>
+      <pubDate>Sat, 17 Jan 2026 00:00:00 +0000</pubDate>
+      <guid isPermaLink="false">carbone-v4.26.1</guid>
+      <description>• Update dependencies&lt;br/&gt;• â ï¸ Fix a critical security issue identified in a recent audit</description>
+    </item>
+    <item>
+      <title>v3.8.1</title>
+      <link>https://carbone.io/changelog.html#v3-8-1</link>
+      <pubDate>Sat, 17 Jan 2026 00:00:00 +0000</pubDate>
+      <guid isPermaLink="false">carbone-v3.8.1</guid>
+      <description>• Update dependencies + latest IANA database to manage correctly Daylight Saving Time&lt;br/&gt;• â ï¸ Fix a critical security issue identified in a recent audit</description>
+    </item>
+    <item>
+      <title>v5.1.2</title>
+      <link>https://carbone.io/changelog.html#v5-1-2</link>
+      <pubDate>Wed, 14 Jan 2026 00:00:00 +0000</pubDate>
+      <guid isPermaLink="false">carbone-v5.1.2</guid>
+      <description>• In SVG templates, automatically replace ligatures to prevent Carbone tags from breaking. This addresses an issue where Affinity Designer and Adobe Illustrator tend to insert ligatures inside Carbone tags by default.&lt;br/&gt;• Fix the download issue when calling GET /template/templateOrVersionId_sample.json (the second call always returned the template instead of the JSON sample).</description>
+    </item>
+    <item>
+      <title>v5.1.1</title>
+      <link>https://carbone.io/changelog.html#v5-1-1</link>
+      <pubDate>Wed, 07 Jan 2026 00:00:00 +0000</pubDate>
+      <guid isPermaLink="false">carbone-v5.1.1</guid>
+      <description>• Embedded Web Component Studio improvements Restored the previous studio.openTemplate(template, options) method from before 5.1.0 for easier migration .  
+This function now displays a deprecation warning (superseded by openTemplateVersionId ). Removed the ambiguous studio.openTemplateWithVersioning API. Added studio.openTemplateId(id) to open a template by its 64-bit ID and automatically load all related versions. Added studio.openTemplateVersionId(versionId, type, defaultTemplateAttributes) to open a template by versionId. In embedded-versioning mode, this will automatically assign a unique 64-bit ID to the template.&lt;br/&gt;• [On-Premise] Fix: In the template list, the Studio does not display the "Free tier" label or the call-to-action button to disable template auto-delete.</description>
+    </item>
+    <item>
+      <title>v5.1.0</title>
+      <link>https://carbone.io/changelog.html#v5-1-0</link>
+      <pubDate>Tue, 06 Jan 2026 00:00:00 +0000</pubDate>
+      <guid isPermaLink="false">carbone-v5.1.0</guid>
+      <description>• [EE] Fixed an issue with the :html formatter for ODT templates when a &lt;table&gt; contained only one column.&lt;br/&gt;• [EE] Fix XLSM processing&lt;br/&gt;• Fix :formatR formatter: the country was not translated when Carbone was compiled as a binary package.&lt;br/&gt;• Studio improvements Fix Online HTML editor encoding/decoding when editing HTML with accented characters&lt;br/&gt;• Multiple Embedded Web Component Studio fixes and improvements: â ï¸ The Studio API has breaking changes. Please read this migration guide . Do not listen for navigation URL changes in embedded mode. Add the ability to customize the list of available Carbone API versions (it can be removed completely). Always use a valid data URI (instead of mixed base64/data URI) in API calls and template:updated events. Fix duplicated origin in some API calls when using a custom origin with studio.setConfig({ origin: "URL" }) . Add the ability to reset the Studio state with studio.reset() . Allow updating the Carbone theme and CSS at any time (even after init). Trigger the template:updated event from the Online HTML editor, and fix unnecessary events triggered with empty values. The template:updated event now contains 3 attributes: createdAt , dataURI , type . Clearly separate the two embedded Studio modes: embedded and embedded-versioning more info , and adapt the UI accordingly. Add the Studio mode off to start Studio silently and set state before making it visible. Trigger the options:updated event when currency, timezone, API version, or converter changes. The template:saved event returns a reference to the internal template object with all template attributes. Add the template:deployed event when embedded-versioning mode is used. Remove the Save button and the versioned file list in the default embedded mode. studio.setConfig() can be called multiple times with a sparse object (only provided attributes are updated; others stay unchanged). studio.setConfig() accepts new parameters to set Studio mode, theme, version,… (read more: https://carbone.io/changelog.html#v5-1-0)</description>
+    </item>
+    <item>
+      <title>v5.0.9</title>
+      <link>https://carbone.io/changelog.html#v5-0-9</link>
+      <pubDate>Fri, 19 Dec 2025 00:00:00 +0000</pubDate>
+      <guid isPermaLink="false">carbone-v5.0.9</guid>
+      <description>• Fix: :convCRLF now preserves whitespace in DOCX&lt;br/&gt;• [On-Premise] Official multi-tenancy support: If req.tenantId is set in a global before middleware plugin, Carbone separates data by tenantId in the database. By default, without plugins, template files are stored on disk using the pattern tenantId-versionId . If storage plugins are used ( writeTemplate , readTemplate , deleteTemplate ), it is up to the developer to separate files per req.tenantId (different filename, bucket, etc.). All endpoints become tenant-sensitive (for example, GET /templates returns only the templates for that specific tenant). tenantId must be a non-negative 64-bit signed integer. Since JavaScript integers are limited to 53 bits, string values are accepted to fully use the full 64-bit range. ( '1' to '9223372036854775807' ). If this constraint is not respected, an error is returned. To enforce security, the bit-field securityLevel ( CARBONE_SECURITY_LEVEL ) parameter can be set to 0b00000010 (2) to enforce multi-tenancy and make tenantId mandatory. This disables Carboneâs default behavior when no tenantId is used, where templates are stored in the database with tenantId = 0 and template files are stored on disk without a tenant ID.&lt;br/&gt;• [On-Premise] Return an error when a before middleware plugin is not a function.&lt;br/&gt;• [EE] New Beta Feature: The :html formatter now supports rendering HTML tables in ODT/DOCX/PDF documents. You can inject all HTML markups supported by the formatter (e.g., images, lists, bold, paragraphs) within table cells. To enable this, use the pre-release tag: {o.preReleaseFeatureIn=5000009} . Without it, the table text is rendered into a single paragraph. Supported: Rows, columns, cells, colspan, and rowspan. Not supported: &lt;tbody&gt; , &lt;thead&gt; , and &lt;caption&gt; tags. Default styling: Tables are rendered with a black solid border (custom styling is not available yet).</description>
+    </item>
+    <item>
+      <title>v5.0.8</title>
+      <link>https://carbone.io/changelog.html#v5-0-8</link>
+      <pubDate>Fri, 12 Dec 2025 00:00:00 +0000</pubDate>
+      <guid isPermaLink="false">carbone-v5.0.8</guid>
+      <description>• Studio: Fix incorrect base64 conversion when using the online HTML editors. It now correctly supports emojis, accented characters, etc. Fix invisible caret when pasting content with a white background. Update to the latest Squire editor to fix some other issues.&lt;br/&gt;• Improved appendTemplate behavior: Better performance and no need to expose localhost for internal requests. Disallows a nested document from using appendTemplate , to avoid circular dependencies or complex dependency trees. Returns error messages from nested templates.</description>
+    </item>
+    <item>
+      <title>v5.0.7</title>
+      <link>https://carbone.io/changelog.html#v5-0-7</link>
+      <pubDate>Fri, 05 Dec 2025 00:00:00 +0000</pubDate>
+      <guid isPermaLink="false">carbone-v5.0.7</guid>
+      <description>• Fix leader election in a cluster of Carbone nodes for automatic deletion of expired templates</description>
+    </item>
+    <item>
+      <title>v5.0.6</title>
+      <link>https://carbone.io/changelog.html#v5-0-6</link>
+      <pubDate>Thu, 04 Dec 2025 00:00:00 +0000</pubDate>
+      <guid isPermaLink="false">carbone-v5.0.6</guid>
+      <description>• Automatically deletes expired templates A new parameter templateRetentionDaysAfterExpiry ( CARBONE_TEMPLATE_RETENTION_DAYS_AFTER_EXPIRY ) can be used to control the number of days after which expired templates are automatically deleted. If templateRetentionDaysAfterExpiry = 0 (default value), automatic deletion of expired templates is disabled. This operation is done asynchronously for all templates updated by the API with an expiration date ( POST /template or PUT /template ). Templates deleted with DELETE /template are still deleted synchronously for now, but this will become asynchronous in a future version for consistency. Only one peer, automatically elected (the one with the lowest peerId ), executes this asynchronous task daily at midnight.&lt;br/&gt;• Studio: Fix: the refresh preview button was not shown if the data was modified while the preview was updating.</description>
+    </item>
+    <item>
+      <title>v5.0.5</title>
+      <link>https://carbone.io/changelog.html#v5-0-5</link>
+      <pubDate>Mon, 01 Dec 2025 00:00:00 +0000</pubDate>
+      <guid isPermaLink="false">carbone-v5.0.5</guid>
+      <description>• Fix crash in asynchronous jobs when reports download images/files, and return a timeout error just like in synchronous requests.</description>
+    </item>
+    <item>
+      <title>v5.0.4</title>
+      <link>https://carbone.io/changelog.html#v5-0-4</link>
+      <pubDate>Thu, 27 Nov 2025 00:00:00 +0000</pubDate>
+      <guid isPermaLink="false">carbone-v5.0.4</guid>
+      <description>• New formatter formatR(regionCode) to format a country/region code into a human-readable region name, in the report's language. It accepts ISO 3166-1 Alpha-3 (FRA, USA, ...), ISO 3166-1 Alpha-2 (FR, US, ...), and ISO 3166-1 Numeric codes (250, 840, ...).&lt;br/&gt;• [On-Premise] Rename converterFactoryTimeout ( CARBONE_CONVERTER_FACTORY_TIMEOUT , CARBONE_EE_CONVERTERFACTORYTIMEOUT ) to maxGenerationTime ( CARBONE_MAX_GENERATION_TIME ). The old parameter can still be used for backward compatibility. If both are defined at the same time, the chosen value is not guaranteed. Use only one of them.&lt;br/&gt;• Better management of document generation timeout/aborting. maxGenerationTime (formerly converterFactoryTimeout ) now covers the entire generation process, not only the document conversion step. For example, if downloading external images takes too long, the generation is cancelled. Previously, image downloads could continue even after the converterFactoryTimeout .&lt;br/&gt;• Aborted report generations ( POST /render ) are now fully cancelled, including: pending image/file downloads, barcode and eCharts generation, queued conversion jobs, and the current conversion task. In some cases, Carbone may take an additional 5 seconds before cancelling the request and sending the response.&lt;br/&gt;• [On-Premise] Improved startup message, showing a quick overview of all API limits and enabled security settings.&lt;br/&gt;• [On-Premise] New parameters maxDownloadFileConcurrency ( CARBONE_MAX_DOWNLOAD_FILE_CONCURRENCY ) and maxDownloadImageConcurrency ( CARBONE_MAX_DOWNLOAD_IMAGE_CONCURRENCY ) to set the maximum number of concurrent requests for downloading images/files in a report. Default value is 15 (same as the cloud).&lt;br/&gt;• [On-Premise] Fix for global server timeout: maxGenerationTime (formerly converterFactoryTimeout ) now accepts values above 60 seconds. Previously, the server closed the socket after 62 seconds.&lt;br/&gt;• Improved timeout error messages in logs and API responses, now including more… (read more: https://carbone.io/changelog.html#v5-0-4)</description>
+    </item>
+    <item>
+      <title>v5.0.3</title>
+      <link>https://carbone.io/changelog.html#v5-0-3</link>
+      <pubDate>Fri, 14 Nov 2025 00:00:00 +0000</pubDate>
+      <guid isPermaLink="false">carbone-v5.0.3</guid>
+      <description>• Improved converter error handling to capture all errors in debug mode&lt;br/&gt;• Fix: show correct metrics when files are injected into the template with appendFile in the Studio logs&lt;br/&gt;• Added :appendTemplate(templateIdOrVersionId, position) formatter to append an external template to the generated document.
+It sends the data to another template, generates that template (as PDF), and appends the result to the current document.
+This can also be used inside loops to append multiple documents.
+It can optimize the generation of a PDF with 20,000 pages by concatenating many small, parallelized PDFs generation instead of generating one huge file.
+The following options are automatically forwarded to the appended template: lang , currency , enum , converter , translations , complement . Carbone returns an error if: The appended template fails during generation. The number of appended files exceeds maxDownloadFileCount . The combined size of appended files exceeds maxDownloadFileSizeTotal (MB). Carbone ignores the formatter and generates the main report normally if: The formatter receives null , undefined , or an empty string. The final report is not a PDF (only PDFs can be appended). Notes: Available only in Carbone On-Premise. No protection against infinite loops. Parameters: templateIdOrVersionId : The ID or version ID of the template to append. position : Insert position: "start" or "end" (default). Usage example: If the main template contains this loop: {d.myArray[i]:appendTemplate(110212)} {d.myArray[i+1]} The nested template will receive each object of the myArray as data under {d.} . Each object generates a new document that is appended to the main document.</description>
+    </item>
+    <item>
+      <title>v5.0.2</title>
+      <link>https://carbone.io/changelog.html#v5-0-2</link>
+      <pubDate>Fri, 07 Nov 2025 00:00:00 +0000</pubDate>
+      <guid isPermaLink="false">carbone-v5.0.2</guid>
+      <description>• The endpoints POST /render and POST /template accept templates in base64 format that are just below the maxTemplateSize limit (the base64 size is correctly converted to byte size).&lt;br/&gt;• [On-Premise] Updates only the expireAt field if the message received on the WebSocket contains only versionId and expireAt .</description>
+    </item>
+    <item>
+      <title>v5.0.1</title>
+      <link>https://carbone.io/changelog.html#v5-0-1</link>
+      <pubDate>Tue, 04 Nov 2025 00:00:00 +0000</pubDate>
+      <guid isPermaLink="false">carbone-v5.0.1</guid>
+      <description>• [On-Premise] Fix: ignore iss in JWT tokens to accept tokens generated with Carbone v4.&lt;br/&gt;• [On-Premise] Fix: in the systemd script, use KillMode=mixed to ensure that only the main process receives the SIGTERM signal. This allows Carbone to gracefully shut down its child processes (Chrome, LibreOffice, OnlyOffice). Following Linux recommendations, TimeoutSec=180 is set to let the OS send the final SIGKILL to all processes and child processes if Carbone does not exit automatically.</description>
+    </item>
+    <item>
+      <title>v5.0.0</title>
+      <link>https://carbone.io/changelog.html#v5-0-0</link>
+      <pubDate>Fri, 31 Oct 2025 00:00:00 +0000</pubDate>
+      <guid isPermaLink="false">carbone-v5.0.0</guid>
+      <description>• [Team] message Yes - here we are! ð This is the final v5 release of Carbone! ð The changelog below includes only the updates since the last public beta (v5.0.0-beta.21) . Weâll soon update our website with a full summary of the v5 release and migration tips ð.
+All AI-related features have been postponed to Carbone v5.2, and the first features will be publicly available for Christmas Day. ð Thank you all for your feedback!&lt;br/&gt;• [Studio] Fixes and Improvements â¨ User Experience Improved the tag/category search dropdown on the template list page: no more duplicate names. Enhanced the search input placeholder to explain that users can search for or create a new tag or category. Made the template list more responsive by hiding less important columns on smaller screens. Show a progress icon while requests are running in the list. Increased the search field size to make copying/pasting versionId easier, and show the searched fields. Improved the style of switches and the home page button. Updated the welcome screen and added a message when no recent templates are available. Temporarily hide the AI Template Generator (coming back later). Improved pagination: now displays the total number of templates instead of page numbers. In the list, show templates created in the studio by default. Accept XLS exports. Added XHTML and XLS icons, and fallback to a generic icon for unknown formats. The preview now updates automatically when switching between embedded and default PDF viewers. [Cloud Edition only] Added a guided tour for new users. [Cloud Edition only] Managed paid/free feature visibility. ð§± Template Management Prevent users from deleting the deployed version in the template panel. (Deleting the deployed version would remove all versions) Added a button to view ephemeral templates in the list and remove their expiration. ð Bug Fixes Fix: translations are now correctly saved. Fix: "New" (upload) button now works in Firefox and Safari, with a warning… (read more: https://carbone.io/changelog.html#v5-0-0)</description>
+    </item>
+    <item>
+      <title>v5.0.0-beta.21</title>
+      <link>https://carbone.io/changelog.html#v5-0-0-beta-21</link>
+      <pubDate>Wed, 17 Sep 2025 00:00:00 +0000</pubDate>
+      <guid isPermaLink="false">carbone-v5.0.0-beta.21</guid>
+      <description>• Fix: Prevent storing empty JSON sample data</description>
+    </item>
+    <item>
+      <title>v5.0.0-beta.20</title>
+      <link>https://carbone.io/changelog.html#v5-0-0-beta-20</link>
+      <pubDate>Thu, 11 Sep 2025 00:00:00 +0000</pubDate>
+      <guid isPermaLink="false">carbone-v5.0.0-beta.20</guid>
+      <description>• The :sign formatter no longer returns an error when the signature is removed by a condition and the associated data is undefined.</description>
+    </item>
+    <item>
+      <title>v5.0.0-beta.19</title>
+      <link>https://carbone.io/changelog.html#v5-0-0-beta-19</link>
+      <pubDate>Tue, 09 Sep 2025 00:00:00 +0000</pubDate>
+      <guid isPermaLink="false">carbone-v5.0.0-beta.19</guid>
+      <description>• Fixed Carbone API Authentication to return status code 401 instead of 500 when an API key has expired.&lt;br/&gt;• [EE] Resolved an issue in the POST /render/template endpoint where documents generated from ephemeral templates failed to download when using the ?download=true query parameter</description>
+    </item>
+    <item>
+      <title>v4.26.0</title>
+      <link>https://carbone.io/changelog.html#v4-26-0</link>
+      <pubDate>Tue, 09 Sep 2025 00:00:00 +0000</pubDate>
+      <guid isPermaLink="false">carbone-v4.26.0</guid>
+      <description>• Fixed Carbone API authentication to return status code 401 instead of 500 when an API key has expired.&lt;br/&gt;• Support for sending volatile templates using base64 with a data-URI prefix.</description>
+    </item>
+    <item>
+      <title>v3.8.0</title>
+      <link>https://carbone.io/changelog.html#v3-8-0</link>
+      <pubDate>Mon, 08 Sep 2025 00:00:00 +0000</pubDate>
+      <guid isPermaLink="false">carbone-v3.8.0</guid>
+      <description>• Fixed Carbone API Authentication to return status code 401 instead of 500 when an API key has expired.&lt;br/&gt;• Carbone On-Premise: add parameter maxTemplateSize (bytes) to change default limit (20MB)&lt;br/&gt;• Accept to send a volatile template when calling the API POST /render/template . This template is never stored and it does not trigger the middleware readTemplate {
+  data      : {},
+  template  : "base64-encoded-file-with-or-without-data-URI-prefix",
+  convertTo : "pdf"
+} This update makes Carbone v3 compatible with the new Carbone v5 Studio.</description>
+    </item>
+    <item>
+      <title>v5.0.0-beta.18</title>
+      <link>https://carbone.io/changelog.html#v5-0-0-beta-18</link>
+      <pubDate>Tue, 26 Aug 2025 00:00:00 +0000</pubDate>
+      <guid isPermaLink="false">carbone-v5.0.0-beta.18</guid>
+      <description>• [EE] Fixed an issue where DOCX templates with dynamic images inside shapes would generate corrupted documents.</description>
+    </item>
+    <item>
+      <title>v5.0.0-beta.17</title>
+      <link>https://carbone.io/changelog.html#v5-0-0-beta-17</link>
+      <pubDate>Thu, 14 Aug 2025 00:00:00 +0000</pubDate>
+      <guid isPermaLink="false">carbone-v5.0.0-beta.17</guid>
+      <description>• Removed the hard limit on batch jobs per tenant&lt;br/&gt;• Fixed empty cells when templates were created programmatically using third-party software&lt;br/&gt;• [EE] Fix: Enforced the template file field to be the last element in POST /template form-data requests If the template file is not the last field in the multipart form, the API now returns a 400 Bad Request error</description>
+    </item>
+    <item>
+      <title>v5.0.0-beta.16</title>
+      <link>https://carbone.io/changelog.html#v5-0-0-beta-16</link>
+      <pubDate>Thu, 07 Aug 2025 00:00:00 +0000</pubDate>
+      <guid isPermaLink="false">carbone-v5.0.0-beta.16</guid>
+      <description>• Fixed issues with 64-bit numbers when versioning is activated&lt;br/&gt;• A new parameter chromeFlags: "" can be defined in the configuration (or using the environment variable CARBONE_CHROME_FLAGS ) for the Chrome converter.
+All flags must be separated by commas. Flags added by Carbone by default cannot be removed or overwritten.
+Example: "chromeFlags":"--no-sandbox" .&lt;br/&gt;• Resolved an issue where the :html formatter was not supported when templates were created programmatically using third-party software.&lt;br/&gt;• Added support for the :html formatter in HTML templates.&lt;br/&gt;• [EE] Added support for the :barcode formatter in HTML templates, allowing the injection of barcodes as SVG images.
+To inject a barcode, insert a Carbone tag within the src attribute of an image tag and chain it with the :barcode formatter, specifying the type as an argument.
+For example: &lt;img src="{d.code:barcode(qrcode)}" alt="Barcode" width="200" height="200"&gt; To adjust the barcode dimensions: Using the &lt;img&gt; tag: Set the width and height attributes directly on the &lt;img&gt; tag. Using the barcode tag: Specify dimensions within the barcode tag options, for example: {d.code:barcode(qrcode, 'width:120;height:80')}&lt;br/&gt;• [EE] Added support for the :chart formatter in HTML templates, enabling the injection of ECharts as SVG images.
+To inject a chart, insert a Carbone tag within the src attribute of an image tag and chain it with the :chart formatter.
+Example: &lt;img src="{d.chartOptions:chart}" alt="Chart Image" width="200" height="200"&gt; To adjust the dimensions: Using the &lt;img&gt; tag: Set the width and height attributes directly on the &lt;img&gt; tag. Using the EChart configuration: Define the width and height within the EChart configuration object in your JSON dataset, for example: { type: "echarts@v5a", width: 600, height: 400, option: { series: [] } }&lt;br/&gt;• [EE] Support for dynamic hyperlinks in PPTX, ODP, and ODG templates.&lt;br/&gt;• Includes v4.25.10 and v4.25.11</description>
+    </item>
+    <item>
+      <title>v4.25.11</title>
+      <link>https://carbone.io/changelog.html#v4-25-11</link>
+      <pubDate>Wed, 06 Aug 2025 00:00:00 +0000</pubDate>
+      <guid isPermaLink="false">carbone-v4.25.11</guid>
+      <description>• Fixed an issue accessing dynamic variables when combined with array filters, involving two nested arrays and a filter on the parent array. This fix is applied only when the pre-release tag {o.preReleaseFeatureIn=4025011} is set (enabled by default in v5).</description>
+    </item>
+  </channel>
+</rss>
