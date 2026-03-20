@@ -4,7 +4,7 @@
     <title>Carbone Changelog — v4 Stable</title>
     <link>https://carbone.io/changelog.html</link>
     <description>Stable Carbone v4.x releases only</description>
-    <lastBuildDate>Wed, 18 Mar 2026 10:36:55 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 20 Mar 2026 10:44:32 +0000</lastBuildDate>
     <ttl>1440</ttl>
     <item>
       <title>v4.26.2</title>
@@ -150,7 +150,7 @@ This fix is activated only if {o.preReleaseFeatureIn=4024000} (enabled by defaul
 It automatically detects the Conformance Level from the attached XML ('MINIMUM', 'BASIC WL', 'BASIC', 'EXTENDED', 'EN 16931') and adjusts the PDF metadata accordingly.
 Additionally, it sets SelectPdfVersion = 3 (PDF Version 3B) by default if not specified and if the output file is a PDF.&lt;br/&gt;• [EE] Add a type parameter to the attachFile(filename, type) formatter to specify the PDF AFRelationship.
 Options for type include: "Source", "Data" (default), "Alternative", "Supplement", "Unspecified", "FormData", and "Schema".&lt;br/&gt;• Close all pending TCP connections on exit to prevent indefinite waiting times.&lt;br/&gt;• Fix: Allow :convCRLF to be used after :aggStrD and :aggStr .&lt;br/&gt;• New formatter :preserveCharRef to preserve character references.
-By default, Carbone removes all forbidden characters before injecting data into XML (e.g., &amp; , &gt; , &lt; , , etc.).
+By default, Carbone removes all forbidden characters before injecting data into XML (e.g., &amp; , &gt; , &lt; , � , etc.).
 As a result, injected character references like &amp;#xa7; ( = Â§ ) are transformed into &amp;amp;#xa7; in XML.
 This formatter prevents this transformation, preserving the original character reference.
 This feature is useful in specific XML generation scenarios where direct characters cannot be used (e.g., non-UTF-8 charsets) and the character reference must be retained.
