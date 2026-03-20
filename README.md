@@ -21,7 +21,7 @@ Available at **https://greybird.github.io/carboneio-changelog-to-rss/**
 
 ## How it works
 
-A GitHub Actions workflow runs daily at 09:00 UTC, fetches the changelog page, parses version entries with BeautifulSoup, and generates RSS 2.0 feeds served via GitHub Pages from the `docs/` folder.
+A GitHub Actions workflow runs daily at 09:00 UTC, fetches the changelog page, parses version entries with BeautifulSoup, and generates RSS 2.0 feeds published to the `gh-pages` branch via GitHub Pages.
 
 ## License
 
