@@ -4,8 +4,37 @@
     <title>Carbone Changelog — All</title>
     <link>https://carbone.io/changelog.html</link>
     <description>All Carbone releases (stable, beta, alpha)</description>
-    <lastBuildDate>Mon, 30 Mar 2026 10:18:41 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 31 Mar 2026 10:06:13 +0000</lastBuildDate>
     <ttl>1440</ttl>
+    <item>
+      <title>v5.4.3</title>
+      <link>https://carbone.io/changelog.html#v5-4-3</link>
+      <pubDate>Mon, 30 Mar 2026 00:00:00 +0000</pubDate>
+      <guid isPermaLink="false">carbone-v5.4.3</guid>
+      <description>• Add new options that can be used in a template to force some parameters {o.timezone = Europe/Paris} : force the timezone {o.converter = L} : force the converter ( L : LibreOffice, O : OnlyOffice, C : Chrome) {o.lang = en-US} : force the language. Accepts uppercase or lowercase {o.exportFormattedValuesAsText = true} : force formatN to generate numbers as localized text instead of converting them to the XLSX number format. Available only for XLSX templates.&lt;br/&gt;• Fix: after analysis, we noticed that the fix for object iteration introduced in v5.4.2 could break some poorly designed reports.
+Therefore, this version disables the fix by default. It can be enabled only by adding the pre-release tag {o.preReleaseFeatureIn=5004002} to the template.&lt;br/&gt;• [Studio] Fix: avoid relying on the machine time to set the deployment timestamp&lt;br/&gt;• [API]: POST and PATCH /template now return the deployedAt value saved by the backend. This is useful when the submitted object contains the constant value 42000000000 to set the deployment time to now.&lt;br/&gt;• [Studio] Fix: Studio now automatically deploys a version if all versions of a template have deployedAt = 0 (no deployed template). This can happen if the template was created through the API without setting the deployedAt timestamp.&lt;br/&gt;• [Studio] Fix: remove an unnecessary preview refresh when downloading a file too early, before the file is fully downloaded&lt;br/&gt;• Enable the :appendTemplate formatter for Carbone Cloud</description>
+    </item>
+    <item>
+      <title>v5.4.2</title>
+      <link>https://carbone.io/changelog.html#v5-4-2</link>
+      <pubDate>Wed, 25 Mar 2026 00:00:00 +0000</pubDate>
+      <guid isPermaLink="false">carbone-v5.4.2</guid>
+      <description>• Fix: Support direct object access and iteration over the object at the same time: &lt;xml&gt; {d.myObj.id} &lt;b/&gt; {d.myObj[i].att} &lt;b/&gt; {d.myObj[i+1].att} &lt;/xml&gt;&lt;br/&gt;• Fix: Incorrect output when direct object access is used after iterating over the object at the same time&lt;br/&gt;• Fix: Support :aggSum when the root d is an array with nested loops: {d[].sub[].val:aggSum}&lt;br/&gt;• Fix: Scheduled metadata flush cron now works even when peerEndpoint is defined but no peers are available</description>
+    </item>
+    <item>
+      <title>v5.4.1</title>
+      <link>https://carbone.io/changelog.html#v5-4-1</link>
+      <pubDate>Wed, 18 Mar 2026 00:00:00 +0000</pubDate>
+      <guid isPermaLink="false">carbone-v5.4.1</guid>
+      <description>• [On-Premise] Fix the template metadata cron when no other peers are used.</description>
+    </item>
+    <item>
+      <title>v5.4.0</title>
+      <link>https://carbone.io/changelog.html#v5-4-0</link>
+      <pubDate>Tue, 17 Mar 2026 00:00:00 +0000</pubDate>
+      <guid isPermaLink="false">carbone-v5.4.0</guid>
+      <description>• ð We simplified the vocabulary across the documentation and logs to make Carbone easier to understand: "Stateful VS Stateless" becomes "With / Without template management" "Studio Web Component: embedded versioning vs embedded" becomes "Studio Web Component: With / Without template management" "With / Without versioning" becomes "With / Without template management" "With / Without database" becomes "With / Without template management" The term "Database" is replaced by "Template metadata" For new installations, the default filename stored on disk (or external storage) is metadata.db . Consider it as a special template file, stored like any other template in template storage.&lt;br/&gt;• Renamed databaseName ( CARBONE_DATABASE_NAME ) to templateMetadataFile ( CARBONE_TEMPLATE_METADATA_FILE_NAME ). Default value is "metadata.db".&lt;br/&gt;• databaseName ( CARBONE_DATABASE_NAME ) remains supported for backward compatibility and automatically enables templateManagement=true . If both old and new parameters are set, Carbone uses the new parameters in priority&lt;br/&gt;• âï¸ Add a single boolean configuration parameter, templateManagement (or CARBONE_TEMPLATE_MANAGEMENT ), to enable the template management. It replaces the old method, which required setting a filename in databaseName (or CARBONE_DATABASE_NAME ).&lt;br/&gt;• â¡ï¸ Adds the final missing features to fully support template management across a cluster of nodes or Docker containers, with high availability and no single point of failure Carbone now regularly flushes template metadata to /template as: .metadata.db.0 = current .metadata.db.1 = previous If template plugin hooks are implemented ( writeTemplate and readTemplate ), these files are also stored on external storage as: .metadata.db.0.backup = current .metadata.db.1.backup = previous Combined with the existing conflict-free synchronization ( peerPort and peerEndpoint ), this allows cluster nodes to start and stop dynamically while staying in sync without data loss… (read more: https://carbone.io/changelog.html#v5-4-0)</description>
+    </item>
     <item>
       <title>v5.3.0</title>
       <link>https://carbone.io/changelog.html#v5-3-0</link>
@@ -199,40 +228,6 @@ All AI-related features have been postponed to Carbone v5.2, and the first featu
   template  : "base64-encoded-file-with-or-without-data-URI-prefix",
   convertTo : "pdf"
 } This update makes Carbone v3 compatible with the new Carbone v5 Studio.</description>
-    </item>
-    <item>
-      <title>v5.0.0-beta.18</title>
-      <link>https://carbone.io/changelog.html#v5-0-0-beta-18</link>
-      <pubDate>Tue, 26 Aug 2025 00:00:00 +0000</pubDate>
-      <guid isPermaLink="false">carbone-v5.0.0-beta.18</guid>
-      <description>• [EE] Fixed an issue where DOCX templates with dynamic images inside shapes would generate corrupted documents.</description>
-    </item>
-    <item>
-      <title>v5.0.0-beta.17</title>
-      <link>https://carbone.io/changelog.html#v5-0-0-beta-17</link>
-      <pubDate>Thu, 14 Aug 2025 00:00:00 +0000</pubDate>
-      <guid isPermaLink="false">carbone-v5.0.0-beta.17</guid>
-      <description>• Removed the hard limit on batch jobs per tenant&lt;br/&gt;• Fixed empty cells when templates were created programmatically using third-party software&lt;br/&gt;• [EE] Fix: Enforced the template file field to be the last element in POST /template form-data requests If the template file is not the last field in the multipart form, the API now returns a 400 Bad Request error</description>
-    </item>
-    <item>
-      <title>v5.0.0-beta.16</title>
-      <link>https://carbone.io/changelog.html#v5-0-0-beta-16</link>
-      <pubDate>Thu, 07 Aug 2025 00:00:00 +0000</pubDate>
-      <guid isPermaLink="false">carbone-v5.0.0-beta.16</guid>
-      <description>• Fixed issues with 64-bit numbers when versioning is activated&lt;br/&gt;• A new parameter chromeFlags: "" can be defined in the configuration (or using the environment variable CARBONE_CHROME_FLAGS ) for the Chrome converter.
-All flags must be separated by commas. Flags added by Carbone by default cannot be removed or overwritten.
-Example: "chromeFlags":"--no-sandbox" .&lt;br/&gt;• Resolved an issue where the :html formatter was not supported when templates were created programmatically using third-party software.&lt;br/&gt;• Added support for the :html formatter in HTML templates.&lt;br/&gt;• [EE] Added support for the :barcode formatter in HTML templates, allowing the injection of barcodes as SVG images.
-To inject a barcode, insert a Carbone tag within the src attribute of an image tag and chain it with the :barcode formatter, specifying the type as an argument.
-For example: &lt;img src="{d.code:barcode(qrcode)}" alt="Barcode" width="200" height="200"&gt; To adjust the barcode dimensions: Using the &lt;img&gt; tag: Set the width and height attributes directly on the &lt;img&gt; tag. Using the barcode tag: Specify dimensions within the barcode tag options, for example: {d.code:barcode(qrcode, 'width:120;height:80')}&lt;br/&gt;• [EE] Added support for the :chart formatter in HTML templates, enabling the injection of ECharts as SVG images.
-To inject a chart, insert a Carbone tag within the src attribute of an image tag and chain it with the :chart formatter.
-Example: &lt;img src="{d.chartOptions:chart}" alt="Chart Image" width="200" height="200"&gt; To adjust the dimensions: Using the &lt;img&gt; tag: Set the width and height attributes directly on the &lt;img&gt; tag. Using the EChart configuration: Define the width and height within the EChart configuration object in your JSON dataset, for example: { type: "echarts@v5a", width: 600, height: 400, option: { series: [] } }&lt;br/&gt;• [EE] Support for dynamic hyperlinks in PPTX, ODP, and ODG templates.&lt;br/&gt;• Includes v4.25.10 and v4.25.11</description>
-    </item>
-    <item>
-      <title>v4.25.11</title>
-      <link>https://carbone.io/changelog.html#v4-25-11</link>
-      <pubDate>Wed, 06 Aug 2025 00:00:00 +0000</pubDate>
-      <guid isPermaLink="false">carbone-v4.25.11</guid>
-      <description>• Fixed an issue accessing dynamic variables when combined with array filters, involving two nested arrays and a filter on the parent array. This fix is applied only when the pre-release tag {o.preReleaseFeatureIn=4025011} is set (enabled by default in v5).</description>
     </item>
   </channel>
 </rss>

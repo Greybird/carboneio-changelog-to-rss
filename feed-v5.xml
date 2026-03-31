@@ -4,8 +4,37 @@
     <title>Carbone Changelog — v5</title>
     <link>https://carbone.io/changelog.html</link>
     <description>Carbone v5.x releases</description>
-    <lastBuildDate>Mon, 30 Mar 2026 10:18:41 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 31 Mar 2026 10:06:13 +0000</lastBuildDate>
     <ttl>1440</ttl>
+    <item>
+      <title>v5.4.3</title>
+      <link>https://carbone.io/changelog.html#v5-4-3</link>
+      <pubDate>Mon, 30 Mar 2026 00:00:00 +0000</pubDate>
+      <guid isPermaLink="false">carbone-v5.4.3</guid>
+      <description>• Add new options that can be used in a template to force some parameters {o.timezone = Europe/Paris} : force the timezone {o.converter = L} : force the converter ( L : LibreOffice, O : OnlyOffice, C : Chrome) {o.lang = en-US} : force the language. Accepts uppercase or lowercase {o.exportFormattedValuesAsText = true} : force formatN to generate numbers as localized text instead of converting them to the XLSX number format. Available only for XLSX templates.&lt;br/&gt;• Fix: after analysis, we noticed that the fix for object iteration introduced in v5.4.2 could break some poorly designed reports.
+Therefore, this version disables the fix by default. It can be enabled only by adding the pre-release tag {o.preReleaseFeatureIn=5004002} to the template.&lt;br/&gt;• [Studio] Fix: avoid relying on the machine time to set the deployment timestamp&lt;br/&gt;• [API]: POST and PATCH /template now return the deployedAt value saved by the backend. This is useful when the submitted object contains the constant value 42000000000 to set the deployment time to now.&lt;br/&gt;• [Studio] Fix: Studio now automatically deploys a version if all versions of a template have deployedAt = 0 (no deployed template). This can happen if the template was created through the API without setting the deployedAt timestamp.&lt;br/&gt;• [Studio] Fix: remove an unnecessary preview refresh when downloading a file too early, before the file is fully downloaded&lt;br/&gt;• Enable the :appendTemplate formatter for Carbone Cloud</description>
+    </item>
+    <item>
+      <title>v5.4.2</title>
+      <link>https://carbone.io/changelog.html#v5-4-2</link>
+      <pubDate>Wed, 25 Mar 2026 00:00:00 +0000</pubDate>
+      <guid isPermaLink="false">carbone-v5.4.2</guid>
+      <description>• Fix: Support direct object access and iteration over the object at the same time: &lt;xml&gt; {d.myObj.id} &lt;b/&gt; {d.myObj[i].att} &lt;b/&gt; {d.myObj[i+1].att} &lt;/xml&gt;&lt;br/&gt;• Fix: Incorrect output when direct object access is used after iterating over the object at the same time&lt;br/&gt;• Fix: Support :aggSum when the root d is an array with nested loops: {d[].sub[].val:aggSum}&lt;br/&gt;• Fix: Scheduled metadata flush cron now works even when peerEndpoint is defined but no peers are available</description>
+    </item>
+    <item>
+      <title>v5.4.1</title>
+      <link>https://carbone.io/changelog.html#v5-4-1</link>
+      <pubDate>Wed, 18 Mar 2026 00:00:00 +0000</pubDate>
+      <guid isPermaLink="false">carbone-v5.4.1</guid>
+      <description>• [On-Premise] Fix the template metadata cron when no other peers are used.</description>
+    </item>
+    <item>
+      <title>v5.4.0</title>
+      <link>https://carbone.io/changelog.html#v5-4-0</link>
+      <pubDate>Tue, 17 Mar 2026 00:00:00 +0000</pubDate>
+      <guid isPermaLink="false">carbone-v5.4.0</guid>
+      <description>• ð We simplified the vocabulary across the documentation and logs to make Carbone easier to understand: "Stateful VS Stateless" becomes "With / Without template management" "Studio Web Component: embedded versioning vs embedded" becomes "Studio Web Component: With / Without template management" "With / Without versioning" becomes "With / Without template management" "With / Without database" becomes "With / Without template management" The term "Database" is replaced by "Template metadata" For new installations, the default filename stored on disk (or external storage) is metadata.db . Consider it as a special template file, stored like any other template in template storage.&lt;br/&gt;• Renamed databaseName ( CARBONE_DATABASE_NAME ) to templateMetadataFile ( CARBONE_TEMPLATE_METADATA_FILE_NAME ). Default value is "metadata.db".&lt;br/&gt;• databaseName ( CARBONE_DATABASE_NAME ) remains supported for backward compatibility and automatically enables templateManagement=true . If both old and new parameters are set, Carbone uses the new parameters in priority&lt;br/&gt;• âï¸ Add a single boolean configuration parameter, templateManagement (or CARBONE_TEMPLATE_MANAGEMENT ), to enable the template management. It replaces the old method, which required setting a filename in databaseName (or CARBONE_DATABASE_NAME ).&lt;br/&gt;• â¡ï¸ Adds the final missing features to fully support template management across a cluster of nodes or Docker containers, with high availability and no single point of failure Carbone now regularly flushes template metadata to /template as: .metadata.db.0 = current .metadata.db.1 = previous If template plugin hooks are implemented ( writeTemplate and readTemplate ), these files are also stored on external storage as: .metadata.db.0.backup = current .metadata.db.1.backup = previous Combined with the existing conflict-free synchronization ( peerPort and peerEndpoint ), this allows cluster nodes to start and stop dynamically while staying in sync without data loss… (read more: https://carbone.io/changelog.html#v5-4-0)</description>
+    </item>
     <item>
       <title>v5.3.0</title>
       <link>https://carbone.io/changelog.html#v5-3-0</link>
@@ -201,34 +230,6 @@ Example: &lt;img src="{d.chartOptions:chart}" alt="Chart Image" width="200" heig
       <pubDate>Thu, 17 Jul 2025 00:00:00 +0000</pubDate>
       <guid isPermaLink="false">carbone-v5.0.0-beta.14</guid>
       <description>• Support for SVG image templates (backend + Studio). Update SVG by modifying specific attributes based on the provided data with these new formatters: :svgUpdate(attrName, selectorValue, selectorType) Updates an SVG attribute (e.g., fill , stroke ) of the selected SVG nodes. :svgSelectiveUpdate(attrName, attrValue, selectorType) Selects SVG nodes and injects a value.  This formatter works like the previous one but uses a selector as input instead of a direct attribute value. Parameters: attrName : The SVG attribute to update. This can be: A fixed string in quotes (e.g., fill , stroke ). A relative path to a property of the parent object (e.g., .siblingObj.id ). attrValue : The attribute value(s) to insert into the SVG. (e.g., a color value like '#F00' ). selectorValue : The value used to select the target SVG element(s). This can be: A fixed string (e.g., 10 ). A data path (e.g., .siblingObj.id ). selectorType : The SVG attribute used to identify and select shape(s) to modify. Default: id * . Options: id : selects only the node with the exact id . id &gt; * : selects the node and its direct children. id * : selects the node and all its descendants. Template example: &lt;!-- {d.myTable[].width:svgUpdate('width', .id)} --&gt; &lt;!-- {d.myTable[active=true].id:svgSelectiveUpdate('fill', .color)} --&gt; &lt; svg width = "100%" height = "100%" viewBox = "0 0 596 842" version = "1.1" &gt; &lt; circle id = "B12" cx = "220" cy = "434" r = "149" style = "fill:#ebebeb;" /&gt; &lt; circle id = "B10" cx = "379" cy = "232" r = "122" fill = "#ababab" /&gt; &lt; circle id = "B11" cx = "406" cy = "638" r = "95" fill = "#ebebeb" /&gt; &lt;/ svg &gt; After data injection: &lt; svg width = "100%" height = "100%" viewBox = "0 0 596 842" version = "1.1" &gt; &lt; circle id = "B12" cx = "220" cy = "434" r = "149" style = "fill:#ebebeb;" width = "200" /&gt; &lt; circle id = "B10" cx = "379" cy = "232" r = "122" fill = "#66a200" width = "100" /&gt; &lt; circle id = "B11" cx = "406" cy = "638" r = "95" fill = "#aa66aa" width = "300" /&gt; &lt;/ svg &gt; Data… (read more: https://carbone.io/changelog.html#v5-0-0-beta-14)</description>
-    </item>
-    <item>
-      <title>v5.0.0-beta.13</title>
-      <link>https://carbone.io/changelog.html#v5-0-0-beta-13</link>
-      <pubDate>Mon, 30 Jun 2025 00:00:00 +0000</pubDate>
-      <guid isPermaLink="false">carbone-v5.0.0-beta.13</guid>
-      <description>• [EE] New features and improvements for the :html formatter available for ODT/DOCX/PDF: CSS Style Attributes : Added support for rendering inline CSS style attributes color and background-color , even when the HTML is in inline mode, for example: &lt;p style="color:green;background-color:#ff0000"&gt;OK&lt;/p&gt; . Styles defined within a &lt;style&gt; element, or those applied through classes and IDs, are not supported. If a color is already applied to the template paragraph, the CSS color style will override it. Supported color formats include: Hexa: The hexadecimal color syntax of an sRGB color. Example: #FF00BB . HSL: Expresses a color in the sRGB color space according to its hue, saturation, and lightness components. Examples: hsl(120deg 75% 25%) , hsl(120 75 25) or hsl(120,75,25) . RGB: Expresses a color in the sRGB color space according to its red, green, and blue components. Examples: rgb(31 120 50) or rgb(31,120,50); . Named Color: The name of a color. Example: red , blue , black , or lightseagreen . Support for Optional End Tags : Optional end tags "p" and "li" are now supported. An example structure: &lt;ol&gt;&lt;li&gt;&lt;p&gt;text&lt;li&gt;&lt;p&gt;text2&lt;/ol&gt; . Support Tab Entities : Include the character entities &amp;ensp; or &amp;emsp; to create a tab in an ODT/DOCX/PDF. Do not use &amp;#9; , as HTML parsers will collapse it into a single space due to the whitespace collapse principle. Bug Fix : Fixed an issue with nested ordered/unordered list items mixed with empty paragraphs.</description>
-    </item>
-    <item>
-      <title>v5.0.0-beta.12</title>
-      <link>https://carbone.io/changelog.html#v5-0-0-beta-12</link>
-      <pubDate>Fri, 27 Jun 2025 00:00:00 +0000</pubDate>
-      <guid isPermaLink="false">carbone-v5.0.0-beta.12</guid>
-      <description>• [EE] Improved support for filling PDF forms: Ignore errors when the PDF form contains buttons or undefined text fields Accept /Text and /FreeText annotations Remove annotations that contain Carbone tags with the :checkField and :fillField formatters (previously, only tags with :check and :fill formatters were removed)</description>
-    </item>
-    <item>
-      <title>v5.0.0-beta.11</title>
-      <link>https://carbone.io/changelog.html#v5-0-0-beta-11</link>
-      <pubDate>Tue, 17 Jun 2025 00:00:00 +0000</pubDate>
-      <guid isPermaLink="false">carbone-v5.0.0-beta.11</guid>
-      <description>• [EE] Resolved an issue with the :html formatter when ol/ul lists are mixed with br tags.&lt;br/&gt;• [EE] ð PDF templates are supported to fill forms with your data. This is a low-level feature to update PDF forms. A more user-friendly solution will be available in the final version of the Studio. Three methods are available: Place Carbone tags directly in the form fields Insert Carbone tags into the text fields of your PDF form. Carbone replaces them with data from your dataset. Loops are allowed in text fields. Add annotations above the fields you want to update , using formatters like :fill , :check , or :uncheck . Carbone will: Detect the form field below the annotation, Remove the annotation, Update the corresponding field. If the field is not found, an error is returned. In that case, move your annotation to make sure it overlaps the target field. Examples: {d.myText:fill} fills the text field behind the tag. {d.myCondition:ifEQ(true):check} checks the radio button or checkbox behind the tag. Directly target form fields by name using formatters Place Carbone tags anywhere in a PDF annotation using formatters like :fillField('fieldName') or :checkField('fieldName') . Examples: {d.text:fillField('fieldName')} fills the text field with the provided value. It can also check a checkbox (any non-empty value will check it). {d.genre:ifEQ('boy'):show(male):ifEQ('girl'):show(female):fillField('fieldName')} selects the corresponding option in a radio group ('male' or 'female'). If the option does not exist, an error is returned. {d.text:ifEQ(true):checkField('fieldName')} checks the checkbox if the condition is true. Known limitations: In the Studio, the embedded PDF viewer cannot display filled forms. To preview results, uncheck the "Use embedded PDF viewer" option in the preview panel. Currently, Carbone supports only Text fields, Radio buttons, and Checkboxes. Warning: The native macOS PDF viewer can break PDF forms that include radio buttons.&lt;br/&gt;• â¡ï¸ Define… (read more: https://carbone.io/changelog.html#v5-0-0-beta-11)</description>
-    </item>
-    <item>
-      <title>v5.0.0-beta.10</title>
-      <link>https://carbone.io/changelog.html#v5-0-0-beta-10</link>
-      <pubDate>Fri, 16 May 2025 00:00:00 +0000</pubDate>
-      <guid isPermaLink="false">carbone-v5.0.0-beta.10</guid>
-      <description>• Includes changes from v4.25.9</description>
     </item>
   </channel>
 </rss>
