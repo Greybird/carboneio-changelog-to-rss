@@ -4,8 +4,15 @@
     <title>Carbone Changelog — v3</title>
     <link>https://carbone.io/changelog.html</link>
     <description>Carbone v3.x releases</description>
-    <lastBuildDate>Thu, 09 Apr 2026 10:13:48 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 10 Apr 2026 10:08:45 +0000</lastBuildDate>
     <ttl>1440</ttl>
+    <item>
+      <title>v3.8.2</title>
+      <link>https://carbone.io/changelog.html#v3-8-2</link>
+      <pubDate>Fri, 03 Apr 2026 00:00:00 +0000</pubDate>
+      <guid isPermaLink="false">carbone-v3.8.2</guid>
+      <description>• [EE] Update to Node 20.20.2&lt;br/&gt;• Add limits maxTemplateUncompressedSize (200 MB by default) for unzipped templates to improve resistance to zip bomb denial-of-service attacks&lt;br/&gt;• Node.js library only: Fix a critical security issue identified in a recent audit. This issue had already been fixed in all other versions. Align published version on npm with this version</description>
+    </item>
     <item>
       <title>v3.8.1</title>
       <link>https://carbone.io/changelog.html#v3-8-1</link>
@@ -216,13 +223,6 @@ Now, the LibreOffice is correctly killed. No zombie processes remaining. Avoid l
       <pubDate>Mon, 30 Aug 2021 00:00:00 +0000</pubDate>
       <guid isPermaLink="false">carbone-v3.3.0</guid>
       <description>• [EE] HTML Formatter: Fix: The HTML content is rendered without adding an empty line above it. Fix: The HTML content and static content are rendered in the expected order. New: If static content and Carbone tags are mixed with an HTML formatter in the same paragraph, the html is isolated into a new paragraph and each element are seperated above or below. For example, the following template on a text editor &lt;paragraph&gt;A rocket is made of {d.data:html} {d.details}, this is cool!&lt;/paragraph&gt; will be transform into 3 paragraphs on the generated report &lt;paragraph&gt;A rocket is made of &lt;/paragraph&gt;&lt;paragraph&gt;{d.data:html}&lt;/paragraph&gt;&lt;paragraph&gt; {d.details}, this is cool!&lt;/paragraph&gt; . Improved HTML rendering stability when it is mixed with lists, tables, and images.&lt;br/&gt;• [EE] Dynamic Checkbox are supported only for ODT file. A tag should be inserted into the checkbox property "name" and it is used to set the value of the checkbox on the generated report. The checkbox is ticked (checked) when the value is a Boolean with the value "true", a non empty string, a non empty array or a non empty object. If the exported file type is a PDF, the checkbox can be edited on the generated document. An ODT document created from MS Word that include checkboxes does not work. It is also not possible to create a list of checkboxes with the expressions [i] / [i+1] .&lt;br/&gt;• Accept null for the attribute complement in options</description>
-    </item>
-    <item>
-      <title>v3.2.7</title>
-      <link>https://carbone.io/changelog.html#v3-2-7</link>
-      <pubDate>Wed, 21 Jul 2021 00:00:00 +0000</pubDate>
-      <guid isPermaLink="false">carbone-v3.2.7</guid>
-      <description>• Fix corrupted document when accessing a sub-object in an array {d.surrounding[i].subArray[0].subObject.id} , within a surrounding loop</description>
     </item>
   </channel>
 </rss>

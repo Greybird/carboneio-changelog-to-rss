@@ -4,8 +4,29 @@
     <title>Carbone Changelog — Stable</title>
     <link>https://carbone.io/changelog.html</link>
     <description>Stable Carbone releases only</description>
-    <lastBuildDate>Thu, 09 Apr 2026 10:13:48 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 10 Apr 2026 10:08:45 +0000</lastBuildDate>
     <ttl>1440</ttl>
+    <item>
+      <title>v5.4.4</title>
+      <link>https://carbone.io/changelog.html#v5-4-4</link>
+      <pubDate>Wed, 08 Apr 2026 00:00:00 +0000</pubDate>
+      <guid isPermaLink="false">carbone-v5.4.4</guid>
+      <description>• Add the new optional tag {o.hardRefresh=true} to force a template to be processed by a converter (LibreOffice, etc.) even when the output file type is the same as the input file type. For example, it can be used to update XLSX formulas after Carbone injects the data.&lt;br/&gt;• Add limits maxTemplateUncompressedSize (200 MB by default) for unzipped templates to improve resistance to zip bomb denial-of-service attacks&lt;br/&gt;• [EE] Update to Node 22.22.2</description>
+    </item>
+    <item>
+      <title>v4.26.3</title>
+      <link>https://carbone.io/changelog.html#v4-26-3</link>
+      <pubDate>Tue, 07 Apr 2026 00:00:00 +0000</pubDate>
+      <guid isPermaLink="false">carbone-v4.26.3</guid>
+      <description>• [EE] Update to Node 20.20.2&lt;br/&gt;• Add limits maxTemplateUncompressedSize (200 MB by default) for unzipped templates to improve resistance to zip bomb denial-of-service attacks</description>
+    </item>
+    <item>
+      <title>v3.8.2</title>
+      <link>https://carbone.io/changelog.html#v3-8-2</link>
+      <pubDate>Fri, 03 Apr 2026 00:00:00 +0000</pubDate>
+      <guid isPermaLink="false">carbone-v3.8.2</guid>
+      <description>• [EE] Update to Node 20.20.2&lt;br/&gt;• Add limits maxTemplateUncompressedSize (200 MB by default) for unzipped templates to improve resistance to zip bomb denial-of-service attacks&lt;br/&gt;• Node.js library only: Fix a critical security issue identified in a recent audit. This issue had already been fixed in all other versions. Align published version on npm with this version</description>
+    </item>
     <item>
       <title>v5.4.3</title>
       <link>https://carbone.io/changelog.html#v5-4-3</link>
@@ -207,27 +228,6 @@ All AI-related features have been postponed to Carbone v5.2, and the first featu
   template  : "base64-encoded-file-with-or-without-data-URI-prefix",
   convertTo : "pdf"
 } This update makes Carbone v3 compatible with the new Carbone v5 Studio.</description>
-    </item>
-    <item>
-      <title>v4.25.11</title>
-      <link>https://carbone.io/changelog.html#v4-25-11</link>
-      <pubDate>Wed, 06 Aug 2025 00:00:00 +0000</pubDate>
-      <guid isPermaLink="false">carbone-v4.25.11</guid>
-      <description>• Fixed an issue accessing dynamic variables when combined with array filters, involving two nested arrays and a filter on the parent array. This fix is applied only when the pre-release tag {o.preReleaseFeatureIn=4025011} is set (enabled by default in v5).</description>
-    </item>
-    <item>
-      <title>v4.25.10</title>
-      <link>https://carbone.io/changelog.html#v4-25-10</link>
-      <pubDate>Tue, 29 Jul 2025 00:00:00 +0000</pubDate>
-      <guid isPermaLink="false">carbone-v4.25.10</guid>
-      <description>• Updated IANA database (2025) - fixes :formatD for the America/Mexico_City timezone, for example&lt;br/&gt;• Updated dependencies</description>
-    </item>
-    <item>
-      <title>v4.25.9</title>
-      <link>https://carbone.io/changelog.html#v4-25-9</link>
-      <pubDate>Fri, 16 May 2025 00:00:00 +0000</pubDate>
-      <guid isPermaLink="false">carbone-v4.25.9</guid>
-      <description>• Fixed batch processing for On-Premise environments&lt;br/&gt;• Added support for base64 data-URI in appendFile and attachFile</description>
     </item>
   </channel>
 </rss>

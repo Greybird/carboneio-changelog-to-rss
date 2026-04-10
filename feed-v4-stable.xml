@@ -4,8 +4,15 @@
     <title>Carbone Changelog — v4 Stable</title>
     <link>https://carbone.io/changelog.html</link>
     <description>Stable Carbone v4.x releases only</description>
-    <lastBuildDate>Thu, 09 Apr 2026 10:13:48 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 10 Apr 2026 10:08:45 +0000</lastBuildDate>
     <ttl>1440</ttl>
+    <item>
+      <title>v4.26.3</title>
+      <link>https://carbone.io/changelog.html#v4-26-3</link>
+      <pubDate>Tue, 07 Apr 2026 00:00:00 +0000</pubDate>
+      <guid isPermaLink="false">carbone-v4.26.3</guid>
+      <description>• [EE] Update to Node 20.20.2&lt;br/&gt;• Add limits maxTemplateUncompressedSize (200 MB by default) for unzipped templates to improve resistance to zip bomb denial-of-service attacks</description>
+    </item>
     <item>
       <title>v4.26.2</title>
       <link>https://carbone.io/changelog.html#v4-26-2</link>
@@ -243,13 +250,6 @@ VSCode, Sublime Text, or any editing tool can be used to update the XML template
 This tag prints nothing. Supported in ODP, PPTX and ODT templates.
 The feature is available only if the tag {o.preReleaseFeatureIn=4022011} is used.
 Be careful, if a loop is created between two shapes, the [i+1] tag must be in the shape that is higher in the layer order than the shape with the [i] tag.</description>
-    </item>
-    <item>
-      <title>v4.22.10</title>
-      <link>https://carbone.io/changelog.html#v4-22-10</link>
-      <pubDate>Thu, 04 Jul 2024 00:00:00 +0000</pubDate>
-      <guid isPermaLink="false">carbone-v4.22.10</guid>
-      <description>• PPTX template support :drop and :keep formatters to control the visibility of elements: Paragraphs p : insert the tag in a paragraph to show/hide: Text before {d.value:ifEM:drop(p)} . To delete multiple paragraphs simultaneously, specify the number of elements as a second argument: :drop(p, number) . Images img : use the tag in an image's alternative text or title to manage visibility: {d.url:ifEM:drop(img)} . Shapes shape : place the tag in a text box or shape's alternative text to show or hide the shape: {d.showShape:ifEQ(false):drop(shape)} . Tables table : insert the tag in a table cell to control the display of the table: {d.list:ifEM:drop(table)} . Rows row : embed the tag in a table row to manage its visibility: {d.value:ifNE(20):drop(row)} . To delete multiple rows simultaneously, specify the number of elements as a second argument: :drop(row, number) . Charts chart : use the tag in the chart's alternative text to show or hide the chart: {d.list:ifEM:drop(chart)} .&lt;br/&gt;• Fixed :html formatter: duplicating Bold or Italic tags is now supported</description>
     </item>
   </channel>
 </rss>

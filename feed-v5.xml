@@ -4,8 +4,15 @@
     <title>Carbone Changelog — v5</title>
     <link>https://carbone.io/changelog.html</link>
     <description>Carbone v5.x releases</description>
-    <lastBuildDate>Thu, 09 Apr 2026 10:13:48 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 10 Apr 2026 10:08:45 +0000</lastBuildDate>
     <ttl>1440</ttl>
+    <item>
+      <title>v5.4.4</title>
+      <link>https://carbone.io/changelog.html#v5-4-4</link>
+      <pubDate>Wed, 08 Apr 2026 00:00:00 +0000</pubDate>
+      <guid isPermaLink="false">carbone-v5.4.4</guid>
+      <description>• Add the new optional tag {o.hardRefresh=true} to force a template to be processed by a converter (LibreOffice, etc.) even when the output file type is the same as the input file type. For example, it can be used to update XLSX formulas after Carbone injects the data.&lt;br/&gt;• Add limits maxTemplateUncompressedSize (200 MB by default) for unzipped templates to improve resistance to zip bomb denial-of-service attacks&lt;br/&gt;• [EE] Update to Node 22.22.2</description>
+    </item>
     <item>
       <title>v5.4.3</title>
       <link>https://carbone.io/changelog.html#v5-4-3</link>
@@ -223,13 +230,6 @@ Example: &lt;img src="{d.chartOptions:chart}" alt="Chart Image" width="200" heig
       <pubDate>Thu, 24 Jul 2025 00:00:00 +0000</pubDate>
       <guid isPermaLink="false">carbone-v5.0.0-beta.15</guid>
       <description>• Fixed a random bug when using the :html formatter multiple times (could apply unwanted styles).&lt;br/&gt;• Allow whitespace around parameters in the :html(inline) formatter&lt;br/&gt;• Fixed missing migration file in the On-Premise build</description>
-    </item>
-    <item>
-      <title>v5.0.0-beta.14</title>
-      <link>https://carbone.io/changelog.html#v5-0-0-beta-14</link>
-      <pubDate>Thu, 17 Jul 2025 00:00:00 +0000</pubDate>
-      <guid isPermaLink="false">carbone-v5.0.0-beta.14</guid>
-      <description>• Support for SVG image templates (backend + Studio). Update SVG by modifying specific attributes based on the provided data with these new formatters: :svgUpdate(attrName, selectorValue, selectorType) Updates an SVG attribute (e.g., fill , stroke ) of the selected SVG nodes. :svgSelectiveUpdate(attrName, attrValue, selectorType) Selects SVG nodes and injects a value.  This formatter works like the previous one but uses a selector as input instead of a direct attribute value. Parameters: attrName : The SVG attribute to update. This can be: A fixed string in quotes (e.g., fill , stroke ). A relative path to a property of the parent object (e.g., .siblingObj.id ). attrValue : The attribute value(s) to insert into the SVG. (e.g., a color value like '#F00' ). selectorValue : The value used to select the target SVG element(s). This can be: A fixed string (e.g., 10 ). A data path (e.g., .siblingObj.id ). selectorType : The SVG attribute used to identify and select shape(s) to modify. Default: id * . Options: id : selects only the node with the exact id . id &gt; * : selects the node and its direct children. id * : selects the node and all its descendants. Template example: &lt;!-- {d.myTable[].width:svgUpdate('width', .id)} --&gt; &lt;!-- {d.myTable[active=true].id:svgSelectiveUpdate('fill', .color)} --&gt; &lt; svg width = "100%" height = "100%" viewBox = "0 0 596 842" version = "1.1" &gt; &lt; circle id = "B12" cx = "220" cy = "434" r = "149" style = "fill:#ebebeb;" /&gt; &lt; circle id = "B10" cx = "379" cy = "232" r = "122" fill = "#ababab" /&gt; &lt; circle id = "B11" cx = "406" cy = "638" r = "95" fill = "#ebebeb" /&gt; &lt;/ svg &gt; After data injection: &lt; svg width = "100%" height = "100%" viewBox = "0 0 596 842" version = "1.1" &gt; &lt; circle id = "B12" cx = "220" cy = "434" r = "149" style = "fill:#ebebeb;" width = "200" /&gt; &lt; circle id = "B10" cx = "379" cy = "232" r = "122" fill = "#66a200" width = "100" /&gt; &lt; circle id = "B11" cx = "406" cy = "638" r = "95" fill = "#aa66aa" width = "300" /&gt; &lt;/ svg &gt; Data… (read more: https://carbone.io/changelog.html#v5-0-0-beta-14)</description>
     </item>
   </channel>
 </rss>
