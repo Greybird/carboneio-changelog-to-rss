@@ -4,8 +4,15 @@
     <title>Carbone Changelog — v5</title>
     <link>https://carbone.io/changelog.html</link>
     <description>Carbone v5.x releases</description>
-    <lastBuildDate>Mon, 13 Apr 2026 10:46:41 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 14 Apr 2026 10:16:03 +0000</lastBuildDate>
     <ttl>1440</ttl>
+    <item>
+      <title>v5.4.5</title>
+      <link>https://carbone.io/changelog.html#v5-4-5</link>
+      <pubDate>Mon, 13 Apr 2026 00:00:00 +0000</pubDate>
+      <guid isPermaLink="false">carbone-v5.4.5</guid>
+      <description>• [On-Premise] Fixed Markdown file type detection to enable MD to PDF, MD to DOCX, MD to ODT, ...&lt;br/&gt;• [On-Premise] Added Markdown support in the Studio&lt;br/&gt;• Fixed Swiss QR code ( swissqrcode ) bugs related to accented characters&lt;br/&gt;• Fixes for the :html formatter: Multiple arguments provided to the formatter were not recognised; now fully supported: Custom Heading and/or Table Themes and/or the "nospace" option. If the HTML contained a color as an inline style, it was not recognised when it contained space characters; it is now fully recognised.</description>
+    </item>
     <item>
       <title>v5.4.4</title>
       <link>https://carbone.io/changelog.html#v5-4-4</link>
@@ -223,13 +230,6 @@ To inject a barcode, insert a Carbone tag within the src attribute of an image t
 For example: &lt;img src="{d.code:barcode(qrcode)}" alt="Barcode" width="200" height="200"&gt; To adjust the barcode dimensions: Using the &lt;img&gt; tag: Set the width and height attributes directly on the &lt;img&gt; tag. Using the barcode tag: Specify dimensions within the barcode tag options, for example: {d.code:barcode(qrcode, 'width:120;height:80')}&lt;br/&gt;• [EE] Added support for the :chart formatter in HTML templates, enabling the injection of ECharts as SVG images.
 To inject a chart, insert a Carbone tag within the src attribute of an image tag and chain it with the :chart formatter.
 Example: &lt;img src="{d.chartOptions:chart}" alt="Chart Image" width="200" height="200"&gt; To adjust the dimensions: Using the &lt;img&gt; tag: Set the width and height attributes directly on the &lt;img&gt; tag. Using the EChart configuration: Define the width and height within the EChart configuration object in your JSON dataset, for example: { type: "echarts@v5a", width: 600, height: 400, option: { series: [] } }&lt;br/&gt;• [EE] Support for dynamic hyperlinks in PPTX, ODP, and ODG templates.&lt;br/&gt;• Includes v4.25.10 and v4.25.11</description>
-    </item>
-    <item>
-      <title>v5.0.0-beta.15</title>
-      <link>https://carbone.io/changelog.html#v5-0-0-beta-15</link>
-      <pubDate>Thu, 24 Jul 2025 00:00:00 +0000</pubDate>
-      <guid isPermaLink="false">carbone-v5.0.0-beta.15</guid>
-      <description>• Fixed a random bug when using the :html formatter multiple times (could apply unwanted styles).&lt;br/&gt;• Allow whitespace around parameters in the :html(inline) formatter&lt;br/&gt;• Fixed missing migration file in the On-Premise build</description>
     </item>
   </channel>
 </rss>

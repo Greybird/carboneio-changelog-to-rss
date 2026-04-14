@@ -4,8 +4,15 @@
     <title>Carbone Changelog — Stable</title>
     <link>https://carbone.io/changelog.html</link>
     <description>Stable Carbone releases only</description>
-    <lastBuildDate>Mon, 13 Apr 2026 10:46:41 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 14 Apr 2026 10:16:03 +0000</lastBuildDate>
     <ttl>1440</ttl>
+    <item>
+      <title>v5.4.5</title>
+      <link>https://carbone.io/changelog.html#v5-4-5</link>
+      <pubDate>Mon, 13 Apr 2026 00:00:00 +0000</pubDate>
+      <guid isPermaLink="false">carbone-v5.4.5</guid>
+      <description>• [On-Premise] Fixed Markdown file type detection to enable MD to PDF, MD to DOCX, MD to ODT, ...&lt;br/&gt;• [On-Premise] Added Markdown support in the Studio&lt;br/&gt;• Fixed Swiss QR code ( swissqrcode ) bugs related to accented characters&lt;br/&gt;• Fixes for the :html formatter: Multiple arguments provided to the formatter were not recognised; now fully supported: Custom Heading and/or Table Themes and/or the "nospace" option. If the HTML contained a color as an inline style, it was not recognised when it contained space characters; it is now fully recognised.</description>
+    </item>
     <item>
       <title>v5.4.4</title>
       <link>https://carbone.io/changelog.html#v5-4-4</link>
@@ -217,17 +224,6 @@ All AI-related features have been postponed to Carbone v5.2, and the first featu
       <pubDate>Tue, 09 Sep 2025 00:00:00 +0000</pubDate>
       <guid isPermaLink="false">carbone-v4.26.0</guid>
       <description>• Fixed Carbone API authentication to return status code 401 instead of 500 when an API key has expired.&lt;br/&gt;• Support for sending volatile templates using base64 with a data-URI prefix.</description>
-    </item>
-    <item>
-      <title>v3.8.0</title>
-      <link>https://carbone.io/changelog.html#v3-8-0</link>
-      <pubDate>Mon, 08 Sep 2025 00:00:00 +0000</pubDate>
-      <guid isPermaLink="false">carbone-v3.8.0</guid>
-      <description>• Fixed Carbone API Authentication to return status code 401 instead of 500 when an API key has expired.&lt;br/&gt;• Carbone On-Premise: add parameter maxTemplateSize (bytes) to change default limit (20MB)&lt;br/&gt;• Accept to send a volatile template when calling the API POST /render/template . This template is never stored and it does not trigger the middleware readTemplate {
-  data      : {},
-  template  : "base64-encoded-file-with-or-without-data-URI-prefix",
-  convertTo : "pdf"
-} This update makes Carbone v3 compatible with the new Carbone v5 Studio.</description>
     </item>
   </channel>
 </rss>

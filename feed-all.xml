@@ -4,8 +4,15 @@
     <title>Carbone Changelog — All</title>
     <link>https://carbone.io/changelog.html</link>
     <description>All Carbone releases (stable, beta, alpha)</description>
-    <lastBuildDate>Mon, 13 Apr 2026 10:46:41 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 14 Apr 2026 10:16:03 +0000</lastBuildDate>
     <ttl>1440</ttl>
+    <item>
+      <title>v5.4.5</title>
+      <link>https://carbone.io/changelog.html#v5-4-5</link>
+      <pubDate>Mon, 13 Apr 2026 00:00:00 +0000</pubDate>
+      <guid isPermaLink="false">carbone-v5.4.5</guid>
+      <description>• [On-Premise] Fixed Markdown file type detection to enable MD to PDF, MD to DOCX, MD to ODT, ...&lt;br/&gt;• [On-Premise] Added Markdown support in the Studio&lt;br/&gt;• Fixed Swiss QR code ( swissqrcode ) bugs related to accented characters&lt;br/&gt;• Fixes for the :html formatter: Multiple arguments provided to the formatter were not recognised; now fully supported: Custom Heading and/or Table Themes and/or the "nospace" option. If the HTML contained a color as an inline style, it was not recognised when it contained space characters; it is now fully recognised.</description>
+    </item>
     <item>
       <title>v5.4.4</title>
       <link>https://carbone.io/changelog.html#v5-4-4</link>
@@ -217,13 +224,6 @@ All AI-related features have been postponed to Carbone v5.2, and the first featu
       <pubDate>Wed, 17 Sep 2025 00:00:00 +0000</pubDate>
       <guid isPermaLink="false">carbone-v5.0.0-beta.21</guid>
       <description>• Fix: Prevent storing empty JSON sample data</description>
-    </item>
-    <item>
-      <title>v5.0.0-beta.20</title>
-      <link>https://carbone.io/changelog.html#v5-0-0-beta-20</link>
-      <pubDate>Thu, 11 Sep 2025 00:00:00 +0000</pubDate>
-      <guid isPermaLink="false">carbone-v5.0.0-beta.20</guid>
-      <description>• The :sign formatter no longer returns an error when the signature is removed by a condition and the associated data is undefined.</description>
     </item>
   </channel>
 </rss>
