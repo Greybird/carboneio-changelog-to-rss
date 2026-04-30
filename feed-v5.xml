@@ -4,8 +4,15 @@
     <title>Carbone Changelog — v5</title>
     <link>https://carbone.io/changelog.html</link>
     <description>Carbone v5.x releases</description>
-    <lastBuildDate>Wed, 29 Apr 2026 10:57:21 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 30 Apr 2026 10:56:13 +0000</lastBuildDate>
     <ttl>1440</ttl>
+    <item>
+      <title>v5.5.0</title>
+      <link>https://carbone.io/changelog.html#v5-5-0</link>
+      <pubDate>Thu, 30 Apr 2026 00:00:00 +0000</pubDate>
+      <guid isPermaLink="false">carbone-v5.5.0</guid>
+      <description>• [EE] Added a new :drop/:keep option col to dynamically delete table columns. This beta feature is supported for DOCX, XLSX, PPTX, ODT, ODS, ODP, and HTML templates. Example Carbone tag to place in a table cell: {d.value:ifEM:drop(col)} . This means that if the value is empty, the entire column is deleted.  It can be combined with other :drop(row) tags or with multiple :drop(col) tags based on different conditions.&lt;br/&gt;• [EE] The :html formatter supports the full spectrum of HTML entities (previously limited to named entities only): Added full support for decimal &amp;#169; and hexadecimal &amp;#xA9; numeric entities, with strict XML 1.0 validation. Added Emojis support as literal Unicode characters and numeric HTML entities. Fixed named entities mapping to two code points (e.g. &amp;fjlig; , &amp;caps; ) now render correctly.&lt;br/&gt;• [EE] Completely reworked the asynchronous rendering system with webhooks to fix race condition issues and speed up processing.&lt;br/&gt;• [EE] Reduce the risk of converter starvation when a template uses appendTemplate . When a template uses this formatter, maxDownloadFileConcurrency is automatically adjusted for this report only, so it is lower than or equal to the number of converter threads.</description>
+    </item>
     <item>
       <title>v5.4.5</title>
       <link>https://carbone.io/changelog.html#v5-4-5</link>
@@ -217,19 +224,6 @@ All AI-related features have been postponed to Carbone v5.2, and the first featu
       <pubDate>Thu, 14 Aug 2025 00:00:00 +0000</pubDate>
       <guid isPermaLink="false">carbone-v5.0.0-beta.17</guid>
       <description>• Removed the hard limit on batch jobs per tenant&lt;br/&gt;• Fixed empty cells when templates were created programmatically using third-party software&lt;br/&gt;• [EE] Fix: Enforced the template file field to be the last element in POST /template form-data requests If the template file is not the last field in the multipart form, the API now returns a 400 Bad Request error</description>
-    </item>
-    <item>
-      <title>v5.0.0-beta.16</title>
-      <link>https://carbone.io/changelog.html#v5-0-0-beta-16</link>
-      <pubDate>Thu, 07 Aug 2025 00:00:00 +0000</pubDate>
-      <guid isPermaLink="false">carbone-v5.0.0-beta.16</guid>
-      <description>• Fixed issues with 64-bit numbers when versioning is activated&lt;br/&gt;• A new parameter chromeFlags: "" can be defined in the configuration (or using the environment variable CARBONE_CHROME_FLAGS ) for the Chrome converter.
-All flags must be separated by commas. Flags added by Carbone by default cannot be removed or overwritten.
-Example: "chromeFlags":"--no-sandbox" .&lt;br/&gt;• Resolved an issue where the :html formatter was not supported when templates were created programmatically using third-party software.&lt;br/&gt;• Added support for the :html formatter in HTML templates.&lt;br/&gt;• [EE] Added support for the :barcode formatter in HTML templates, allowing the injection of barcodes as SVG images.
-To inject a barcode, insert a Carbone tag within the src attribute of an image tag and chain it with the :barcode formatter, specifying the type as an argument.
-For example: &lt;img src="{d.code:barcode(qrcode)}" alt="Barcode" width="200" height="200"&gt; To adjust the barcode dimensions: Using the &lt;img&gt; tag: Set the width and height attributes directly on the &lt;img&gt; tag. Using the barcode tag: Specify dimensions within the barcode tag options, for example: {d.code:barcode(qrcode, 'width:120;height:80')}&lt;br/&gt;• [EE] Added support for the :chart formatter in HTML templates, enabling the injection of ECharts as SVG images.
-To inject a chart, insert a Carbone tag within the src attribute of an image tag and chain it with the :chart formatter.
-Example: &lt;img src="{d.chartOptions:chart}" alt="Chart Image" width="200" height="200"&gt; To adjust the dimensions: Using the &lt;img&gt; tag: Set the width and height attributes directly on the &lt;img&gt; tag. Using the EChart configuration: Define the width and height within the EChart configuration object in your JSON dataset, for example: { type: "echarts@v5a", width: 600, height: 400, option: { series: [] } }&lt;br/&gt;• [EE] Support for dynamic hyperlinks in PPTX, ODP, and ODG templates.&lt;br/&gt;• Includes v4.25.10 and v4.25.11</description>
     </item>
   </channel>
 </rss>
