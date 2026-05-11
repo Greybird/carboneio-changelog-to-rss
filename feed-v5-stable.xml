@@ -4,8 +4,23 @@
     <title>Carbone Changelog — v5 Stable</title>
     <link>https://carbone.io/changelog.html</link>
     <description>Stable Carbone v5.x releases only</description>
-    <lastBuildDate>Sun, 10 May 2026 10:16:02 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 11 May 2026 12:11:49 +0000</lastBuildDate>
     <ttl>1440</ttl>
+    <item>
+      <title>v5.6.0</title>
+      <link>https://carbone.io/changelog.html#v5-6-0</link>
+      <pubDate>Thu, 07 May 2026 00:00:00 +0000</pubDate>
+      <guid isPermaLink="false">carbone-v5.6.0</guid>
+      <description>• [EE] The :autoOrient formatter can be used to automatically rotate an image according to the camera or smartphone orientation. It is supported only in DOCX templates.
+It can be used with imageFit(contain) or imageFit(fillWidth) , but not with imageFit(fill) . It only works with JPEG images. Other image formats ignore this formatter. To reduce processing as much as possible, the orientation is applied directly in the template (no JPEG processing).&lt;br/&gt;• Fix: Accepts whitespace before the :color formatter.&lt;br/&gt;• [EE] The :color(scope, type) formatter is supported in PPTX templates for all combinations of type (background, text, border) and scope (row, cell, shape). "border" is supported only for shapes.</description>
+    </item>
+    <item>
+      <title>v5.5.1</title>
+      <link>https://carbone.io/changelog.html#v5-5-1</link>
+      <pubDate>Wed, 06 May 2026 00:00:00 +0000</pubDate>
+      <guid isPermaLink="false">carbone-v5.5.1</guid>
+      <description>• [On-Premise] Add the debug option DEBUG=carbone:webserver to see sparse logs of the HTTP body and headers when a report is generated</description>
+    </item>
     <item>
       <title>v5.5.0</title>
       <link>https://carbone.io/changelog.html#v5-5-0</link>
