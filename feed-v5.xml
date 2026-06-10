@@ -4,8 +4,23 @@
     <title>Carbone Changelog — v5</title>
     <link>https://carbone.io/changelog.html</link>
     <description>Carbone v5.x releases</description>
-    <lastBuildDate>Tue, 09 Jun 2026 12:05:16 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 10 Jun 2026 12:21:55 +0000</lastBuildDate>
     <ttl>1440</ttl>
+    <item>
+      <title>v5.8.0</title>
+      <link>https://carbone.io/changelog.html#v5-8-0</link>
+      <pubDate>Wed, 10 Jun 2026 00:00:00 +0000</pubDate>
+      <guid isPermaLink="false">carbone-v5.8.0</guid>
+      <description>• [Studio] Fix the drop-down list bug and the recent list issue in Safari.&lt;br/&gt;• [On-Premise only] In Markdown templates, the special tag {o.styleSource = templateOrVersionId} allows applying the style from another DOCX or ODT template. The style template can include Carbone tags. Styles such as headings, tables, headers, and footers are applied only when converting Markdown to DOCX, ODT, or PDF.&lt;br/&gt;• [EE] PDFs generated with Chrome and OnlyOffice converters now support full encryption and security options, matching LibreOffice. All PDF security features are supported: EncryptFile (boolean): Enable PDF encryption (requires password). DocumentOpenPassword (string): Password required to open the PDF. RestrictPermissions (boolean): Restrict actions like printing, copying, and editing (requires PermissionPassword ). PermissionPassword (string): Password to set/change permissions. Changes (integer): Control what edits are allowed (0: none, 1: pages, 2: forms, 3: comments/forms, 4: all except extraction). EnableCopyingOfContent (boolean): Allow content copying. EnableTextAccessForAccessibilityTools (boolean): Allow access for accessibility tools. Printing (integer): Allow printing (0: none, 1: low-res, 2: high-res).&lt;br/&gt;• Increased the allowed memory allocation to 8 GB to support large XLSX reports.</description>
+    </item>
+    <item>
+      <title>v5.7.0</title>
+      <link>https://carbone.io/changelog.html#v5-7-0</link>
+      <pubDate>Fri, 05 Jun 2026 00:00:00 +0000</pubDate>
+      <guid isPermaLink="false">carbone-v5.7.0</guid>
+      <description>• [Studio] Small UI fixes and update BeerCSS to v4.0.21 (Material Design M3) Template list: remove empty items from category/tag filters The selected item in the list is now visible only after pressing a keyboard arrow key to avoid confusion with mouse hover Replace HTML main tags with div elements to keep a single global main element and avoid bugs with the new BeerCSS Harmonize margins and button styles Use the new split buttons Improve table responsiveness&lt;br/&gt;• Accept equality filters that do not strictly match types in array search expressions ( lookup ), added in v5.2.0.
+For example: table[rank=3] matches both rank = 3 and rank = '3' . This change aligns the behavior with the historical behavior of array filters.</description>
+    </item>
     <item>
       <title>v5.6.1</title>
       <link>https://carbone.io/changelog.html#v5-6-1</link>
@@ -211,20 +226,6 @@ The following options are automatically forwarded to the appended template: lang
       <guid isPermaLink="false">carbone-v5.0.0</guid>
       <description>• [Team] message Yes - here we are! ð This is the final v5 release of Carbone! ð The changelog below includes only the updates since the last public beta (v5.0.0-beta.21) . Weâll soon update our website with a full summary of the v5 release and migration tips ð.
 All AI-related features have been postponed to Carbone v5.2, and the first features will be publicly available for Christmas Day. ð Thank you all for your feedback!&lt;br/&gt;• [Studio] Fixes and Improvements â¨ User Experience Improved the tag/category search dropdown on the template list page: no more duplicate names. Enhanced the search input placeholder to explain that users can search for or create a new tag or category. Made the template list more responsive by hiding less important columns on smaller screens. Show a progress icon while requests are running in the list. Increased the search field size to make copying/pasting versionId easier, and show the searched fields. Improved the style of switches and the home page button. Updated the welcome screen and added a message when no recent templates are available. Temporarily hide the AI Template Generator (coming back later). Improved pagination: now displays the total number of templates instead of page numbers. In the list, show templates created in the studio by default. Accept XLS exports. Added XHTML and XLS icons, and fallback to a generic icon for unknown formats. The preview now updates automatically when switching between embedded and default PDF viewers. [Cloud Edition only] Added a guided tour for new users. [Cloud Edition only] Managed paid/free feature visibility. ð§± Template Management Prevent users from deleting the deployed version in the template panel. (Deleting the deployed version would remove all versions) Added a button to view ephemeral templates in the list and remove their expiration. ð Bug Fixes Fix: translations are now correctly saved. Fix: "New" (upload) button now works in Firefox and Safari, with a warning… (read more: https://carbone.io/changelog.html#v5-0-0)</description>
-    </item>
-    <item>
-      <title>v5.0.0-beta.21</title>
-      <link>https://carbone.io/changelog.html#v5-0-0-beta-21</link>
-      <pubDate>Wed, 17 Sep 2025 00:00:00 +0000</pubDate>
-      <guid isPermaLink="false">carbone-v5.0.0-beta.21</guid>
-      <description>• Fix: Prevent storing empty JSON sample data</description>
-    </item>
-    <item>
-      <title>v5.0.0-beta.20</title>
-      <link>https://carbone.io/changelog.html#v5-0-0-beta-20</link>
-      <pubDate>Thu, 11 Sep 2025 00:00:00 +0000</pubDate>
-      <guid isPermaLink="false">carbone-v5.0.0-beta.20</guid>
-      <description>• The :sign formatter no longer returns an error when the signature is removed by a condition and the associated data is undefined.</description>
     </item>
   </channel>
 </rss>
