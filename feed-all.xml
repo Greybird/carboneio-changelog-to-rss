@@ -4,8 +4,17 @@
     <title>Carbone Changelog — All</title>
     <link>https://carbone.io/changelog.html</link>
     <description>All Carbone releases (stable, beta, alpha)</description>
-    <lastBuildDate>Thu, 25 Jun 2026 11:40:15 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 26 Jun 2026 11:44:39 +0000</lastBuildDate>
     <ttl>1440</ttl>
+    <item>
+      <title>v5.9.0</title>
+      <link>https://carbone.io/changelog.html#v5-9-0</link>
+      <pubDate>Mon, 22 Jun 2026 00:00:00 +0000</pubDate>
+      <guid isPermaLink="false">carbone-v5.9.0</guid>
+      <description>• If data is undefined when calling POST /render , Carbone only converts the file and skips the entire templating process. As a result, tags remain unchanged in the converted document.&lt;br/&gt;• Added support for the custom header carbone-egress-header-authorization to customize the authorization header for egress traffic, such as webhooks, images, and external PDF URLs. For example, if carbone-egress-header-authorization: my-secret is included during report generation, the header authorization: my-secret will be added when Carbone calls a webhook, an external image URL, an external PDF URL, etc.
+If carbone-webhook-header-authorization is used at the same time, it overrides carbone-egress-header-authorization for webhook calls only.
+Only the authorization header can be customized, and its value must not exceed 512 characters.&lt;br/&gt;• Studio: General UX improvements: Rename the "Stop Auto-Upload" button to the less technical "Finish Editing" . Improve filename readability for long filenames by displaying as much of the name as possible while always keeping the end of the filename visible (use an ellipsis in the middle). Clearly indicate that the Studio is listening for file changes with a subtle, low-resource animated icon. Clearly show how long ago the file was updated and when the latest changes were synchronized and taken into account by the Studio. Add a Docs button with an enriched menu. Fix the Profile button on Safari. Improve text search in the JSON editor with Next and Previous buttons, a result counter, and the current search position. If more than 200 occurrences are found, the UI stops counting them to avoid performance issues with very large JSON files.</description>
+    </item>
     <item>
       <title>v5.8.0</title>
       <link>https://carbone.io/changelog.html#v5-8-0</link>
@@ -214,13 +223,6 @@ This function now displays a deprecation warning (superseded by openTemplateVers
       <pubDate>Thu, 04 Dec 2025 00:00:00 +0000</pubDate>
       <guid isPermaLink="false">carbone-v5.0.6</guid>
       <description>• Automatically deletes expired templates A new parameter templateRetentionDaysAfterExpiry ( CARBONE_TEMPLATE_RETENTION_DAYS_AFTER_EXPIRY ) can be used to control the number of days after which expired templates are automatically deleted. If templateRetentionDaysAfterExpiry = 0 (default value), automatic deletion of expired templates is disabled. This operation is done asynchronously for all templates updated by the API with an expiration date ( POST /template or PUT /template ). Templates deleted with DELETE /template are still deleted synchronously for now, but this will become asynchronous in a future version for consistency. Only one peer, automatically elected (the one with the lowest peerId ), executes this asynchronous task daily at midnight.&lt;br/&gt;• Studio: Fix: the refresh preview button was not shown if the data was modified while the preview was updating.</description>
-    </item>
-    <item>
-      <title>v5.0.5</title>
-      <link>https://carbone.io/changelog.html#v5-0-5</link>
-      <pubDate>Mon, 01 Dec 2025 00:00:00 +0000</pubDate>
-      <guid isPermaLink="false">carbone-v5.0.5</guid>
-      <description>• Fix crash in asynchronous jobs when reports download images/files, and return a timeout error just like in synchronous requests.</description>
     </item>
   </channel>
 </rss>
