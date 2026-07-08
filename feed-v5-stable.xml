@@ -4,8 +4,15 @@
     <title>Carbone Changelog — v5 Stable</title>
     <link>https://carbone.io/changelog.html</link>
     <description>Stable Carbone v5.x releases only</description>
-    <lastBuildDate>Tue, 07 Jul 2026 11:50:53 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 08 Jul 2026 11:04:48 +0000</lastBuildDate>
     <ttl>1440</ttl>
+    <item>
+      <title>v5.9.1</title>
+      <link>https://carbone.io/changelog.html#v5-9-1</link>
+      <pubDate>Tue, 30 Jun 2026 00:00:00 +0000</pubDate>
+      <guid isPermaLink="false">carbone-v5.9.1</guid>
+      <description>• [EE] Added a job balancer (Beta) that spreads document conversion load across the peers of a cluster. When a peer is idle and another peer is overloaded, the idle peer automatically "steals" pending conversion jobs from the busy peer, runs them locally, and sends the result back. This smooths out conversion spikes without any external load balancer. Disabled by default. Enable it with the jobBalancer parameter (env var CARBONE_JOB_BALANCER=true ). It only works when the internal cluster channel is enabled, i.e. when peerPort is set (and peers are reachable through peerEndpoints ). If peerPort is not defined, the job balancer stays inactive even when jobBalancer is true . How it works: each peer periodically broadcasts the size of its conversion queue to the other peers. A peer that has free conversion factories pulls jobs from the most overloaded peer (pull-based model, so newly started peers naturally take their share and slow peers take fewer jobs). Aborted jobs and timeouts are propagated to the remote peer, and a peer stops stealing new jobs as soon as it begins a graceful shutdown. â ï¸ Like the rest of the cluster channel, this internal traffic is not authenticated or encrypted : use it only inside a secure private network.&lt;br/&gt;• [EE] The OpenMetrics /metrics endpoint now exposes a new gauge carbone_reports_inflight{stage="conversion"} reporting the number of document conversion jobs currently waiting in the queue.</description>
+    </item>
     <item>
       <title>v5.9.0</title>
       <link>https://carbone.io/changelog.html#v5-9-0</link>
@@ -220,13 +227,6 @@ The following options are automatically forwarded to the appended template: lang
       <pubDate>Fri, 07 Nov 2025 00:00:00 +0000</pubDate>
       <guid isPermaLink="false">carbone-v5.0.2</guid>
       <description>• The endpoints POST /render and POST /template accept templates in base64 format that are just below the maxTemplateSize limit (the base64 size is correctly converted to byte size).&lt;br/&gt;• [On-Premise] Updates only the expireAt field if the message received on the WebSocket contains only versionId and expireAt .</description>
-    </item>
-    <item>
-      <title>v5.0.1</title>
-      <link>https://carbone.io/changelog.html#v5-0-1</link>
-      <pubDate>Tue, 04 Nov 2025 00:00:00 +0000</pubDate>
-      <guid isPermaLink="false">carbone-v5.0.1</guid>
-      <description>• [On-Premise] Fix: ignore iss in JWT tokens to accept tokens generated with Carbone v4.&lt;br/&gt;• [On-Premise] Fix: in the systemd script, use KillMode=mixed to ensure that only the main process receives the SIGTERM signal. This allows Carbone to gracefully shut down its child processes (Chrome, LibreOffice, OnlyOffice). Following Linux recommendations, TimeoutSec=180 is set to let the OS send the final SIGKILL to all processes and child processes if Carbone does not exit automatically.</description>
     </item>
   </channel>
 </rss>

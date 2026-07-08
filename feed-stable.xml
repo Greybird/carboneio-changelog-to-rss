@@ -4,8 +4,15 @@
     <title>Carbone Changelog — Stable</title>
     <link>https://carbone.io/changelog.html</link>
     <description>Stable Carbone releases only</description>
-    <lastBuildDate>Tue, 07 Jul 2026 11:50:53 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 08 Jul 2026 11:04:48 +0000</lastBuildDate>
     <ttl>1440</ttl>
+    <item>
+      <title>v5.9.1</title>
+      <link>https://carbone.io/changelog.html#v5-9-1</link>
+      <pubDate>Tue, 30 Jun 2026 00:00:00 +0000</pubDate>
+      <guid isPermaLink="false">carbone-v5.9.1</guid>
+      <description>• [EE] Added a job balancer (Beta) that spreads document conversion load across the peers of a cluster. When a peer is idle and another peer is overloaded, the idle peer automatically "steals" pending conversion jobs from the busy peer, runs them locally, and sends the result back. This smooths out conversion spikes without any external load balancer. Disabled by default. Enable it with the jobBalancer parameter (env var CARBONE_JOB_BALANCER=true ). It only works when the internal cluster channel is enabled, i.e. when peerPort is set (and peers are reachable through peerEndpoints ). If peerPort is not defined, the job balancer stays inactive even when jobBalancer is true . How it works: each peer periodically broadcasts the size of its conversion queue to the other peers. A peer that has free conversion factories pulls jobs from the most overloaded peer (pull-based model, so newly started peers naturally take their share and slow peers take fewer jobs). Aborted jobs and timeouts are propagated to the remote peer, and a peer stops stealing new jobs as soon as it begins a graceful shutdown. â ï¸ Like the rest of the cluster channel, this internal traffic is not authenticated or encrypted : use it only inside a secure private network.&lt;br/&gt;• [EE] The OpenMetrics /metrics endpoint now exposes a new gauge carbone_reports_inflight{stage="conversion"} reporting the number of document conversion jobs currently waiting in the queue.</description>
+    </item>
     <item>
       <title>v5.9.0</title>
       <link>https://carbone.io/changelog.html#v5-9-0</link>
@@ -216,13 +223,6 @@ This function now displays a deprecation warning (superseded by openTemplateVers
       <pubDate>Fri, 05 Dec 2025 00:00:00 +0000</pubDate>
       <guid isPermaLink="false">carbone-v5.0.7</guid>
       <description>• Fix leader election in a cluster of Carbone nodes for automatic deletion of expired templates</description>
-    </item>
-    <item>
-      <title>v5.0.6</title>
-      <link>https://carbone.io/changelog.html#v5-0-6</link>
-      <pubDate>Thu, 04 Dec 2025 00:00:00 +0000</pubDate>
-      <guid isPermaLink="false">carbone-v5.0.6</guid>
-      <description>• Automatically deletes expired templates A new parameter templateRetentionDaysAfterExpiry ( CARBONE_TEMPLATE_RETENTION_DAYS_AFTER_EXPIRY ) can be used to control the number of days after which expired templates are automatically deleted. If templateRetentionDaysAfterExpiry = 0 (default value), automatic deletion of expired templates is disabled. This operation is done asynchronously for all templates updated by the API with an expiration date ( POST /template or PUT /template ). Templates deleted with DELETE /template are still deleted synchronously for now, but this will become asynchronous in a future version for consistency. Only one peer, automatically elected (the one with the lowest peerId ), executes this asynchronous task daily at midnight.&lt;br/&gt;• Studio: Fix: the refresh preview button was not shown if the data was modified while the preview was updating.</description>
     </item>
   </channel>
 </rss>
