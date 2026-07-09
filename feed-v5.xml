@@ -4,8 +4,15 @@
     <title>Carbone Changelog — v5</title>
     <link>https://carbone.io/changelog.html</link>
     <description>Carbone v5.x releases</description>
-    <lastBuildDate>Wed, 08 Jul 2026 11:04:48 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 09 Jul 2026 12:04:43 +0000</lastBuildDate>
     <ttl>1440</ttl>
+    <item>
+      <title>v5.10.0-beta</title>
+      <link>https://carbone.io/changelog.html#v5-10-0-beta</link>
+      <pubDate>Thu, 09 Jul 2026 00:00:00 +0000</pubDate>
+      <guid isPermaLink="false">carbone-v5.10.0-beta</guid>
+      <description>• [EE] The job balancer now also distributes asynchronous rendering jobs ( POST /render with a webhook). When enabled, both job types (document conversions and asynchronous document generations) can be offloaded to other peers that have available resources.&lt;br/&gt;• Asynchronous jobs are now stored on disk in a compressed format, reducing disk usage and speeding up job transfers between peers.&lt;br/&gt;• Improved logs when the job balancer is used, making it easier to distinguish between external requests and internal job distribution.</description>
+    </item>
     <item>
       <title>v5.9.1</title>
       <link>https://carbone.io/changelog.html#v5-9-1</link>
@@ -173,7 +180,7 @@ This function now displays a deprecation warning (superseded by openTemplateVers
       <link>https://carbone.io/changelog.html#v5-0-9</link>
       <pubDate>Fri, 19 Dec 2025 00:00:00 +0000</pubDate>
       <guid isPermaLink="false">carbone-v5.0.9</guid>
-      <description>• Fix: :convCRLF now preserves whitespace in DOCX&lt;br/&gt;• [On-Premise] Official multi-tenancy support: If req.tenantId is set in a global before middleware plugin, Carbone separates data by tenantId in the database. By default, without plugins, template files are stored on disk using the pattern tenantId-versionId . If storage plugins are used ( writeTemplate , readTemplate , deleteTemplate ), it is up to the developer to separate files per req.tenantId (different filename, bucket, etc.). All endpoints become tenant-sensitive (for example, GET /templates returns only the templates for that specific tenant). tenantId must be a non-negative 64-bit signed integer. Since JavaScript integers are limited to 53 bits, string values are accepted to fully use the full 64-bit range. ( '1' to '9223372036854775807' ). If this constraint is not respected, an error is returned. To enforce security, the bit-field securityLevel ( CARBONE_SECURITY_LEVEL ) parameter can be set to 0b00000010 (2) to enforce multi-tenancy and make tenantId mandatory. This disables Carboneâs default behavior when no tenantId is used, where templates are stored in the database with tenantId = 0 and template files are stored on disk without a tenant ID.&lt;br/&gt;• [On-Premise] Return an error when a before middleware plugin is not a function.&lt;br/&gt;• [EE] New Beta Feature: The :html formatter now supports rendering HTML tables in ODT/DOCX/PDF documents. You can inject all HTML markups supported by the formatter (e.g., images, lists, bold, paragraphs) within table cells. To enable this, use the pre-release tag: {o.preReleaseFeatureIn=5000009} . Without it, the table text is rendered into a single paragraph. Supported: Rows, columns, cells, colspan, and rowspan. Not supported: &lt;tbody&gt; , &lt;thead&gt; , and &lt;caption&gt; tags. Default styling: Tables are rendered with a black solid border (custom styling is not available yet).</description>
+      <description>• Fix: :convCRLF now preserves whitespace in DOCX&lt;br/&gt;• [On-Premise] Official multi-tenancy support: If req.tenantId is set in a global before middleware plugin, Carbone separates data by tenantId in the database. By default, without plugins, template files are stored on disk using the pattern tenantId-versionId . If storage plugins are used ( writeTemplate , readTemplate , deleteTemplate ), it is up to the developer to separate files per req.tenantId (different filename, bucket, etc.). All endpoints become tenant-sensitive (for example, GET /templates returns only the templates for that specific tenant). tenantId must be a non-negative 64-bit signed integer. Since JavaScript integers are limited to 53 bits, string values are accepted to fully use the full 64-bit range. ( '1' to '9223372036854775807' ). If this constraint is not respected, an error is returned. To enforce security, the bit-field securityLevel ( CARBONE_SECURITY_LEVEL ) parameter can be set to 0b00000010 (2) to enforce multi-tenancy and make tenantId mandatory. This disables Carbone's default behavior when no tenantId is used, where templates are stored in the database with tenantId = 0 and template files are stored on disk without a tenant ID.&lt;br/&gt;• [On-Premise] Return an error when a before middleware plugin is not a function.&lt;br/&gt;• [EE] New Beta Feature: The :html formatter now supports rendering HTML tables in ODT/DOCX/PDF documents. You can inject all HTML markups supported by the formatter (e.g., images, lists, bold, paragraphs) within table cells. To enable this, use the pre-release tag: {o.preReleaseFeatureIn=5000009} . Without it, the table text is rendered into a single paragraph. Supported: Rows, columns, cells, colspan, and rowspan. Not supported: &lt;tbody&gt; , &lt;thead&gt; , and &lt;caption&gt; tags. Default styling: Tables are rendered with a black solid border (custom styling is not available yet).</description>
     </item>
     <item>
       <title>v5.0.8</title>
@@ -220,13 +227,6 @@ It sends the data to another template, generates that template (as PDF), and app
 This can also be used inside loops to append multiple documents.
 It can optimize the generation of a PDF with 20,000 pages by concatenating many small, parallelized PDFs generation instead of generating one huge file.
 The following options are automatically forwarded to the appended template: lang , currency , enum , converter , translations , complement . Carbone returns an error if: The appended template fails during generation. The number of appended files exceeds maxDownloadFileCount . The combined size of appended files exceeds maxDownloadFileSizeTotal (MB). Carbone ignores the formatter and generates the main report normally if: The formatter receives null , undefined , or an empty string. The final report is not a PDF (only PDFs can be appended). Notes: Available only in Carbone On-Premise. No protection against infinite loops. Parameters: templateIdOrVersionId : The ID or version ID of the template to append. position : Insert position: "start" or "end" (default). Usage example: If the main template contains this loop: {d.myArray[i]:appendTemplate(110212)} {d.myArray[i+1]} The nested template will receive each object of the myArray as data under {d.} . Each object generates a new document that is appended to the main document.</description>
-    </item>
-    <item>
-      <title>v5.0.2</title>
-      <link>https://carbone.io/changelog.html#v5-0-2</link>
-      <pubDate>Fri, 07 Nov 2025 00:00:00 +0000</pubDate>
-      <guid isPermaLink="false">carbone-v5.0.2</guid>
-      <description>• The endpoints POST /render and POST /template accept templates in base64 format that are just below the maxTemplateSize limit (the base64 size is correctly converted to byte size).&lt;br/&gt;• [On-Premise] Updates only the expireAt field if the message received on the WebSocket contains only versionId and expireAt .</description>
     </item>
   </channel>
 </rss>
