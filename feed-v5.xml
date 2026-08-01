@@ -4,8 +4,15 @@
     <title>Carbone Changelog — v5</title>
     <link>https://carbone.io/changelog.html</link>
     <description>Carbone v5.x releases</description>
-    <lastBuildDate>Fri, 31 Jul 2026 11:29:28 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 01 Aug 2026 10:41:39 +0000</lastBuildDate>
     <ttl>1440</ttl>
+    <item>
+      <title>v5.12.0</title>
+      <link>https://carbone.io/changelog.html#v5-12-0</link>
+      <pubDate>Wed, 29 Jul 2026 00:00:00 +0000</pubDate>
+      <guid isPermaLink="false">carbone-v5.12.0</guid>
+      <description>• Improved logging: Suppressed unnecessary error messages during routine cleanup of the template/render directories when files are already deleted or removed due to race conditions.&lt;br/&gt;• [EE] Cluster peer connections ( peerPort / peerEndpoints ) are now more reliable, key improvements: A periodic supervisor: Recreates the WebSocket server if it crashes or the port becomes unavailable ( EADDRINUSE ). Re-resolves peerEndpoints via DNS, so peers with changed IPs (e.g. during Kubernetes rolling updates) are rediscovered. Reconnects to any missing peer endpoint. Cleans up dead connections using a liveness timer when a connection opens, preventing rare deadlocks that could occur in previous versions and ensuring automatic connection recovery without requiring a restart. New exposed parameter peerCheckInterval (or CARBONE_PEER_CHECK_INTERVAL , default 10s): period of the peer liveness ping. The supervisor runs twice as often (half this value) so a lost peer is re-dialed faster than it is detected. Connections establish more reliably, no matter which peer initiates Supervisor uses exponential backoff: starts at half peerCheckInterval , increases up to 1 minute, and resets to fast on important events (startup, server restart, peer connect/disconnect). Peer DNS resolution is fault-tolerant: if a peer name cannot be resolved (e.g. missing DNS during a rolling update), other available peers still connect; the whole cluster isn't skipped. Maximum WebSocket message size for cluster peer connections now uses the existing maxDataSize ( CARBONE_MAX_DATA_SIZE ) parameter. By consequence, the default changed from 100MB to 60MB. Improved Event-bus logs: cluster events show peer count and addresses resolved by DNS resolution (only when changed). Unreachable peers are logged with the next retry delay (e.g. cannot reach peer ... - retrying in Xs ) at every attempt, so network issues are visible without enabling debug logs. Remaining low-level socket errors are shown only at debug… (read more: https://carbone.io/changelog.html#v5-12-0)</description>
+    </item>
     <item>
       <title>v5.11.0</title>
       <link>https://carbone.io/changelog.html#v5-11-0</link>
@@ -218,13 +225,6 @@ This function now displays a deprecation warning (superseded by openTemplateVers
       <pubDate>Thu, 04 Dec 2025 00:00:00 +0000</pubDate>
       <guid isPermaLink="false">carbone-v5.0.6</guid>
       <description>• Automatically deletes expired templates A new parameter templateRetentionDaysAfterExpiry ( CARBONE_TEMPLATE_RETENTION_DAYS_AFTER_EXPIRY ) can be used to control the number of days after which expired templates are automatically deleted. If templateRetentionDaysAfterExpiry = 0 (default value), automatic deletion of expired templates is disabled. This operation is done asynchronously for all templates updated by the API with an expiration date ( POST /template or PUT /template ). Templates deleted with DELETE /template are still deleted synchronously for now, but this will become asynchronous in a future version for consistency. Only one peer, automatically elected (the one with the lowest peerId ), executes this asynchronous task daily at midnight.&lt;br/&gt;• Studio: Fix: the refresh preview button was not shown if the data was modified while the preview was updating.</description>
-    </item>
-    <item>
-      <title>v5.0.5</title>
-      <link>https://carbone.io/changelog.html#v5-0-5</link>
-      <pubDate>Mon, 01 Dec 2025 00:00:00 +0000</pubDate>
-      <guid isPermaLink="false">carbone-v5.0.5</guid>
-      <description>• Fix crash in asynchronous jobs when reports download images/files, and return a timeout error just like in synchronous requests.</description>
     </item>
   </channel>
 </rss>

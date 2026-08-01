@@ -4,8 +4,15 @@
     <title>Carbone Changelog — v5 Stable</title>
     <link>https://carbone.io/changelog.html</link>
     <description>Stable Carbone v5.x releases only</description>
-    <lastBuildDate>Fri, 31 Jul 2026 11:29:28 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 01 Aug 2026 10:41:39 +0000</lastBuildDate>
     <ttl>1440</ttl>
+    <item>
+      <title>v5.12.0</title>
+      <link>https://carbone.io/changelog.html#v5-12-0</link>
+      <pubDate>Wed, 29 Jul 2026 00:00:00 +0000</pubDate>
+      <guid isPermaLink="false">carbone-v5.12.0</guid>
+      <description>• Improved logging: Suppressed unnecessary error messages during routine cleanup of the template/render directories when files are already deleted or removed due to race conditions.&lt;br/&gt;• [EE] Cluster peer connections ( peerPort / peerEndpoints ) are now more reliable, key improvements: A periodic supervisor: Recreates the WebSocket server if it crashes or the port becomes unavailable ( EADDRINUSE ). Re-resolves peerEndpoints via DNS, so peers with changed IPs (e.g. during Kubernetes rolling updates) are rediscovered. Reconnects to any missing peer endpoint. Cleans up dead connections using a liveness timer when a connection opens, preventing rare deadlocks that could occur in previous versions and ensuring automatic connection recovery without requiring a restart. New exposed parameter peerCheckInterval (or CARBONE_PEER_CHECK_INTERVAL , default 10s): period of the peer liveness ping. The supervisor runs twice as often (half this value) so a lost peer is re-dialed faster than it is detected. Connections establish more reliably, no matter which peer initiates Supervisor uses exponential backoff: starts at half peerCheckInterval , increases up to 1 minute, and resets to fast on important events (startup, server restart, peer connect/disconnect). Peer DNS resolution is fault-tolerant: if a peer name cannot be resolved (e.g. missing DNS during a rolling update), other available peers still connect; the whole cluster isn't skipped. Maximum WebSocket message size for cluster peer connections now uses the existing maxDataSize ( CARBONE_MAX_DATA_SIZE ) parameter. By consequence, the default changed from 100MB to 60MB. Improved Event-bus logs: cluster events show peer count and addresses resolved by DNS resolution (only when changed). Unreachable peers are logged with the next retry delay (e.g. cannot reach peer ... - retrying in Xs ) at every attempt, so network issues are visible without enabling debug logs. Remaining low-level socket errors are shown only at debug… (read more: https://carbone.io/changelog.html#v5-12-0)</description>
+    </item>
     <item>
       <title>v5.11.0</title>
       <link>https://carbone.io/changelog.html#v5-11-0</link>
@@ -218,13 +225,6 @@ This function now displays a deprecation warning (superseded by openTemplateVers
       <pubDate>Mon, 01 Dec 2025 00:00:00 +0000</pubDate>
       <guid isPermaLink="false">carbone-v5.0.5</guid>
       <description>• Fix crash in asynchronous jobs when reports download images/files, and return a timeout error just like in synchronous requests.</description>
-    </item>
-    <item>
-      <title>v5.0.4</title>
-      <link>https://carbone.io/changelog.html#v5-0-4</link>
-      <pubDate>Thu, 27 Nov 2025 00:00:00 +0000</pubDate>
-      <guid isPermaLink="false">carbone-v5.0.4</guid>
-      <description>• New formatter formatR(regionCode) to format a country/region code into a human-readable region name, in the report's language. It accepts ISO 3166-1 Alpha-3 (FRA, USA, ...), ISO 3166-1 Alpha-2 (FR, US, ...), and ISO 3166-1 Numeric codes (250, 840, ...).&lt;br/&gt;• [On-Premise] Rename converterFactoryTimeout ( CARBONE_CONVERTER_FACTORY_TIMEOUT , CARBONE_EE_CONVERTERFACTORYTIMEOUT ) to maxGenerationTime ( CARBONE_MAX_GENERATION_TIME ). The old parameter can still be used for backward compatibility. If both are defined at the same time, the chosen value is not guaranteed. Use only one of them.&lt;br/&gt;• Better management of document generation timeout/aborting. maxGenerationTime (formerly converterFactoryTimeout ) now covers the entire generation process, not only the document conversion step. For example, if downloading external images takes too long, the generation is cancelled. Previously, image downloads could continue even after the converterFactoryTimeout .&lt;br/&gt;• Aborted report generations ( POST /render ) are now fully cancelled, including: pending image/file downloads, barcode and eCharts generation, queued conversion jobs, and the current conversion task. In some cases, Carbone may take an additional 5 seconds before cancelling the request and sending the response.&lt;br/&gt;• [On-Premise] Improved startup message, showing a quick overview of all API limits and enabled security settings.&lt;br/&gt;• [On-Premise] New parameters maxDownloadFileConcurrency ( CARBONE_MAX_DOWNLOAD_FILE_CONCURRENCY ) and maxDownloadImageConcurrency ( CARBONE_MAX_DOWNLOAD_IMAGE_CONCURRENCY ) to set the maximum number of concurrent requests for downloading images/files in a report. Default value is 15 (same as the cloud).&lt;br/&gt;• [On-Premise] Fix for global server timeout: maxGenerationTime (formerly converterFactoryTimeout ) now accepts values above 60 seconds. Previously, the server closed the socket after 62 seconds.&lt;br/&gt;• Improved timeout error messages in logs and API responses, now including more… (read more: https://carbone.io/changelog.html#v5-0-4)</description>
     </item>
   </channel>
 </rss>
