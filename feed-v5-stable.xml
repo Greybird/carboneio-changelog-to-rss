@@ -4,8 +4,15 @@
     <title>Carbone Changelog — v5 Stable</title>
     <link>https://carbone.io/changelog.html</link>
     <description>Stable Carbone v5.x releases only</description>
-    <lastBuildDate>Mon, 10 Aug 2026 10:16:18 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 11 Aug 2026 10:00:45 +0000</lastBuildDate>
     <ttl>1440</ttl>
+    <item>
+      <title>v5.13.0</title>
+      <link>https://carbone.io/changelog.html#v5-13-0</link>
+      <pubDate>Mon, 10 Aug 2026 00:00:00 +0000</pubDate>
+      <guid isPermaLink="false">carbone-v5.13.0</guid>
+      <description>• Chrome converter improvements: Reverted the changes in 5.12.0 regarding the maximum message size between Carbone and Chrome. Chrome enforces a built-in 100MB limit on messages (input HTML, or generated PDF), regardless of what Carbone sets for its WebSocket. The Carbone-defined limit is therefore removed. When the Chrome limit is reached, Carbone now swiftly restores communication, ensuring stability. Carbone forces Chrome to exit after 5 seconds if it cannot shut down properly, preventing an infinite wait.&lt;br/&gt;• Added the ability to disable detection of missing i+1 tag in v5 when a pre-release tag ( preReleaseFeatureIn ) is set to a value lower than 5000000 in the template, API, or global configuration ( CARBONE_PRE_RELEASE_FEATURE_IN ). This can force Carbone v5 to behave like Carbone v4, helping you migrate to production without fixing legacy templates that contain syntax errors but previously worked in v4. Only features and fixes introduced up to the specified tag are enabled. Any introduced in a higher tag are disabled.&lt;br/&gt;• Multiple improvements to PDF operations when generating PDFs with Chrome and OnlyOffice converters: Default encryption is now AES-256 instead of the deprecated 128-bit encryption. Password protection now encrypts document properties (Title, Author, Subject, and other Info strings). Encryption performance improved by a factor of 5.&lt;br/&gt;• Appending, merging, and adding multiple watermarks to PDFs is now at least twice as fast.&lt;br/&gt;• Studio improvements studio.setConfig({ defaultDataPanel : 'editor' }) selects the panel shown at startup in the data editor: 'editor' for the raw JSON editor (default), 'viewer' for the simplified JSON viewer, where clicking a property inserts the corresponding Carbone tag. The user can still switch panels with the two buttons of the data editor. Accept more template origins of our official integration in Salesforce (origin = 2), HubSpot (3), and Odoo (4).&lt;br/&gt;• [EE] Markdown templates now support dynamic… (read more: https://carbone.io/changelog.html#v5-13-0)</description>
+    </item>
     <item>
       <title>v5.12.0</title>
       <link>https://carbone.io/changelog.html#v5-12-0</link>
@@ -218,13 +225,6 @@ This function now displays a deprecation warning (superseded by openTemplateVers
       <pubDate>Thu, 04 Dec 2025 00:00:00 +0000</pubDate>
       <guid isPermaLink="false">carbone-v5.0.6</guid>
       <description>• Automatically deletes expired templates A new parameter templateRetentionDaysAfterExpiry ( CARBONE_TEMPLATE_RETENTION_DAYS_AFTER_EXPIRY ) can be used to control the number of days after which expired templates are automatically deleted. If templateRetentionDaysAfterExpiry = 0 (default value), automatic deletion of expired templates is disabled. This operation is done asynchronously for all templates updated by the API with an expiration date ( POST /template or PUT /template ). Templates deleted with DELETE /template are still deleted synchronously for now, but this will become asynchronous in a future version for consistency. Only one peer, automatically elected (the one with the lowest peerId ), executes this asynchronous task daily at midnight.&lt;br/&gt;• Studio: Fix: the refresh preview button was not shown if the data was modified while the preview was updating.</description>
-    </item>
-    <item>
-      <title>v5.0.5</title>
-      <link>https://carbone.io/changelog.html#v5-0-5</link>
-      <pubDate>Mon, 01 Dec 2025 00:00:00 +0000</pubDate>
-      <guid isPermaLink="false">carbone-v5.0.5</guid>
-      <description>• Fix crash in asynchronous jobs when reports download images/files, and return a timeout error just like in synchronous requests.</description>
     </item>
   </channel>
 </rss>
