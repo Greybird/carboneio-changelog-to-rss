@@ -4,8 +4,15 @@
     <title>Carbone Changelog — All</title>
     <link>https://carbone.io/changelog.html</link>
     <description>All Carbone releases (stable, beta, alpha)</description>
-    <lastBuildDate>Sat, 15 Aug 2026 09:25:27 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 16 Aug 2026 09:26:28 +0000</lastBuildDate>
     <ttl>1440</ttl>
+    <item>
+      <title>v5.13.1</title>
+      <link>https://carbone.io/changelog.html#v5-13-1</link>
+      <pubDate>Sat, 15 Aug 2026 00:00:00 +0000</pubDate>
+      <guid isPermaLink="false">carbone-v5.13.1</guid>
+      <description>• â ï¸ Chrome converter Only (HTML to PDF) : Fixed a rare issue where PDFs could mix content from different reports if several were generated at the same time. Now, each PDF always contains the correct data. No more blocked or mixed documents if a download is cancelled or the connection is lost during PDF creation. Errors or interruptions for one PDF can no longer affect another.&lt;br/&gt;• [EE] Hardened the job balancer (only when CARBONE_JOB_BALANCER=true) with improved cluster-wide ID safety to prevent collisions. Cancelled or interrupted reports are now safely re-queued and are never lost or duplicated. This improvement is independent of the Chrome issue above and was made at the same time as a comprehensive review of the job system's robustness.</description>
+    </item>
     <item>
       <title>v5.13.0</title>
       <link>https://carbone.io/changelog.html#v5-13-0</link>
@@ -217,13 +224,6 @@ Supported searchExpression forms: Index lookup : [INTEGER] Selects the element a
       <pubDate>Sat, 17 Jan 2026 00:00:00 +0000</pubDate>
       <guid isPermaLink="false">carbone-v3.8.1</guid>
       <description>• Update dependencies + latest IANA database to manage correctly Daylight Saving Time&lt;br/&gt;• â ï¸ Fix a critical security issue identified in a recent audit</description>
-    </item>
-    <item>
-      <title>v5.1.2</title>
-      <link>https://carbone.io/changelog.html#v5-1-2</link>
-      <pubDate>Wed, 14 Jan 2026 00:00:00 +0000</pubDate>
-      <guid isPermaLink="false">carbone-v5.1.2</guid>
-      <description>• In SVG templates, automatically replace ligatures to prevent Carbone tags from breaking. This addresses an issue where Affinity Designer and Adobe Illustrator tend to insert ligatures inside Carbone tags by default.&lt;br/&gt;• Fix the download issue when calling GET /template/templateOrVersionId_sample.json (the second call always returned the template instead of the JSON sample).</description>
     </item>
   </channel>
 </rss>
