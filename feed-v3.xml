@@ -4,14 +4,14 @@
     <title>Carbone Changelog — v3</title>
     <link>https://carbone.io/changelog.html</link>
     <description>Carbone v3.x releases</description>
-    <lastBuildDate>Tue, 18 Aug 2026 09:33:14 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 19 Aug 2026 09:33:49 +0000</lastBuildDate>
     <ttl>1440</ttl>
     <item>
       <title>v3.8.2</title>
       <link>https://carbone.io/changelog.html#v3-8-2</link>
       <pubDate>Fri, 03 Apr 2026 00:00:00 +0000</pubDate>
       <guid isPermaLink="false">carbone-v3.8.2</guid>
-      <description>• [EE] Update to Node 20.20.2&lt;br/&gt;• Add limits maxTemplateUncompressedSize (200 MB by default) for unzipped templates to improve resistance to zip bomb denial-of-service attacks&lt;br/&gt;• Node.js library only: Fix a critical security issue identified in a recent audit. This issue had already been fixed in all other versions. Align published version on npm with this version</description>
+      <description>• [EE] Update to Node 20.20.2&lt;br/&gt;• Add limits maxTemplateUncompressedSize (200 MB by default) for unzipped templates to improve resistance to zip bomb denial-of-service attacks (CVE-2026-18929)&lt;br/&gt;• Node.js library only: Fix a critical security issue identified in a recent audit. This issue had already been fixed in all other versions. Align published version on npm with this version</description>
     </item>
     <item>
       <title>v3.8.1</title>

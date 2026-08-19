@@ -4,14 +4,14 @@
     <title>Carbone Changelog — v4</title>
     <link>https://carbone.io/changelog.html</link>
     <description>Carbone v4.x releases</description>
-    <lastBuildDate>Tue, 18 Aug 2026 09:33:14 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 19 Aug 2026 09:33:49 +0000</lastBuildDate>
     <ttl>1440</ttl>
     <item>
       <title>v4.26.3</title>
       <link>https://carbone.io/changelog.html#v4-26-3</link>
       <pubDate>Tue, 07 Apr 2026 00:00:00 +0000</pubDate>
       <guid isPermaLink="false">carbone-v4.26.3</guid>
-      <description>• [EE] Update to Node 20.20.2&lt;br/&gt;• Add limits maxTemplateUncompressedSize (200 MB by default) for unzipped templates to improve resistance to zip bomb denial-of-service attacks</description>
+      <description>• [EE] Update to Node 20.20.2&lt;br/&gt;• Add limits maxTemplateUncompressedSize (200 MB by default) for unzipped templates to improve resistance to zip bomb denial-of-service attacks (CVE-2026-18929)</description>
     </item>
     <item>
       <title>v4.26.2</title>

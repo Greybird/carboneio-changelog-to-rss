@@ -4,8 +4,15 @@
     <title>Carbone Changelog — Stable</title>
     <link>https://carbone.io/changelog.html</link>
     <description>Stable Carbone releases only</description>
-    <lastBuildDate>Tue, 18 Aug 2026 09:33:14 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 19 Aug 2026 09:33:49 +0000</lastBuildDate>
     <ttl>1440</ttl>
+    <item>
+      <title>v5.14.0</title>
+      <link>https://carbone.io/changelog.html#v5-14-0</link>
+      <pubDate>Tue, 18 Aug 2026 00:00:00 +0000</pubDate>
+      <guid isPermaLink="false">carbone-v5.14.0</guid>
+      <description>• Upgraded all dependencies and switched from Node 22 to Node 24&lt;br/&gt;• â¡ï¸ New converter: Carbone ICE (Instant Converter Engine) . It reads a DOCX and converts it to PDF directly within Carbone, without relying on LibreOffice, OnlyOffice, Chrome or any other program on the machine. There is no office suite to install, no external process to start, watch or restart, and no temporary file written between the report generation and its conversion. Up to 60x faster than LibreOffice on a 1000-page DOCX, and 3x faster on a one-page document. The bigger the document, the wider the gap: a large report no longer pays the fixed cost of an office suite loading it, laying it out and printing it. When the job balancer is off, the document is handed directly from the render process to the converter in memory. On a 150-page report, this reduces the handover time to 30 ms instead of 345 ms. How to use it : pass "converter": "I" in the options of POST /render , next to the existing "L" (LibreOffice), "O" (OnlyOffice) and "C" (Chrome). In the Studio, pick "Carbone ICE (docx to pdf)" in the document converter panel of the preview. The converter is enabled and available by default. It can be disabled by setting carboneIcePath (environment variable CARBONE_CARBONE_ICE_PATH ) to an empty string. Multi-threaded : Carbone ICE converts multiple documents in parallel, controlled by the factories setting ( CARBONE_FACTORIES ). Each factory runs as a worker thread. Scope for this first release: DOCX to PDF conversion only. Support for more formats coming soon. Pages/sections: Handles page size/orientation, section margins, headers, footers, mixed portrait/landscape, page/section breaks, text columns. Headers/footers: Different headers/footers for first, odd/even pages, per section. Calculates PAGE , NUMPAGES , SECTIONPAGES . Paragraphs: Supports all paragraph styles, alignment (left/center/right/justified), indentation, spacing, line spacing, tab stops, borders, shading, widow/orphan… (read more: https://carbone.io/changelog.html#v5-14-0)</description>
+    </item>
     <item>
       <title>v5.13.1</title>
       <link>https://carbone.io/changelog.html#v5-13-1</link>
@@ -18,7 +25,7 @@
       <link>https://carbone.io/changelog.html#v5-13-0</link>
       <pubDate>Mon, 10 Aug 2026 00:00:00 +0000</pubDate>
       <guid isPermaLink="false">carbone-v5.13.0</guid>
-      <description>• Chrome converter improvements: Reverted the changes in 5.12.0 regarding the maximum message size between Carbone and Chrome. Chrome enforces a built-in 100MB limit on messages (input HTML, or generated PDF), regardless of what Carbone sets for its WebSocket. The Carbone-defined limit is therefore removed. When the Chrome limit is reached, Carbone now swiftly restores communication, ensuring stability. Carbone forces Chrome to exit after 5 seconds if it cannot shut down properly, preventing an infinite wait.&lt;br/&gt;• Added the ability to disable detection of missing i+1 tag in v5 when a pre-release tag ( preReleaseFeatureIn ) is set to a value lower than 5000000 in the template, API, or global configuration ( CARBONE_PRE_RELEASE_FEATURE_IN ). This can force Carbone v5 to behave like Carbone v4, helping you migrate to production without fixing legacy templates that contain syntax errors but previously worked in v4. Only features and fixes introduced up to the specified tag are enabled. Any introduced in a higher tag are disabled.&lt;br/&gt;• Multiple improvements to PDF operations when generating PDFs with Chrome and OnlyOffice converters: Default encryption is now AES-256 instead of the deprecated 128-bit encryption. Password protection now encrypts document properties (Title, Author, Subject, and other Info strings). Encryption performance improved by a factor of 5.&lt;br/&gt;• Appending, merging, and adding multiple watermarks to PDFs is now at least twice as fast.&lt;br/&gt;• Studio improvements studio.setConfig({ defaultDataPanel : 'editor' }) selects the panel shown at startup in the data editor: 'editor' for the raw JSON editor (default), 'viewer' for the simplified JSON viewer, where clicking a property inserts the corresponding Carbone tag. The user can still switch panels with the two buttons of the data editor. Accept more template origins of our official integration in Salesforce (origin = 2), HubSpot (3), and Odoo (4).&lt;br/&gt;• [EE] Markdown templates now support dynamic… (read more: https://carbone.io/changelog.html#v5-13-0)</description>
+      <description>• Chrome converter improvements: Reverted the changes in 5.12.0 regarding the maximum message size between Carbone and Chrome. Chrome enforces a built-in 100MB limit on messages (input HTML, or generated PDF), regardless of what Carbone sets for its WebSocket. The Carbone-defined limit is therefore removed. When the Chrome limit is reached, Carbone now swiftly restores communication, ensuring stability. Carbone forces Chrome to exit after 5 seconds if it cannot shut down properly, preventing an infinite wait.&lt;br/&gt;• Added the ability to disable detection of missing i+1 tag in v5 when a pre-release tag ( preReleaseFeatureIn ) is set to a value lower than 5000000 in the template, API, or global configuration ( CARBONE_PRE_RELEASE_FEATURE_IN ). This can force Carbone v5 to behave like Carbone v4, helping you migrate to production without fixing legacy templates that contain syntax errors but previously worked in v4. Only features and fixes introduced up to the specified tag are enabled. Any introduced in a higher tag are disabled.&lt;br/&gt;• Multiple improvements to PDF operations when generating PDFs with Chrome and OnlyOffice converters: Default encryption is now AES-256 instead of the deprecated 128-bit encryption. Password protection now encrypts document properties (Title, Author, Subject, and other Info strings). Encryption performance improved by a factor of 5.&lt;br/&gt;• Appending, merging, and adding multiple watermarks to PDFs is now at least twice as fast.&lt;br/&gt;• Studio improvements studio.setConfig({ defaultDataPanel : 'editor' }) selects the panel shown at startup in the data editor: 'editor' for the raw JSON editor (default), 'viewer' for the simplified JSON viewer, where clicking a property inserts the corresponding Carbone tag. The user can still switch panels with the two buttons of the data editor. Accept more template origins: Salesforce (origin = 2), Odoo (3), HubSpot (4). For reference: 0 = API, 1 = Studio.&lt;br/&gt;• [EE] Markdown templates now support dynamic… (read more: https://carbone.io/changelog.html#v5-13-0)</description>
     </item>
     <item>
       <title>v5.12.0</title>
@@ -115,21 +122,21 @@ It can be used with imageFit(contain) or imageFit(fillWidth) , but not with imag
       <link>https://carbone.io/changelog.html#v5-4-4</link>
       <pubDate>Wed, 08 Apr 2026 00:00:00 +0000</pubDate>
       <guid isPermaLink="false">carbone-v5.4.4</guid>
-      <description>• Add the new optional tag {o.hardRefresh=true} to force a template to be processed by a converter (LibreOffice, etc.) even when the output file type is the same as the input file type. For example, it can be used to update XLSX formulas after Carbone injects the data.&lt;br/&gt;• Add limits maxTemplateUncompressedSize (200 MB by default) for unzipped templates to improve resistance to zip bomb denial-of-service attacks&lt;br/&gt;• [EE] Update to Node 22.22.2</description>
+      <description>• Add the new optional tag {o.hardRefresh=true} to force a template to be processed by a converter (LibreOffice, etc.) even when the output file type is the same as the input file type. For example, it can be used to update XLSX formulas after Carbone injects the data.&lt;br/&gt;• Add limits maxTemplateUncompressedSize (200 MB by default) for unzipped templates to improve resistance to zip bomb denial-of-service attacks (CVE-2026-18929)&lt;br/&gt;• [EE] Update to Node 22.22.2</description>
     </item>
     <item>
       <title>v4.26.3</title>
       <link>https://carbone.io/changelog.html#v4-26-3</link>
       <pubDate>Tue, 07 Apr 2026 00:00:00 +0000</pubDate>
       <guid isPermaLink="false">carbone-v4.26.3</guid>
-      <description>• [EE] Update to Node 20.20.2&lt;br/&gt;• Add limits maxTemplateUncompressedSize (200 MB by default) for unzipped templates to improve resistance to zip bomb denial-of-service attacks</description>
+      <description>• [EE] Update to Node 20.20.2&lt;br/&gt;• Add limits maxTemplateUncompressedSize (200 MB by default) for unzipped templates to improve resistance to zip bomb denial-of-service attacks (CVE-2026-18929)</description>
     </item>
     <item>
       <title>v3.8.2</title>
       <link>https://carbone.io/changelog.html#v3-8-2</link>
       <pubDate>Fri, 03 Apr 2026 00:00:00 +0000</pubDate>
       <guid isPermaLink="false">carbone-v3.8.2</guid>
-      <description>• [EE] Update to Node 20.20.2&lt;br/&gt;• Add limits maxTemplateUncompressedSize (200 MB by default) for unzipped templates to improve resistance to zip bomb denial-of-service attacks&lt;br/&gt;• Node.js library only: Fix a critical security issue identified in a recent audit. This issue had already been fixed in all other versions. Align published version on npm with this version</description>
+      <description>• [EE] Update to Node 20.20.2&lt;br/&gt;• Add limits maxTemplateUncompressedSize (200 MB by default) for unzipped templates to improve resistance to zip bomb denial-of-service attacks (CVE-2026-18929)&lt;br/&gt;• Node.js library only: Fix a critical security issue identified in a recent audit. This issue had already been fixed in all other versions. Align published version on npm with this version</description>
     </item>
     <item>
       <title>v5.4.3</title>
@@ -217,13 +224,6 @@ Supported searchExpression forms: Index lookup : [INTEGER] Selects the element a
       <pubDate>Sat, 17 Jan 2026 00:00:00 +0000</pubDate>
       <guid isPermaLink="false">carbone-v3.8.1</guid>
       <description>• Update dependencies + latest IANA database to manage correctly Daylight Saving Time&lt;br/&gt;• â ï¸ Fix a critical security issue identified in a recent audit</description>
-    </item>
-    <item>
-      <title>v5.1.2</title>
-      <link>https://carbone.io/changelog.html#v5-1-2</link>
-      <pubDate>Wed, 14 Jan 2026 00:00:00 +0000</pubDate>
-      <guid isPermaLink="false">carbone-v5.1.2</guid>
-      <description>• In SVG templates, automatically replace ligatures to prevent Carbone tags from breaking. This addresses an issue where Affinity Designer and Adobe Illustrator tend to insert ligatures inside Carbone tags by default.&lt;br/&gt;• Fix the download issue when calling GET /template/templateOrVersionId_sample.json (the second call always returned the template instead of the JSON sample).</description>
     </item>
   </channel>
 </rss>
