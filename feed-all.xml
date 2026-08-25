@@ -4,8 +4,22 @@
     <title>Carbone Changelog — All</title>
     <link>https://carbone.io/changelog.html</link>
     <description>All Carbone releases (stable, beta, alpha)</description>
-    <lastBuildDate>Mon, 24 Aug 2026 09:47:32 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 25 Aug 2026 09:34:48 +0000</lastBuildDate>
     <ttl>1440</ttl>
+    <item>
+      <title>v5.14.2</title>
+      <link>https://carbone.io/changelog.html#v5-14-2</link>
+      <pubDate>Tue, 25 Aug 2026 00:00:00 +0000</pubDate>
+      <guid isPermaLink="false">carbone-v5.14.2</guid>
+      <description>• Fix: Version 0.14.0 introduced a regression due to a security headers update, which prevented downloading generated documents inside an iframe. This has been fixed.&lt;br/&gt;• Fix: HEAD /render/:renderId is now allowed without authentication, like GET /render/:renderId . A HEAD used to return 401 when authentication was on.</description>
+    </item>
+    <item>
+      <title>v5.14.1</title>
+      <link>https://carbone.io/changelog.html#v5-14-1</link>
+      <pubDate>Fri, 21 Aug 2026 00:00:00 +0000</pubDate>
+      <guid isPermaLink="false">carbone-v5.14.1</guid>
+      <description>• [EE] Fix: :set() with a relative path (e.g. {d.obj.val:set(.flag)} ) no longer crashes when the parent object is missing from the data. The value is left unset, the same way a marker naming missing data prints nothing.&lt;br/&gt;• [EE] Fix: batchReportName is now respected even when the ZIP contains only one file.&lt;br/&gt;• Carbone ICE (Instant Converter Engine): now correctly handles line breaks.</description>
+    </item>
     <item>
       <title>v5.14.0</title>
       <link>https://carbone.io/changelog.html#v5-14-0</link>
@@ -172,7 +186,7 @@ Therefore, this version disables the fix by default. It can be enabled only by a
       <link>https://carbone.io/changelog.html#v5-4-0</link>
       <pubDate>Tue, 17 Mar 2026 00:00:00 +0000</pubDate>
       <guid isPermaLink="false">carbone-v5.4.0</guid>
-      <description>• ð We simplified the vocabulary across the documentation and logs to make Carbone easier to understand: "Stateful VS Stateless" becomes "With / Without template management" "Studio Web Component: embedded versioning vs embedded" becomes "Studio Web Component: With / Without template management" "With / Without versioning" becomes "With / Without template management" "With / Without database" becomes "With / Without template management" The term "Database" is replaced by "Template metadata" For new installations, the default filename stored on disk (or external storage) is metadata.db . Consider it as a special template file, stored like any other template in template storage.&lt;br/&gt;• Renamed databaseName ( CARBONE_DATABASE_NAME ) to templateMetadataFile ( CARBONE_TEMPLATE_METADATA_FILE_NAME ). Default value is "metadata.db".&lt;br/&gt;• databaseName ( CARBONE_DATABASE_NAME ) remains supported for backward compatibility and automatically enables templateManagement=true . If both old and new parameters are set, Carbone uses the new parameters in priority&lt;br/&gt;• âï¸ Add a single boolean configuration parameter, templateManagement (or CARBONE_TEMPLATE_MANAGEMENT ), to enable the template management. It replaces the old method, which required setting a filename in databaseName (or CARBONE_DATABASE_NAME ).&lt;br/&gt;• â¡ï¸ Adds the final missing features to fully support template management across a cluster of nodes or Docker containers, with high availability and no single point of failure Carbone now regularly flushes template metadata to /template as: .metadata.db.0 = current .metadata.db.1 = previous If template plugin hooks are implemented ( writeTemplate and readTemplate ), these files are also stored on external storage as: .metadata.db.0.backup = current .metadata.db.1.backup = previous Combined with the existing conflict-free synchronization ( peerPort and peerEndpoints ), this allows cluster nodes to start and stop dynamically while staying in sync without data loss… (read more: https://carbone.io/changelog.html#v5-4-0)</description>
+      <description>• ð We simplified the vocabulary across the documentation and logs to make Carbone easier to understand: "Stateful VS Stateless" becomes "With / Without template management" "Studio Web Component: embedded versioning vs embedded" becomes "Studio Web Component: With / Without template management" "With / Without versioning" becomes "With / Without template management" "With / Without database" becomes "With / Without template management" The term "Database" is replaced by "Template metadata" For new installations, the default filename stored on disk (or external storage) is metadata.db . Consider it as a special template file, stored like any other template in template storage.&lt;br/&gt;• Renamed databaseName ( CARBONE_DATABASE_NAME ) to templateMetadataFile ( CARBONE_TEMPLATE_METADATA_FILE ). Default value is "metadata.db".&lt;br/&gt;• databaseName ( CARBONE_DATABASE_NAME ) remains supported for backward compatibility and automatically enables templateManagement=true . If both old and new parameters are set, Carbone uses the new parameters in priority&lt;br/&gt;• âï¸ Add a single boolean configuration parameter, templateManagement (or CARBONE_TEMPLATE_MANAGEMENT ), to enable the template management. It replaces the old method, which required setting a filename in databaseName (or CARBONE_DATABASE_NAME ).&lt;br/&gt;• â¡ï¸ Adds the final missing features to fully support template management across a cluster of nodes or Docker containers, with high availability and no single point of failure Carbone now regularly flushes template metadata to /template as: .metadata.db.0 = current .metadata.db.1 = previous If template plugin hooks are implemented ( writeTemplate and readTemplate ), these files are also stored on external storage as: .metadata.db.0.backup = current .metadata.db.1.backup = previous Combined with the existing conflict-free synchronization ( peerPort and peerEndpoints ), this allows cluster nodes to start and stop dynamically while staying in sync without data loss… (read more: https://carbone.io/changelog.html#v5-4-0)</description>
     </item>
     <item>
       <title>v5.3.0</title>
@@ -210,20 +224,6 @@ Supported searchExpression forms: Index lookup : [INTEGER] Selects the element a
       <pubDate>Mon, 19 Jan 2026 00:00:00 +0000</pubDate>
       <guid isPermaLink="false">carbone-v4.26.2</guid>
       <description>• Accept invalid input silently (as in v4.26.0 ) to avoid regressions.</description>
-    </item>
-    <item>
-      <title>v5.1.3</title>
-      <link>https://carbone.io/changelog.html#v5-1-3</link>
-      <pubDate>Sat, 17 Jan 2026 00:00:00 +0000</pubDate>
-      <guid isPermaLink="false">carbone-v5.1.3</guid>
-      <description>• Update dependencies&lt;br/&gt;• â ï¸ Fix a critical security issue identified in a recent audit</description>
-    </item>
-    <item>
-      <title>v4.26.1</title>
-      <link>https://carbone.io/changelog.html#v4-26-1</link>
-      <pubDate>Sat, 17 Jan 2026 00:00:00 +0000</pubDate>
-      <guid isPermaLink="false">carbone-v4.26.1</guid>
-      <description>• Update dependencies&lt;br/&gt;• â ï¸ Fix a critical security issue identified in a recent audit</description>
     </item>
   </channel>
 </rss>
