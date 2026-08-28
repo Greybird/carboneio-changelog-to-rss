@@ -4,14 +4,21 @@
     <title>Carbone Changelog — All</title>
     <link>https://carbone.io/changelog.html</link>
     <description>All Carbone releases (stable, beta, alpha)</description>
-    <lastBuildDate>Thu, 27 Aug 2026 19:27:17 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 28 Aug 2026 20:43:45 +0000</lastBuildDate>
     <ttl>1440</ttl>
+    <item>
+      <title>v5.14.3</title>
+      <link>https://carbone.io/changelog.html#v5-14-3</link>
+      <pubDate>Tue, 25 Aug 2026 00:00:00 +0000</pubDate>
+      <guid isPermaLink="false">carbone-v5.14.3</guid>
+      <description>• Fix: a template error in a batch item (e.g. Missing showEnd or hideEnd ) no longer crashes the worker. The error is now returned to the callback instead.</description>
+    </item>
     <item>
       <title>v5.14.2</title>
       <link>https://carbone.io/changelog.html#v5-14-2</link>
       <pubDate>Tue, 25 Aug 2026 00:00:00 +0000</pubDate>
       <guid isPermaLink="false">carbone-v5.14.2</guid>
-      <description>• Fix: Version 0.14.0 introduced a regression due to a security headers update, which prevented downloading generated documents inside an iframe. This has been fixed.&lt;br/&gt;• Fix: HEAD /render/:renderId is now allowed without authentication, like GET /render/:renderId . A HEAD used to return 401 when authentication was on.</description>
+      <description>• Fix: Version v5.14.0 introduced a regression due to a security headers update, which prevented downloading generated documents inside an iframe. This has been fixed.&lt;br/&gt;• Fix: HEAD /render/:renderId is now allowed without authentication, like GET /render/:renderId . A HEAD used to return 401 when authentication was on.</description>
     </item>
     <item>
       <title>v5.14.1</title>
@@ -217,13 +224,6 @@ Supported searchExpression forms: Index lookup : [INTEGER] Selects the element a
       <pubDate>Mon, 19 Jan 2026 00:00:00 +0000</pubDate>
       <guid isPermaLink="false">carbone-v5.1.4</guid>
       <description>• [EE] HTML Formatter Tables Improvements New Feature: Automatic Table Styling from Template Themes. For DOCX only, injected tables can now automatically inherit styling from existing Table Themes defined in the template. This feature is not supported for ODT templates. The priority order for theme application is: Explicitly passed theme name via the tabletheme argument (e.g., {d.content:html(tabletheme:GridTable2-Accent3)} ). Default theme set for the entire document. Instructions to set a default theme for the entire document: Open your DOCX template &gt; Insert a table and navigate to the "Table Design" tab. &gt; Right-click a theme and select "Set as Default" &gt; "This Document Only". &gt; Delete the temporary table and save the template. &gt; This ensures all injected tables use the default theme unless overridden. Fallback theme: "TableGrid" (used if no other theme is specified). Fixed: DOCX templates now render tables at 100% of the document body width, preventing overflow. Fixed: ODT templates now render tables at 100% of the document body width consistently, resolving issues where complex tables were previously shrunk. Fixed: Column widths in DOCX and ODT templates are now consistent and evenly distributed. Improved: &lt;th&gt; elements in DOCX and ODT templates now render as bold text, aligning with the HTML standard. Note: To enable HTML table rendering, use the pre-release tag: {o.preReleaseFeatureIn=5000009} .&lt;br/&gt;• Accept Watermark with number value instead of string&lt;br/&gt;• Disable tagged PDFs when the Chrome converter is used, to generate smaller and faster PDFs by default.&lt;br/&gt;• Add the boolean option generate-tagged-pdf when converting from HTML to PDF using the Chrome converter ( converter: 'C' ). The default is false . &lt; carbone-pdf-options generate-tagged-pdf = "true" /&gt;</description>
-    </item>
-    <item>
-      <title>v4.26.2</title>
-      <link>https://carbone.io/changelog.html#v4-26-2</link>
-      <pubDate>Mon, 19 Jan 2026 00:00:00 +0000</pubDate>
-      <guid isPermaLink="false">carbone-v4.26.2</guid>
-      <description>• Accept invalid input silently (as in v4.26.0 ) to avoid regressions.</description>
     </item>
   </channel>
 </rss>
