@@ -4,8 +4,15 @@
     <title>Carbone Changelog — v3</title>
     <link>https://carbone.io/changelog.html</link>
     <description>Carbone v3.x releases</description>
-    <lastBuildDate>Fri, 11 Sep 2026 13:19:16 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 12 Sep 2026 12:39:39 +0000</lastBuildDate>
     <ttl>1440</ttl>
+    <item>
+      <title>v3.9.0</title>
+      <link>https://carbone.io/changelog.html#v3-9-0</link>
+      <pubDate>Mon, 07 Sep 2026 00:00:00 +0000</pubDate>
+      <guid isPermaLink="false">carbone-v3.9.0</guid>
+      <description>• Upgrade to the latest Node 22&lt;br/&gt;• â ï¸ Important Security Update: Following an in-depth internal penetration test, we strongly recommend updating to this version to address two critical security fixes and other improvements that increase Carbone's overall security. Contact us if you want more details about the two critical security issues.&lt;br/&gt;• Critical: The LibreOffice converter is now significantly more secure.&lt;br/&gt;• Critical: For historical reasons, Carbone allowed changing the template file extension (file type) via the API without strict validation. This is now restricted: only recognized formats (like docx , xlsx , xhtml , etc.) are accepted.&lt;br/&gt;• Documents generated in HTML, XHTML, SVG, or XML are now served with the Content-Security-Policy: sandbox HTTP header. This causes browsers to give these files an isolated origin and blocks all scripts, protecting against code injection.&lt;br/&gt;• The X-Content-Type-Options: nosniff header is now reliably set on every response. Browsers are required to respect the Content-Type Carbone provides, reducing the risk of content-type based attacks.&lt;br/&gt;• To prevent Denial of Service attacks, the following formatter arguments are now limited:&lt;br/&gt;• formatN and formatC decimal places: maximum 40&lt;br/&gt;• padl and padr target length: maximum 10,000 characters&lt;br/&gt;• Barcode width and height : maximum 1,000 millimeters each, and a combined area (with scale) of 25 million pixels&lt;br/&gt;• Barcode textsize : maximum 100 points&lt;br/&gt;• If these limits are exceeded, the value is rejected outright rather than silently reduced.&lt;br/&gt;• Hyperlinks provided in your dataset are now validated before being included in the generated document. This prevents malicious URLs from affecting the document's structure. Carbone encodes URLs before inserting themâif the URL already included a percent-escape (like %20 ), this is now handled reliably and safely. Additionally, malformed percent sequences (like a single % ) are now safely encoded and will… (read more: https://carbone.io/changelog.html#v3-9-0)</description>
+    </item>
     <item>
       <title>v3.8.2</title>
       <link>https://carbone.io/changelog.html#v3-8-2</link>
@@ -216,13 +223,6 @@ Now, the LibreOffice is correctly killed. No zombie processes remaining. Avoid l
       <pubDate>Thu, 09 Sep 2021 00:00:00 +0000</pubDate>
       <guid isPermaLink="false">carbone-v3.3.1</guid>
       <description>• [EE] New Carbone On-premise: Pass the option "maxDataSize" to change the maximum JSON data size when rendering a report. The value must be bytes . The default value is 60MB.</description>
-    </item>
-    <item>
-      <title>v3.3.0</title>
-      <link>https://carbone.io/changelog.html#v3-3-0</link>
-      <pubDate>Mon, 30 Aug 2021 00:00:00 +0000</pubDate>
-      <guid isPermaLink="false">carbone-v3.3.0</guid>
-      <description>• [EE] HTML Formatter: Fix: The HTML content is rendered without adding an empty line above it. Fix: The HTML content and static content are rendered in the expected order. New: If static content and Carbone tags are mixed with an HTML formatter in the same paragraph, the html is isolated into a new paragraph and each element is separated above or below. For example, the following template on a text editor &lt;paragraph&gt;A rocket is made of {d.data:html} {d.details}, this is cool!&lt;/paragraph&gt; will be transform into 3 paragraphs on the generated report &lt;paragraph&gt;A rocket is made of &lt;/paragraph&gt;&lt;paragraph&gt;{d.data:html}&lt;/paragraph&gt;&lt;paragraph&gt; {d.details}, this is cool!&lt;/paragraph&gt; . Improved HTML rendering stability when it is mixed with lists, tables, and images.&lt;br/&gt;• [EE] Dynamic Checkbox are supported only for ODT file. A tag should be inserted into the checkbox property "name" and it is used to set the value of the checkbox on the generated report. The checkbox is ticked (checked) when the value is a Boolean with the value "true", a non empty string, a non empty array or a non empty object. If the exported file type is a PDF, the checkbox can be edited on the generated document. An ODT document created from MS Word that include checkboxes does not work. It is also not possible to create a list of checkboxes with the expressions [i] / [i+1] .&lt;br/&gt;• Accept null for the attribute complement in options</description>
     </item>
   </channel>
 </rss>

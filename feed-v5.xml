@@ -4,8 +4,22 @@
     <title>Carbone Changelog — v5</title>
     <link>https://carbone.io/changelog.html</link>
     <description>Carbone v5.x releases</description>
-    <lastBuildDate>Fri, 11 Sep 2026 13:19:16 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 12 Sep 2026 12:39:39 +0000</lastBuildDate>
     <ttl>1440</ttl>
+    <item>
+      <title>v5.14.5</title>
+      <link>https://carbone.io/changelog.html#v5-14-5</link>
+      <pubDate>Fri, 11 Sep 2026 00:00:00 +0000</pubDate>
+      <guid isPermaLink="false">carbone-v5.14.5</guid>
+      <description>• Fixed conversions failing in a cluster when the job balancer is enabled, for HTML templates with Chrome converter</description>
+    </item>
+    <item>
+      <title>v5.14.4</title>
+      <link>https://carbone.io/changelog.html#v5-14-4</link>
+      <pubDate>Tue, 08 Sep 2026 00:00:00 +0000</pubDate>
+      <guid isPermaLink="false">carbone-v5.14.4</guid>
+      <description>• â ï¸ Important Security Update: Following an in-depth internal penetration test, we strongly recommend updating to this version to address two critical security fixes and numerous other improvements that significantly increase Carbone's overall security. Contact us if you want more details about the two critical security issues. The release note remains intentionally vague for security reasons, and the Open Source version will be updated in a few weeks. Critical: The LibreOffice converter is now significantly more secure. Critical: For historical reasons, Carbone allowed changing the template file extension (file type) via the API without strict validation. This is now restricted: only recognized formats (like docx , xlsx , xhtml , etc.) are accepted. LibreOffice converter: watermarking, file attachments ( :appendFile , :attachFile , :appendTemplate ), and signing ( :sign ) now work together even when generating password-protected PDFs. Previously, as soon as a PDF was protected with a password, the other features would stop working. Carbone ICE (Instant Converter Engine) now supports PDF encryption and watermarks, with the same options as Chrome, OnlyOffice, and LibreOffice. Documents generated in HTML, XHTML, SVG, or XML are now served with the Content-Security-Policy: sandbox HTTP header. This causes browsers to give these files an isolated origin and blocks all scripts, protecting against code injection. The X-Content-Type-Options: nosniff header is now reliably set on every response. Browsers are required to respect the Content-Type Carbone provides, reducing the risk of content-type based attacks. Added securityLevel options to remove local references in generated documents for these formats: docx , xlsx , xlsm , pptx , odt , ods , odp , odg , fodt , fods , fodp , html , xhtml , md , svg , xml , txt , css , rtf , mht , mhtml , vml . SECURITY_API_REMOVE_LOCAL_HYPERLINK (256): Removes hyperlinks and references to private networks (local IPs, localhost,… (read more: https://carbone.io/changelog.html#v5-14-4)</description>
+    </item>
     <item>
       <title>v5.14.3</title>
       <link>https://carbone.io/changelog.html#v5-14-3</link>
@@ -210,20 +224,6 @@ Supported searchExpression forms: Index lookup : [INTEGER] Selects the element a
       <pubDate>Mon, 19 Jan 2026 00:00:00 +0000</pubDate>
       <guid isPermaLink="false">carbone-v5.1.4</guid>
       <description>• [EE] HTML Formatter Tables Improvements New Feature: Automatic Table Styling from Template Themes. For DOCX only, injected tables can now automatically inherit styling from existing Table Themes defined in the template. This feature is not supported for ODT templates. The priority order for theme application is: Explicitly passed theme name via the tabletheme argument (e.g., {d.content:html(tabletheme:GridTable2-Accent3)} ). Default theme set for the entire document. Instructions to set a default theme for the entire document: Open your DOCX template &gt; Insert a table and navigate to the "Table Design" tab. &gt; Right-click a theme and select "Set as Default" &gt; "This Document Only". &gt; Delete the temporary table and save the template. &gt; This ensures all injected tables use the default theme unless overridden. Fallback theme: "TableGrid" (used if no other theme is specified). Fixed: DOCX templates now render tables at 100% of the document body width, preventing overflow. Fixed: ODT templates now render tables at 100% of the document body width consistently, resolving issues where complex tables were previously shrunk. Fixed: Column widths in DOCX and ODT templates are now consistent and evenly distributed. Improved: &lt;th&gt; elements in DOCX and ODT templates now render as bold text, aligning with the HTML standard. Note: To enable HTML table rendering, use the pre-release tag: {o.preReleaseFeatureIn=5000009} .&lt;br/&gt;• Accept Watermark with number value instead of string&lt;br/&gt;• Disable tagged PDFs when the Chrome converter is used, to generate smaller and faster PDFs by default.&lt;br/&gt;• Add the boolean option generate-tagged-pdf when converting from HTML to PDF using the Chrome converter ( converter: 'C' ). The default is false . &lt; carbone-pdf-options generate-tagged-pdf = "true" /&gt;</description>
-    </item>
-    <item>
-      <title>v5.1.3</title>
-      <link>https://carbone.io/changelog.html#v5-1-3</link>
-      <pubDate>Sat, 17 Jan 2026 00:00:00 +0000</pubDate>
-      <guid isPermaLink="false">carbone-v5.1.3</guid>
-      <description>• Update dependencies&lt;br/&gt;• â ï¸ Fix a critical security issue identified in a recent audit</description>
-    </item>
-    <item>
-      <title>v5.1.2</title>
-      <link>https://carbone.io/changelog.html#v5-1-2</link>
-      <pubDate>Wed, 14 Jan 2026 00:00:00 +0000</pubDate>
-      <guid isPermaLink="false">carbone-v5.1.2</guid>
-      <description>• In SVG templates, automatically replace ligatures to prevent Carbone tags from breaking. This addresses an issue where Affinity Designer and Adobe Illustrator tend to insert ligatures inside Carbone tags by default.&lt;br/&gt;• Fix the download issue when calling GET /template/templateOrVersionId_sample.json (the second call always returned the template instead of the JSON sample).</description>
     </item>
   </channel>
 </rss>
