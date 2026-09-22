@@ -4,8 +4,15 @@
     <title>Carbone Changelog — All</title>
     <link>https://carbone.io/changelog.html</link>
     <description>All Carbone releases (stable, beta, alpha)</description>
-    <lastBuildDate>Mon, 21 Sep 2026 15:42:10 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 22 Sep 2026 13:55:24 +0000</lastBuildDate>
     <ttl>1440</ttl>
+    <item>
+      <title>v5.15.0</title>
+      <link>https://carbone.io/changelog.html#v5-15-0</link>
+      <pubDate>Tue, 22 Sep 2026 00:00:00 +0000</pubDate>
+      <guid isPermaLink="false">carbone-v5.15.0</guid>
+      <description>• Added the failOn option of POST /render : with "failOn": ["IMAGE_URL_ERROR"] , the report generation stops and returns an error if an image cannot be downloaded from its URL, instead of replacing it with the "broken image" placeholder. As with :appendFile and :appendTemplate , an empty or undefined image value is not an error, and the report is generated as usual. Only images coming from a URL are concerned: base64 images, barcodes and charts keep their current behavior. The option must be an array of strings, and an unknown value is rejected with an explicit error instead of being ignored.&lt;br/&gt;• â¡ï¸ Improved Carbone ICE (Instant Converter Engine) , even faster than the first version in 5.14.0, still requires no LibreOffice or any other program on the machine. Use it the same way: "converter": "I" in the options of POST /render , or "Carbone ICE" in the document converter panel of the Studio preview, or with {o.converter=I} in the template. Improved DOCX to PDF conversion : Table of contents: entries and their page numbers are automatically updated. Footnotes: now show their separator and notes Fixes more than 100 bugs: Rows taller than a page, page break before, section-specific page numbering, vertical text, shape groups, text in shapes and columns, floating tables, cell and header row heights, cell clipping, table borders, whitespace around text, and the positioning of shapes and images, complex sections, etc... Supports ODT to PDF conversion [Beta] From 3x to 300x faster than the LibreOffice converter, with speed improvements scaling with document size (the larger the document, the greater the speed gain). Supports ODT templates with different page formats and sections (paper size, margins, headers/footers, mixed portrait/landscape, text columns), paragraph and character styles, right-to-left languages, lists and outline numbering, tables (borders, shading, merges, floating tables, rows kept together), images, shapes with text inside them, connectors,… (read more: https://carbone.io/changelog.html#v5-15-0)</description>
+    </item>
     <item>
       <title>v5.14.5</title>
       <link>https://carbone.io/changelog.html#v5-14-5</link>
@@ -215,13 +222,6 @@ Therefore, this version disables the fix by default. It can be enabled only by a
       <pubDate>Wed, 18 Mar 2026 00:00:00 +0000</pubDate>
       <guid isPermaLink="false">carbone-v5.4.1</guid>
       <description>• [On-Premise] Fix the template metadata cron when no other peers are used.</description>
-    </item>
-    <item>
-      <title>v5.4.0</title>
-      <link>https://carbone.io/changelog.html#v5-4-0</link>
-      <pubDate>Tue, 17 Mar 2026 00:00:00 +0000</pubDate>
-      <guid isPermaLink="false">carbone-v5.4.0</guid>
-      <description>• ð We simplified the vocabulary across the documentation and logs to make Carbone easier to understand: "Stateful VS Stateless" becomes "With / Without template management" "Studio Web Component: embedded versioning vs embedded" becomes "Studio Web Component: With / Without template management" "With / Without versioning" becomes "With / Without template management" "With / Without database" becomes "With / Without template management" The term "Database" is replaced by "Template metadata" For new installations, the default filename stored on disk (or external storage) is metadata.db . Consider it as a special template file, stored like any other template in template storage.&lt;br/&gt;• Renamed databaseName ( CARBONE_DATABASE_NAME ) to templateMetadataFile ( CARBONE_TEMPLATE_METADATA_FILE ). Default value is "metadata.db".&lt;br/&gt;• databaseName ( CARBONE_DATABASE_NAME ) remains supported for backward compatibility and automatically enables templateManagement=true . If both old and new parameters are set, Carbone uses the new parameters in priority&lt;br/&gt;• âï¸ Add a single boolean configuration parameter, templateManagement (or CARBONE_TEMPLATE_MANAGEMENT ), to enable the template management. It replaces the old method, which required setting a filename in databaseName (or CARBONE_DATABASE_NAME ).&lt;br/&gt;• â¡ï¸ Adds the final missing features to fully support template management across a cluster of nodes or Docker containers, with high availability and no single point of failure Carbone now regularly flushes template metadata to /template as: .metadata.db.0 = current .metadata.db.1 = previous If template plugin hooks are implemented ( writeTemplate and readTemplate ), these files are also stored on external storage as: .metadata.db.0.backup = current .metadata.db.1.backup = previous Combined with the existing conflict-free synchronization ( peerPort and peerEndpoints ), this allows cluster nodes to start and stop dynamically while staying in sync without data loss… (read more: https://carbone.io/changelog.html#v5-4-0)</description>
     </item>
   </channel>
 </rss>
