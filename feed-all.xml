@@ -4,8 +4,15 @@
     <title>Carbone Changelog — All</title>
     <link>https://carbone.io/changelog.html</link>
     <description>All Carbone releases (stable, beta, alpha)</description>
-    <lastBuildDate>Mon, 05 Oct 2026 17:59:42 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 06 Oct 2026 15:43:14 +0000</lastBuildDate>
     <ttl>1440</ttl>
+    <item>
+      <title>v5.15.4</title>
+      <link>https://carbone.io/changelog.html#v5-15-4</link>
+      <pubDate>Tue, 06 Oct 2026 00:00:00 +0000</pubDate>
+      <guid isPermaLink="false">carbone-v5.15.4</guid>
+      <description>• Fix: DOCX templates using :html(inline) in a paragraph with borders or tab stops no longer fail with the error Cannot read properties of undefined (reading 'type') .</description>
+    </item>
     <item>
       <title>v5.15.3</title>
       <link>https://carbone.io/changelog.html#v5-15-3</link>
@@ -214,13 +221,6 @@ It can be used with imageFit(contain) or imageFit(fillWidth) , but not with imag
       <pubDate>Tue, 07 Apr 2026 00:00:00 +0000</pubDate>
       <guid isPermaLink="false">carbone-v4.26.3</guid>
       <description>• [EE] Update to Node 20.20.2&lt;br/&gt;• Add limits maxTemplateUncompressedSize (200 MB by default) for unzipped templates to improve resistance to zip bomb denial-of-service attacks (CVE-2026-18929)</description>
-    </item>
-    <item>
-      <title>v3.8.2</title>
-      <link>https://carbone.io/changelog.html#v3-8-2</link>
-      <pubDate>Fri, 03 Apr 2026 00:00:00 +0000</pubDate>
-      <guid isPermaLink="false">carbone-v3.8.2</guid>
-      <description>• [EE] Update to Node 20.20.2&lt;br/&gt;• Add limits maxTemplateUncompressedSize (200 MB by default) for unzipped templates to improve resistance to zip bomb denial-of-service attacks (CVE-2026-18929)&lt;br/&gt;• Node.js library only: Fix a critical security issue identified in a recent audit. This issue had already been fixed in all other versions. Align published version on npm with this version</description>
     </item>
   </channel>
 </rss>

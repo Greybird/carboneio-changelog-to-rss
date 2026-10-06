@@ -4,8 +4,15 @@
     <title>Carbone Changelog — v5 Stable</title>
     <link>https://carbone.io/changelog.html</link>
     <description>Stable Carbone v5.x releases only</description>
-    <lastBuildDate>Mon, 05 Oct 2026 17:59:42 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 06 Oct 2026 15:43:14 +0000</lastBuildDate>
     <ttl>1440</ttl>
+    <item>
+      <title>v5.15.4</title>
+      <link>https://carbone.io/changelog.html#v5-15-4</link>
+      <pubDate>Tue, 06 Oct 2026 00:00:00 +0000</pubDate>
+      <guid isPermaLink="false">carbone-v5.15.4</guid>
+      <description>• Fix: DOCX templates using :html(inline) in a paragraph with borders or tab stops no longer fail with the error Cannot read properties of undefined (reading 'type') .</description>
+    </item>
     <item>
       <title>v5.15.3</title>
       <link>https://carbone.io/changelog.html#v5-15-3</link>
@@ -215,14 +222,6 @@ Therefore, this version disables the fix by default. It can be enabled only by a
       <pubDate>Tue, 17 Mar 2026 00:00:00 +0000</pubDate>
       <guid isPermaLink="false">carbone-v5.4.0</guid>
       <description>• ð We simplified the vocabulary across the documentation and logs to make Carbone easier to understand: "Stateful VS Stateless" becomes "With / Without template management" "Studio Web Component: embedded versioning vs embedded" becomes "Studio Web Component: With / Without template management" "With / Without versioning" becomes "With / Without template management" "With / Without database" becomes "With / Without template management" The term "Database" is replaced by "Template metadata" For new installations, the default filename stored on disk (or external storage) is metadata.db . Consider it as a special template file, stored like any other template in template storage.&lt;br/&gt;• Renamed databaseName ( CARBONE_DATABASE_NAME ) to templateMetadataFile ( CARBONE_TEMPLATE_METADATA_FILE ). Default value is "metadata.db".&lt;br/&gt;• databaseName ( CARBONE_DATABASE_NAME ) remains supported for backward compatibility and automatically enables templateManagement=true . If both old and new parameters are set, Carbone uses the new parameters in priority&lt;br/&gt;• âï¸ Add a single boolean configuration parameter, templateManagement (or CARBONE_TEMPLATE_MANAGEMENT ), to enable the template management. It replaces the old method, which required setting a filename in databaseName (or CARBONE_DATABASE_NAME ).&lt;br/&gt;• â¡ï¸ Adds the final missing features to fully support template management across a cluster of nodes or Docker containers, with high availability and no single point of failure Carbone now regularly flushes template metadata to /template as: .metadata.db.0 = current .metadata.db.1 = previous If template plugin hooks are implemented ( writeTemplate and readTemplate ), these files are also stored on external storage as: .metadata.db.0.backup = current .metadata.db.1.backup = previous Combined with the existing conflict-free synchronization ( peerPort and peerEndpoints ), this allows cluster nodes to start and stop dynamically while staying in sync without data loss… (read more: https://carbone.io/changelog.html#v5-4-0)</description>
-    </item>
-    <item>
-      <title>v5.3.0</title>
-      <link>https://carbone.io/changelog.html#v5-3-0</link>
-      <pubDate>Mon, 23 Feb 2026 00:00:00 +0000</pubDate>
-      <guid isPermaLink="false">carbone-v5.3.0</guid>
-      <description>• Remove unsupported/outdated conversion format: mediawiki (mediawiki), StarWriter (sdw3, sdw4, vor, vor3, vor4, vor5), AportisDoc (pdb), StarCalc (sdc, sdc3, sdc4), StarDraw (sxd3, sxd5), X PixMap (xpm), StarImpress (sda, sdd, sdd3, sdd4)&lt;br/&gt;• [On-Premise only] Added new import/export formats supported by the latest LibreOffice version: Document: Markdown ( md ), SVG ( svg ), WEBP ( webp ), Apple Pages ( pages ) Spreadsheet: Apple Numbers ( numbers ), Parquet ( parquet ), JSON ( json ) Graphics: WEBP ( webp ), MS Publisher ( pub ), Corel Draw ( cdr ) HTML: JPEG ( jpeg ), JPG ( jpg ), WEBP ( webp ), PNG ( png ) Presentation: WEBP ( webp )&lt;br/&gt;• Make Carbone compatible with LibreOffice v26.2, without losing compatibility with older versions.&lt;br/&gt;• On macOS only, look for an external Python binary in /Applications/libreoffice-python/Resources/python and $HOME/libreoffice-python/Resources/python , because LibreOffice 25.2.4.2+ no longer allows running the embedded Python.&lt;br/&gt;• [EE] Fixed: The :html formatter renders Heading Elements ( &lt;h1&gt; ) with the default "Heading 1" through "Heading 6" styles in DOCX when no custom theme is specified. Previously, in some cases, headings were rendered with the Normal style.&lt;br/&gt;• [EE] Watermarks improvements: Multiple watermarks can be defined (5 max), each with options for color, position, rotation, size, font, etc. Supports {#PAGE_NUMBER} and {#PAGE_TOTAL} variables for dynamic page numbering in watermarks. Automatic alignment based on the chosen anchor. Both the old Watermark (defaults: centered, 45Â°) and the new Watermarks fields can be used simultaneously. Up to 4 watermarks can be set at the same time. Example usage: { "convertTo" : { "formatName" : "pdf" , "formatOptions" : { // Legacy (backwards compatible): single centered watermark (string) "Watermark" : "Watermark Carbone.io" , // New: array of watermark objects "Watermarks" : [
-        { "text" : "Confidential Page {#PAGE_NUMBER} / {#PAGE_TOTAL}" , "anchor" :… (read more: https://carbone.io/changelog.html#v5-3-0)</description>
     </item>
   </channel>
 </rss>
