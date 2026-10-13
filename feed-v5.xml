@@ -4,8 +4,15 @@
     <title>Carbone Changelog — v5</title>
     <link>https://carbone.io/changelog.html</link>
     <description>Carbone v5.x releases</description>
-    <lastBuildDate>Mon, 12 Oct 2026 18:40:14 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 13 Oct 2026 16:45:02 +0000</lastBuildDate>
     <ttl>1440</ttl>
+    <item>
+      <title>v5.15.5</title>
+      <link>https://carbone.io/changelog.html#v5-15-5</link>
+      <pubDate>Tue, 13 Oct 2026 00:00:00 +0000</pubDate>
+      <guid isPermaLink="false">carbone-v5.15.5</guid>
+      <description>• Fix: Carbone no longer crashes with the error ERR_STREAM_UNABLE_TO_PIPE when an HTTP client closes the connection before receiving its file ( POST /render/:templateId?download=true , GET /render/:renderId and GET /template/:templateId ).</description>
+    </item>
     <item>
       <title>v5.15.4</title>
       <link>https://carbone.io/changelog.html#v5-15-4</link>
@@ -215,13 +222,6 @@ Therefore, this version disables the fix by default. It can be enabled only by a
       <pubDate>Wed, 25 Mar 2026 00:00:00 +0000</pubDate>
       <guid isPermaLink="false">carbone-v5.4.2</guid>
       <description>• Fix: Support direct object access and iteration over the object at the same time: &lt;xml&gt; {d.myObj.id} &lt;b/&gt; {d.myObj[i].att} &lt;b/&gt; {d.myObj[i+1].att} &lt;/xml&gt;&lt;br/&gt;• Fix: Incorrect output when direct object access is used after iterating over the object at the same time&lt;br/&gt;• Fix: Support :aggSum when the root d is an array with nested loops: {d[].sub[].val:aggSum}&lt;br/&gt;• Fix: Scheduled metadata flush cron now works even when peerEndpoints is defined but no peers are available</description>
-    </item>
-    <item>
-      <title>v5.4.1</title>
-      <link>https://carbone.io/changelog.html#v5-4-1</link>
-      <pubDate>Wed, 18 Mar 2026 00:00:00 +0000</pubDate>
-      <guid isPermaLink="false">carbone-v5.4.1</guid>
-      <description>• [On-Premise] Fix the template metadata cron when no other peers are used.</description>
     </item>
   </channel>
 </rss>
