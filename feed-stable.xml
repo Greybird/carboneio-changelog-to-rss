@@ -4,8 +4,15 @@
     <title>Carbone Changelog — Stable</title>
     <link>https://carbone.io/changelog.html</link>
     <description>Stable Carbone releases only</description>
-    <lastBuildDate>Tue, 20 Oct 2026 14:08:24 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 21 Oct 2026 14:21:53 +0000</lastBuildDate>
     <ttl>1440</ttl>
+    <item>
+      <title>v5.16.0</title>
+      <link>https://carbone.io/changelog.html#v5-16-0</link>
+      <pubDate>Mon, 19 Oct 2026 00:00:00 +0000</pubDate>
+      <guid isPermaLink="false">carbone-v5.16.0</guid>
+      <description>• â ï¸ [On-Premise] Security: the default securityLevel is now set to 1084 instead of 0 . It activates: 4 : disable the useless features of LibreOffice (crash reports, automatic font/extension installation...) 8 : disable the execution of scripts and macros in LibreOffice 16 : LibreOffice does not use external links (images...) of documents 32 : LibreOffice refuses exotic file formats 1024 : block outgoing traffic (images, :attachFile , :appendFile , Chrome resources, webhooks...) to a local network ( 127.x , 10.x , 172.16-31.x , 192.168.x , 169.254.x , localhost , ...). When the request leaves directly, the IP addresses returned by the DNS are checked too (DNS rebinding). A hostname refused because it resolves to a local address returns the same error as a hostname which does not exist ( ENOTFOUND ), so internal DNS names cannot be discovered. Start Carbone with DEBUG=carbone:egress to print the real reason. To restore the previous behavior, use --securityLevel 0 , CARBONE_SECURITY_LEVEL=0 or "securityLevel": 0 in config.json .&lt;br/&gt;• â¡ï¸ Improved Carbone ICE (Instant Converter Engine) . PDFs are closer to Word and LibreOffice. Word (DOCX): A document with tracked changes shows the current version: old formatting is ignored, moved text is written once, and deleted text no longer leaves tabs, line breaks or pictures. Tables exported from Google Docs stay on the page. Page numbers written by Google Docs are displayed, with the font of the text around them. A footer that showed "Page sur 2" now shows "Page 1 sur 2". A document without default styles is laid out like Word: Aptos 12, the usual space under each paragraph, and table cells without inner margin. A picture raised or lowered beside the text sits at the height of its line. A heading kept with the next paragraph stays on the page when only a little space is missing at the bottom. Numbered headings and the entries of a table of contents (title and page number) follow Word. LibreOffice (ODT): Icons, badges… (read more: https://carbone.io/changelog.html#v5-16-0)</description>
+    </item>
     <item>
       <title>v5.15.5</title>
       <link>https://carbone.io/changelog.html#v5-15-5</link>
@@ -214,13 +221,6 @@ It can be used with imageFit(contain) or imageFit(fillWidth) , but not with imag
       <pubDate>Wed, 08 Apr 2026 00:00:00 +0000</pubDate>
       <guid isPermaLink="false">carbone-v5.4.4</guid>
       <description>• Add the new optional tag {o.hardRefresh=true} to force a template to be processed by a converter (LibreOffice, etc.) even when the output file type is the same as the input file type. For example, it can be used to update XLSX formulas after Carbone injects the data.&lt;br/&gt;• Add limits maxTemplateUncompressedSize (200 MB by default) for unzipped templates to improve resistance to zip bomb denial-of-service attacks (CVE-2026-18929)&lt;br/&gt;• [EE] Update to Node 22.22.2</description>
-    </item>
-    <item>
-      <title>v4.26.3</title>
-      <link>https://carbone.io/changelog.html#v4-26-3</link>
-      <pubDate>Tue, 07 Apr 2026 00:00:00 +0000</pubDate>
-      <guid isPermaLink="false">carbone-v4.26.3</guid>
-      <description>• [EE] Update to Node 20.20.2&lt;br/&gt;• Add limits maxTemplateUncompressedSize (200 MB by default) for unzipped templates to improve resistance to zip bomb denial-of-service attacks (CVE-2026-18929)</description>
     </item>
   </channel>
 </rss>
