@@ -4,8 +4,15 @@
     <title>Carbone Changelog — v5 Stable</title>
     <link>https://carbone.io/changelog.html</link>
     <description>Stable Carbone v5.x releases only</description>
-    <lastBuildDate>Wed, 21 Oct 2026 14:21:53 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 22 Oct 2026 14:22:39 +0000</lastBuildDate>
     <ttl>1440</ttl>
+    <item>
+      <title>v5.16.1</title>
+      <link>https://carbone.io/changelog.html#v5-16-1</link>
+      <pubDate>Thu, 22 Oct 2026 00:00:00 +0000</pubDate>
+      <guid isPermaLink="false">carbone-v5.16.1</guid>
+      <description>• [EE] Fix: when the job balancer is enabled ( CARBONE_JOB_BALANCER=true ), the result of a job executed by another peer could be lost if the connection between the two peers was cut for a few seconds. The report generation then waited until its timeout and failed. It happened mostly with large reports (hundreds of :appendTemplate for example), which keep a peer busy for several seconds. A connection between peers is now closed after 3 heartbeats without answer ( 3 Ã peerCheckInterval , 30 to 40 seconds by default) instead of 1 (10 to 20 seconds). A busy peer is no longer disconnected. A peer which is really down is detected after 30 to 40 seconds instead of 10 to 20 seconds. If the peer which sent the job is disconnected when the result is ready, the result is sent again every peerCheckInterval / 2 (5 seconds by default) until this peer reconnects, during the timeout of the job (5 minutes at most). New log lines: PEER RESPONSE job=... to=... postponed: peer disconnected when the first attempt fails, and PEER RESPONSE job=... to=... lost: the peer did not reconnect in time when the peer did not come back.</description>
+    </item>
     <item>
       <title>v5.16.0</title>
       <link>https://carbone.io/changelog.html#v5-16-0</link>
@@ -215,13 +222,6 @@ It can be used with imageFit(contain) or imageFit(fillWidth) , but not with imag
       <guid isPermaLink="false">carbone-v5.4.3</guid>
       <description>• Add new options that can be used in a template to force some parameters {o.timezone = Europe/Paris} : force the timezone {o.converter = L} : force the converter ( L : LibreOffice, O : OnlyOffice, C : Chrome) {o.lang = en-US} : force the language. Accepts uppercase or lowercase {o.exportFormattedValuesAsText = true} : force formatN to generate numbers as localized text instead of converting them to the XLSX number format. Available only for XLSX templates.&lt;br/&gt;• Fix: after analysis, we noticed that the fix for object iteration introduced in v5.4.2 could break some poorly designed reports.
 Therefore, this version disables the fix by default. It can be enabled only by adding the pre-release tag {o.preReleaseFeatureIn=5004002} to the template.&lt;br/&gt;• [Studio] Fix: avoid relying on the machine time to set the deployment timestamp&lt;br/&gt;• [API]: POST and PATCH /template now return the deployedAt value saved by the backend. This is useful when the submitted object contains the constant value 42000000000 to set the deployment time to now.&lt;br/&gt;• [Studio] Fix: Studio now automatically deploys a version if all versions of a template have deployedAt = 0 (no deployed template). This can happen if the template was created through the API without setting the deployedAt timestamp.&lt;br/&gt;• [Studio] Fix: remove an unnecessary preview refresh when downloading a file too early, before the file is fully downloaded&lt;br/&gt;• Enable the :appendTemplate formatter for Carbone Cloud</description>
-    </item>
-    <item>
-      <title>v5.4.2</title>
-      <link>https://carbone.io/changelog.html#v5-4-2</link>
-      <pubDate>Wed, 25 Mar 2026 00:00:00 +0000</pubDate>
-      <guid isPermaLink="false">carbone-v5.4.2</guid>
-      <description>• Fix: Support direct object access and iteration over the object at the same time: &lt;xml&gt; {d.myObj.id} &lt;b/&gt; {d.myObj[i].att} &lt;b/&gt; {d.myObj[i+1].att} &lt;/xml&gt;&lt;br/&gt;• Fix: Incorrect output when direct object access is used after iterating over the object at the same time&lt;br/&gt;• Fix: Support :aggSum when the root d is an array with nested loops: {d[].sub[].val:aggSum}&lt;br/&gt;• Fix: Scheduled metadata flush cron now works even when peerEndpoints is defined but no peers are available</description>
     </item>
   </channel>
 </rss>

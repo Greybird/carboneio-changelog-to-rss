@@ -4,8 +4,15 @@
     <title>Carbone Changelog — Stable</title>
     <link>https://carbone.io/changelog.html</link>
     <description>Stable Carbone releases only</description>
-    <lastBuildDate>Wed, 21 Oct 2026 14:21:53 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 22 Oct 2026 14:22:39 +0000</lastBuildDate>
     <ttl>1440</ttl>
+    <item>
+      <title>v5.16.1</title>
+      <link>https://carbone.io/changelog.html#v5-16-1</link>
+      <pubDate>Thu, 22 Oct 2026 00:00:00 +0000</pubDate>
+      <guid isPermaLink="false">carbone-v5.16.1</guid>
+      <description>• [EE] Fix: when the job balancer is enabled ( CARBONE_JOB_BALANCER=true ), the result of a job executed by another peer could be lost if the connection between the two peers was cut for a few seconds. The report generation then waited until its timeout and failed. It happened mostly with large reports (hundreds of :appendTemplate for example), which keep a peer busy for several seconds. A connection between peers is now closed after 3 heartbeats without answer ( 3 Ã peerCheckInterval , 30 to 40 seconds by default) instead of 1 (10 to 20 seconds). A busy peer is no longer disconnected. A peer which is really down is detected after 30 to 40 seconds instead of 10 to 20 seconds. If the peer which sent the job is disconnected when the result is ready, the result is sent again every peerCheckInterval / 2 (5 seconds by default) until this peer reconnects, during the timeout of the job (5 minutes at most). New log lines: PEER RESPONSE job=... to=... postponed: peer disconnected when the first attempt fails, and PEER RESPONSE job=... to=... lost: the peer did not reconnect in time when the peer did not come back.</description>
+    </item>
     <item>
       <title>v5.16.0</title>
       <link>https://carbone.io/changelog.html#v5-16-0</link>
@@ -214,13 +221,6 @@ It can be used with imageFit(contain) or imageFit(fillWidth) , but not with imag
       <pubDate>Mon, 13 Apr 2026 00:00:00 +0000</pubDate>
       <guid isPermaLink="false">carbone-v5.4.5</guid>
       <description>• [On-Premise] Fixed Markdown file type detection to enable MD to PDF, MD to DOCX, MD to ODT, ...&lt;br/&gt;• [On-Premise] Added Markdown support in the Studio&lt;br/&gt;• Fixed Swiss QR code ( swissqrcode ) bugs related to accented characters&lt;br/&gt;• Fixes for the :html formatter: Multiple arguments provided to the formatter were not recognised; now fully supported: Custom Heading and/or Table Themes and/or the "nospace" option. If the HTML contained a color as an inline style, it was not recognised when it contained space characters; it is now fully recognised.</description>
-    </item>
-    <item>
-      <title>v5.4.4</title>
-      <link>https://carbone.io/changelog.html#v5-4-4</link>
-      <pubDate>Wed, 08 Apr 2026 00:00:00 +0000</pubDate>
-      <guid isPermaLink="false">carbone-v5.4.4</guid>
-      <description>• Add the new optional tag {o.hardRefresh=true} to force a template to be processed by a converter (LibreOffice, etc.) even when the output file type is the same as the input file type. For example, it can be used to update XLSX formulas after Carbone injects the data.&lt;br/&gt;• Add limits maxTemplateUncompressedSize (200 MB by default) for unzipped templates to improve resistance to zip bomb denial-of-service attacks (CVE-2026-18929)&lt;br/&gt;• [EE] Update to Node 22.22.2</description>
     </item>
   </channel>
 </rss>
