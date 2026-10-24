@@ -4,8 +4,15 @@
     <title>Carbone Changelog — v3</title>
     <link>https://carbone.io/changelog.html</link>
     <description>Carbone v3.x releases</description>
-    <lastBuildDate>Fri, 23 Oct 2026 14:05:09 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 24 Oct 2026 13:07:56 +0000</lastBuildDate>
     <ttl>1440</ttl>
+    <item>
+      <title>v3.9.1 [EE]</title>
+      <link>https://carbone.io/changelog.html#v3-9-1-ee</link>
+      <pubDate>Fri, 23 Oct 2026 00:00:00 +0000</pubDate>
+      <guid isPermaLink="false">carbone-v3.9.1 [EE]</guid>
+      <description>• Update NodeJS v22 (CVE-2026-111497)</description>
+    </item>
     <item>
       <title>v3.9.0</title>
       <link>https://carbone.io/changelog.html#v3-9-0</link>
@@ -216,13 +223,6 @@ Now, the LibreOffice is correctly killed. No zombie processes remaining. Avoid l
       <pubDate>Mon, 11 Oct 2021 00:00:00 +0000</pubDate>
       <guid isPermaLink="false">carbone-v3.3.2</guid>
       <description>• [EE] Dynamic Image fix: image types verification support uppercase and lower case formats</description>
-    </item>
-    <item>
-      <title>v3.3.1</title>
-      <link>https://carbone.io/changelog.html#v3-3-1</link>
-      <pubDate>Thu, 09 Sep 2021 00:00:00 +0000</pubDate>
-      <guid isPermaLink="false">carbone-v3.3.1</guid>
-      <description>• [EE] New Carbone On-premise: Pass the option "maxDataSize" to change the maximum JSON data size when rendering a report. The value must be bytes . The default value is 60MB.</description>
     </item>
   </channel>
 </rss>

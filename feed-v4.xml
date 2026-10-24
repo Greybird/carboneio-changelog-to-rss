@@ -4,8 +4,15 @@
     <title>Carbone Changelog — v4</title>
     <link>https://carbone.io/changelog.html</link>
     <description>Carbone v4.x releases</description>
-    <lastBuildDate>Fri, 23 Oct 2026 14:05:09 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 24 Oct 2026 13:07:56 +0000</lastBuildDate>
     <ttl>1440</ttl>
+    <item>
+      <title>v4.27.1</title>
+      <link>https://carbone.io/changelog.html#v4-27-1</link>
+      <pubDate>Fri, 23 Oct 2026 00:00:00 +0000</pubDate>
+      <guid isPermaLink="false">carbone-v4.27.1</guid>
+      <description>• Update NodeJS v22 (CVE-2026-111497)</description>
+    </item>
     <item>
       <title>v4.27.0</title>
       <link>https://carbone.io/changelog.html#v4-27-0</link>
@@ -238,13 +245,6 @@ Known limitation: not accepted inside formatters, array filters and aliases.&lt;
       <pubDate>Mon, 22 Jul 2024 00:00:00 +0000</pubDate>
       <guid isPermaLink="false">carbone-v4.22.13</guid>
       <description>• If config.factories = 0 (starting without the LibreOffice converter), the hardRefresh option is ignored.</description>
-    </item>
-    <item>
-      <title>v4.22.12</title>
-      <link>https://carbone.io/changelog.html#v4-22-12</link>
-      <pubDate>Mon, 22 Jul 2024 00:00:00 +0000</pubDate>
-      <guid isPermaLink="false">carbone-v4.22.12</guid>
-      <description>• [EE] Fix: :transform(axis, unit) for PPTX template did not work in certain cases&lt;br/&gt;• [EE] Fixes studio hang when the template has no Carbone tags and adds an XHTML export option to get embedded images in HTML output</description>
     </item>
   </channel>
 </rss>
