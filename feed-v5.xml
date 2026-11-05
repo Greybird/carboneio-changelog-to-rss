@@ -4,8 +4,15 @@
     <title>Carbone Changelog — v5</title>
     <link>https://carbone.io/changelog.html</link>
     <description>Carbone v5.x releases</description>
-    <lastBuildDate>Wed, 04 Nov 2026 16:53:48 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 05 Nov 2026 17:08:19 +0000</lastBuildDate>
     <ttl>1440</ttl>
+    <item>
+      <title>v5.17.0</title>
+      <link>https://carbone.io/changelog.html#v5-17-0</link>
+      <pubDate>Wed, 04 Nov 2026 00:00:00 +0000</pubDate>
+      <guid isPermaLink="false">carbone-v5.17.0</guid>
+      <description>• New: :convCRLF supports XLSX templates. and become line breaks in the cell. The "Wrap text" option must be enabled on the cell to display them.&lt;br/&gt;• [Studio] The language, currency and timezone selected in the preview are saved in the browser (localStorage) and restored after a page reload, or when the user comes back from the template list. Enabled on the Carbone Studio page. Integrators can enable it with setConfig({ useLocalStorage : true }) or the attribute carbone-use-local-storage="true" . setRenderOptions() always overwrites these values and never saves them.&lt;br/&gt;• [Studio] Fix: the currency selector of the preview displayed "Euros" after coming back from the template list, whatever the selected currency.&lt;br/&gt;• New: the Chrome converter ( "converter": "C" ) exports HTML, XHTML and SVG documents to PNG, JPG/JPEG and WebP images, and SVG documents to PDF. Example: { "converter": "C", "convertTo": { "formatName": "webp", "formatOptions": { "PixelWidth": 1200, "Scale": 2, "Quality": 80 } } } PixelWidth : width of the image, and layout width of the HTML document, in pixels. By default, the width of the document, at least 800 pixels (the window of Chrome). Media queries and vw units are always computed on the 800 pixels window. PixelHeight : height of the image when FullPage is false . By default, 600 pixels (the window of Chrome). PixelWidth and PixelHeight are integers between 1 and 16383 . FullPage : capture the whole height of the document ( true by default). Scale : pixel density, a number between 0.1 and 4 ( 1 by default). 2 doubles the width and the height of the image: the document is drawn again at this resolution (sharp text and SVG), only the bitmap images it contains can be blurry. Quality : between 0 and 100 for JPG/JPEG and WebP ( 90 by default). 100 produces a lossless WebP. The background is always white. Every side of the image is cropped to 16383 pixels (maximum size of a WebP), Scale included. Use PDF for very long documents. An image cannot… (read more: https://carbone.io/changelog.html#v5-17-0)</description>
+    </item>
     <item>
       <title>v5.16.4</title>
       <link>https://carbone.io/changelog.html#v5-16-4</link>
@@ -214,13 +221,6 @@ For example: table[rank=3] matches both rank = 3 and rank = '3' . This change al
       <guid isPermaLink="false">carbone-v5.6.0</guid>
       <description>• [EE] The :autoOrient formatter can be used to automatically rotate an image according to the camera or smartphone orientation. It is supported only in DOCX templates.
 It can be used with imageFit(contain) or imageFit(fillWidth) , but not with imageFit(fill) . It only works with JPEG images. Other image formats ignore this formatter. To reduce processing as much as possible, the orientation is applied directly in the template (no JPEG processing).&lt;br/&gt;• Fix: Accepts whitespace before the :color formatter.&lt;br/&gt;• [EE] The :color(scope, type) formatter is supported in PPTX templates for all combinations of type (background, text, border) and scope (row, cell, shape). "border" is supported only for shapes.</description>
-    </item>
-    <item>
-      <title>v5.5.1</title>
-      <link>https://carbone.io/changelog.html#v5-5-1</link>
-      <pubDate>Wed, 06 May 2026 00:00:00 +0000</pubDate>
-      <guid isPermaLink="false">carbone-v5.5.1</guid>
-      <description>• [On-Premise] Add the debug option DEBUG=carbone:webserver to see sparse logs of the HTTP body and headers when a report is generated</description>
     </item>
   </channel>
 </rss>

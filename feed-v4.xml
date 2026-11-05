@@ -4,8 +4,15 @@
     <title>Carbone Changelog — v4</title>
     <link>https://carbone.io/changelog.html</link>
     <description>Carbone v4.x releases</description>
-    <lastBuildDate>Wed, 04 Nov 2026 16:53:48 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 05 Nov 2026 17:08:19 +0000</lastBuildDate>
     <ttl>1440</ttl>
+    <item>
+      <title>v4.27.2</title>
+      <link>https://carbone.io/changelog.html#v4-27-2</link>
+      <pubDate>Wed, 04 Nov 2026 00:00:00 +0000</pubDate>
+      <guid isPermaLink="false">carbone-v4.27.2</guid>
+      <description>• Security fix: improved validation of the convertTo option. Invalid formats are refused like any unknown format.&lt;br/&gt;• [On-Premise] Improved logging: Suppressed unnecessary error messages during routine cleanup of the template/render directories when files are already deleted or removed due to race conditions ( Automatic clean directory error: ... No such file or directory ).&lt;br/&gt;• [On-Premise] Fix for global server timeout: converterFactoryTimeout now accepts values above 60 seconds. Previously, the server closed the socket after 62 seconds, and the internal health check ignored this parameter.&lt;br/&gt;• Security: upgrade dependencies</description>
+    </item>
     <item>
       <title>v4.27.1</title>
       <link>https://carbone.io/changelog.html#v4-27-1</link>
@@ -238,13 +245,6 @@ Known limitation: not accepted inside formatters, array filters and aliases.&lt;
       <pubDate>Fri, 23 Aug 2024 00:00:00 +0000</pubDate>
       <guid isPermaLink="false">carbone-v4.22.14</guid>
       <description>• Fix asynchronous rendering: allow multiple reports to be generated at the same millisecond</description>
-    </item>
-    <item>
-      <title>v4.22.13</title>
-      <link>https://carbone.io/changelog.html#v4-22-13</link>
-      <pubDate>Mon, 22 Jul 2024 00:00:00 +0000</pubDate>
-      <guid isPermaLink="false">carbone-v4.22.13</guid>
-      <description>• If config.factories = 0 (starting without the LibreOffice converter), the hardRefresh option is ignored.</description>
     </item>
   </channel>
 </rss>
