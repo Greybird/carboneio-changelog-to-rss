@@ -4,8 +4,15 @@
     <title>Carbone Changelog — v5 Stable</title>
     <link>https://carbone.io/changelog.html</link>
     <description>Stable Carbone v5.x releases only</description>
-    <lastBuildDate>Tue, 10 Nov 2026 16:49:29 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 11 Nov 2026 16:55:44 +0000</lastBuildDate>
     <ttl>1440</ttl>
+    <item>
+      <title>v5.18.0</title>
+      <link>https://carbone.io/changelog.html#v5-18-0</link>
+      <pubDate>Mon, 09 Nov 2026 00:00:00 +0000</pubDate>
+      <guid isPermaLink="false">carbone-v5.18.0</guid>
+      <description>• ð XLSX: merged cells, formulas and references now follow the rows added by Carbone (pre-release feature) Add {o.preReleaseFeatureIn=5018000} in the template (or use the preReleaseFeatureIn option) to activate it. Without it, XLSX templates are generated as before. Merged cells are repeated with the rows of a loop, and shifted down below the loop. It works with sorted loops, filters, :drop(row) , conditional blocks, nested loops and loops of several rows. Formulas behave like in Excel when rows are inserted: B11*C11 becomes B12*C12 on the next row, and a total SUM(D11:D12) below the loop becomes SUM(D11:D20) . Excel recalculates the workbook when the file is opened. Conditional formatting, data validations, filters, hyperlinks, page breaks and sparklines apply to all rows of the loop. The rest of the workbook follows the rows too: print area and named ranges, tables, charts, images, comments and pivot tables (refreshed when the file is opened). Excel no longer reports a corrupted file when a pivot table is built from a Carbone loop. Sheets with many empty rows are generated faster: a sheet saved by LibreOffice is up to 10 times faster. Limitations: frozen panes are not moved. Formulas which contain Carbone tags or use INDIRECT are not modified. If a row inside a vertical merged cell is hidden, the merged cell extends to the next row.&lt;br/&gt;• ð New formatter :mergeCell (XLSX) to merge the consecutive cells of a column which have the same value. Example: {d.rows[i].country:mergeCell} . It works without the pre-release tag. Add a parent value to merge only the cells of the same group: {d.rows[i].city:mergeCell(.country)} merges two "Paris" only if they belong to the same country. If the cell is already merged horizontally in the template (ex. A2:B2 ), its width is kept. It is useful for the parent cells of a nested loop. Limitations: XLSX only for now (DOCX and ODT later). The rows must be consecutive, so a loop of two rows does not merge cells.&lt;br/&gt;• ð§¾ New… (read more: https://carbone.io/changelog.html#v5-18-0)</description>
+    </item>
     <item>
       <title>v5.17.0</title>
       <link>https://carbone.io/changelog.html#v5-17-0</link>
@@ -214,13 +221,6 @@ For example: table[rank=3] matches both rank = 3 and rank = '3' . This change al
       <guid isPermaLink="false">carbone-v5.6.0</guid>
       <description>• [EE] The :autoOrient formatter can be used to automatically rotate an image according to the camera or smartphone orientation. It is supported only in DOCX templates.
 It can be used with imageFit(contain) or imageFit(fillWidth) , but not with imageFit(fill) . It only works with JPEG images. Other image formats ignore this formatter. To reduce processing as much as possible, the orientation is applied directly in the template (no JPEG processing).&lt;br/&gt;• Fix: Accepts whitespace before the :color formatter.&lt;br/&gt;• [EE] The :color(scope, type) formatter is supported in PPTX templates for all combinations of type (background, text, border) and scope (row, cell, shape). "border" is supported only for shapes.</description>
-    </item>
-    <item>
-      <title>v5.5.1</title>
-      <link>https://carbone.io/changelog.html#v5-5-1</link>
-      <pubDate>Wed, 06 May 2026 00:00:00 +0000</pubDate>
-      <guid isPermaLink="false">carbone-v5.5.1</guid>
-      <description>• [On-Premise] Add the debug option DEBUG=carbone:webserver to see sparse logs of the HTTP body and headers when a report is generated</description>
     </item>
   </channel>
 </rss>
